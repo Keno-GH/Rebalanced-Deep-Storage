@@ -39,19 +39,19 @@ The categories are as follows:
 
 - General: Stores anything, but will be often limited in amount and mass. - Big (vanilla) shelves and boxes go here.
 - Food: Stores food.
- - Meals: Prepared food - Meal tray.
- - Vegetables: Stores vegetarian food.
- - Corpses: Stores corpses. - Meat Hook
+  - Meals: Prepared food - Meal tray.
+  - Vegetables: Stores vegetarian food.
+  - Corpses: Stores corpses. - Meat Hook
 - Loose: Stores items that are tiny per piece and normally used in bulk. - Usually these storages will benefit from not having variety in it.
- - Soft Loose: Dry and Light items like plant matter and kibble - This one is for Hampers and bags.
- - Hard Loose: Humid or Hard items like gold and (modded) compost. Includes soft loose. - This one is for things like pots.
- - Heavy Loose: Heavy items mostly, like gold and jade. These will not include soft loose necessarely. - This one is for things like metal barrels.
+  - Soft Loose: Dry and Light items like plant matter and kibble - This one is for Hampers and bags.
+  - Hard Loose: Humid or Hard items like gold and (modded) compost. Includes soft loose. - This one is for things like pots.
+  - Heavy Loose: Heavy items mostly, like gold and jade. These will not include soft loose necessarely. - This one is for things like metal barrels.
 - Small items: items that are tiny per piece and not necessarely used in bulk. Food and drugs go here. - This is for small shelves.
 - Medical: Medicine and drugs. - This one is for specialized buildings like the medicine cabinet.
 - Big items: stone blocks, steel, plasteel. Etc.. These go in pallets.
 - Toosable items: Anything that goes into a skip goes here too.
 - Apparel: Stores Apparel.
- - Armor: Stores Armor Apparel.
+  - Armor: Stores Armor Apparel.
 - Weapons: Stores weapons.
 - Piles: Stores only one kind of item but in great quantities.
 - Drinkable items: Beer and modded drinks. - This one is for wooden barrels
