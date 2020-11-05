@@ -8,25 +8,25 @@ This is a mod that balances the different available storage mods that use LWM's 
 
 ### Storage Mods
 Mods that use the LWM's Deep Storage's system.
-[Primitive Storage](https://steamcommunity.com/sharedfiles/filedetails/?id=2249071438)
-[Simple Storage](https://steamcommunity.com/sharedfiles/filedetails/?id=1961098970)
-[Simple Storage - Refrigeration](https://steamcommunity.com/sharedfiles/filedetails/?id=2029207212)
-[Little Storage 2](https://steamcommunity.com/sharedfiles/filedetails/?id=2166580060)
-[DocWorld](https://steamcommunity.com/sharedfiles/filedetails/?id=1568744597) + [Vanilla Furniture Expanded - Props and Decor](https://steamcommunity.com/sharedfiles/filedetails/?id=2102143149)
+- [Primitive Storage](https://steamcommunity.com/sharedfiles/filedetails/?id=2249071438)
+- [Simple Storage](https://steamcommunity.com/sharedfiles/filedetails/?id=1961098970)
+- [Simple Storage - Refrigeration](https://steamcommunity.com/sharedfiles/filedetails/?id=2029207212)
+- [Little Storage 2](https://steamcommunity.com/sharedfiles/filedetails/?id=2166580060)
+- [DocWorld](https://steamcommunity.com/sharedfiles/filedetails/?id=1568744597) + [Vanilla Furniture Expanded - Props and Decor](https://steamcommunity.com/sharedfiles/filedetails/?id=2102143149)
 
 ### Other Mods
 Mods that are given special filter rules, modify balance or are allow special buildings.
 Note: If a mod is not here, doesn't mean that it is not supported. Most mods don't require special rules or rebalancing.
-[Dubs Bad Hygiene](https://steamcommunity.com/sharedfiles/filedetails/?id=836308268)
-[Fertile Fields [1.1]](https://steamcommunity.com/sharedfiles/filedetails/?id=2012735237)
-[Concrete For Fertile Fields](https://steamcommunity.com/sharedfiles/filedetails/?id=2035462091)
-[Vanilla Furniture Expanded - Art](https://steamcommunity.com/sharedfiles/filedetails/?id=1968134023)
-[Vanilla Brewing Expanded](https://steamcommunity.com/sharedfiles/filedetails/?id=2186560858)
-[Vanilla Brewing Expanded - Coffee and Teas](https://steamcommunity.com/sharedfiles/filedetails/?id=2275449762)
-[Vanilla Books Expanded](https://steamcommunity.com/sharedfiles/filedetails/?id=2193152410)
-[Rimefeller](https://steamcommunity.com/sharedfiles/filedetails/?id=1321849735)
-[Combat Extended](https://steamcommunity.com/sharedfiles/filedetails/?id=1631756268)
-[Yayo's Combat 3](https://steamcommunity.com/sharedfiles/filedetails/?id=2038409475)
+- [Dubs Bad Hygiene](https://steamcommunity.com/sharedfiles/filedetails/?id=836308268)
+- [Fertile Fields [1.1]](https://steamcommunity.com/sharedfiles/filedetails/?id=2012735237)
+- [Concrete For Fertile Fields](https://steamcommunity.com/sharedfiles/filedetails/?id=2035462091)
+- [Vanilla Furniture Expanded - Art](https://steamcommunity.com/sharedfiles/filedetails/?id=1968134023)
+- [Vanilla Brewing Expanded](https://steamcommunity.com/sharedfiles/filedetails/?id=2186560858)
+- [Vanilla Brewing Expanded - Coffee and Teas](https://steamcommunity.com/sharedfiles/filedetails/?id=2275449762)
+- [Vanilla Books Expanded](https://steamcommunity.com/sharedfiles/filedetails/?id=2193152410)
+- [Rimefeller](https://steamcommunity.com/sharedfiles/filedetails/?id=1321849735)
+- [Combat Extended](https://steamcommunity.com/sharedfiles/filedetails/?id=1631756268)
+- [Yayo's Combat 3](https://steamcommunity.com/sharedfiles/filedetails/?id=2038409475)
 
 ## How was the balancing done?
 My idea was to balance around LWM's Deep Storage original balance. The original author put close attention on balancing details, but most mods ignored this and added highly unbalanced stuff, like a shelf capable of holding thousands of stacks with no delay. While it is possible to rebalance those mods to your liking ingame, thanks to Little White Mouse's excellent work, it was really tedious and often things would be overlooked.
