@@ -1,0 +1,25 @@
+<Patch>
+    <Operation Class="PatchOperationSequence">
+        <success>Always</success>
+        <operations>
+            <li Class="PatchOperationConditional">
+                <xpath>/Defs/ThingDef/researchPrerequisites[li="RS_BoxesStorage"]</xpath>
+                <nomatch Class="PatchOperationRemove">
+                    <xpath>/Defs/ResearchProjectDef[defName="RS_BoxesStorage"]</xpath>
+                </nomatch>
+            </li>
+            <li Class="PatchOperationConditional">
+                <xpath>/Defs/ThingDef/researchPrerequisites[li="RS_CardboardStorage"]</xpath>
+                <nomatch Class="PatchOperationRemove">
+                    <xpath>/Defs/ResearchProjectDef[defName="RS_CardboardStorage"]</xpath>
+                </nomatch>
+            </li>
+            <li Class="PatchOperationConditional">
+                <xpath>/Defs/ThingDef/researchPrerequisites[li="RS_IndustrialStorage"]</xpath>
+                <nomatch Class="PatchOperationRemove">
+                    <xpath>/Defs/ResearchProjectDef[defName="RS_IndustrialStorage"]</xpath>
+                </nomatch>
+            </li>
+        </operations>
+    </Operation>
+</Patch>

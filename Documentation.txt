@@ -35,7 +35,6 @@ Other Mods (If it is not here, it may be unecessary to patch them. But do say if
     Vanilla Furniture Expanded Art
     Vanilla Brewing Expanded
     Vanilla Brewing Expanded - Coffees and Teas
-    Vanilla Cooking Expanded
     Vanilla Books Expanded
     Rimfeller
     Combat Extended

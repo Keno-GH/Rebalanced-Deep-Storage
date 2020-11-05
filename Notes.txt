@@ -1,0 +1,30 @@
+Name (Mod) (Tech) - notes
+Storage categories
+1.- General - Buildings that can store anything
+    a. Tent (PS)
+    b. Pit (PS) (StoneCutting) - Meant to be used for food, though.
+2.- RawFood - Buildings that store mostly food.
+    a. Food Basket (LWM)
+    b. Granary (PS) (StoneCutting) - Only Vegetables
+3.- Hard Loose - Buldings that store any kind of loose items, like gold and plant matter.
+    a. Pots (PS) (StoneCutting or Pottery)
+4.- Soft Loose - Buldings that store light and dry loose items, like plant matter.
+    a. Bundle Wraps (SS) (Tailoring)
+5.- Apparel - Buildings that store apparel.
+    a. Woven Basket (PS)
+6.- Drinkable Liquids - Buildings that store drinkable items like beer.
+    a. Barrel (SS) (Brewing)
+7.- Chemicals - Buildings that store chemicals like chemfuel.
+
+8.- Piles - They shouldn't require research normally
+    a. Wooden Logs (PS)
+    b. Brick Pile (StoneCutting) (DZ)
+
+<Operation Class="PatchOperationReplace>
+    <xpath>/Defs/ThingDef/thingCategories[li="AnimalProductRaw"]</xpath>
+    <value>
+        <thingCategories>
+            <li>FoodRaw</li>
+        </thingCategories>
+    </value>
+</Operation>
