@@ -14,8 +14,8 @@ Mods that use the LWM's Deep Storage's system.
 - [DocWorld](https://steamcommunity.com/sharedfiles/filedetails/?id=1568744597) + [Vanilla Furniture Expanded - Props and Decor](https://steamcommunity.com/sharedfiles/filedetails/?id=2102143149)
 
 ### Other Mods
-Mods that are given special filter rules, modify balance or are allow special buildings.
-Note: If a mod is not here, doesn't mean that it is not supported. Most mods don't require special rules or rebalancing.
+Mods that are given special filter rules, modify balance or allow special buildings.
+Note: If a mod is not here, it doesn't mean that it is not supported. Most mods don't require special rules or rebalancing.
 - [Dubs Bad Hygiene](https://steamcommunity.com/sharedfiles/filedetails/?id=836308268)
 - [Fertile Fields [1.1]](https://steamcommunity.com/sharedfiles/filedetails/?id=2012735237)
 - [Concrete For Fertile Fields](https://steamcommunity.com/sharedfiles/filedetails/?id=2035462091)
@@ -28,7 +28,7 @@ Note: If a mod is not here, doesn't mean that it is not supported. Most mods don
 - [Yayo's Combat 3](https://steamcommunity.com/sharedfiles/filedetails/?id=2038409475)
 
 ## How was the balancing done?
-My idea was to balance around LWM's Deep Storage original balance. The original author put close attention on balancing details, but most mods ignored this and added highly unbalanced stuff, like a shelf capable of holding thousands of stacks with no delay. While it is possible to rebalance those mods to your liking ingame, thanks to Little White Mouse's excellent work, it was really tedious and often things would be overlooked.
+My idea was to balance around LWM's Deep Storage original balance. The original author put close attention to balancing details, but most mods ignored this and added highly unbalanced stuff, like a shelf capable of holding hundred of stacks with no delay. While it is possible to rebalance those mods to your liking ingame (thanks to Little White Mouse's excellent code), it was really tedious and often some things could get overlooked.
 
 In order to assure a fair balance, I created categories for which all the storage buildings must fall. Specific buildings will have more than one category, but they will always have at least one.
 
