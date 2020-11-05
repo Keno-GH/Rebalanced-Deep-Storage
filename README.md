@@ -105,15 +105,15 @@ Some buildings in some mod were too problematic to balance around. This problem 
 
 ### Where can I see ALL the changes?
 
-This list will probably be outdated at some point, but [here](https://github.com/Keno-GH/Rebalanced-Deep-Storage/wiki/All-the-changes)
+This list will probably be outdated at some point, but you can find it in my GitHub; [here](https://github.com/Keno-GH/Rebalanced-Deep-Storage/wiki/All-the-changes)
 
 ### I found an issue! What can I do?
 
-If you found an issue, please post it [here](https://github.com/Keno-GH/Rebalanced-Deep-Storage/issues/new). It would be highly appreciated that you added a complete description of the problem, this way I can work on fixing it quicker. If you fancy, you can follow [this guide](https://steamcommunity.com/sharedfiles/filedetails/?id=725234314) to get even more info on my way.
+If you found an issue, please post it [here](https://github.com/Keno-GH/Rebalanced-Deep-Storage). It would be highly appreciated that you added a complete description of the problem, this way I can work on fixing it quicker. If you fancy, you can follow [this guide](https://steamcommunity.com/sharedfiles/filedetails/?id=725234314) to get even more info on my way.
 
 ### Why can't I store X in this building?
 
-Probably because balancing or visual logic issues, but there is a (very high) chance that I did it wrongly. Please send suggestions through the [issues](https://github.com/Keno-GH/Rebalanced-Deep-Storage/issues) forum.
+Probably because balancing or visual logic issues, but there is a (very high) chance that I did it wrongly. Please send suggestions through the [issues](https://github.com/Keno-GH/Rebalanced-Deep-Storage/issues) forum on GitHub.
 
 ## Donations
 
