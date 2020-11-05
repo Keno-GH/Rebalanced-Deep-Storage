@@ -1,4 +1,5 @@
 <Patch>
+    <!--Useless research projects will be eliminated-->
     <Operation Class="PatchOperationSequence">
         <success>Always</success>
         <operations>
