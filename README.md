@@ -1,5 +1,4 @@
 # Rebalanced-Deep-Storage
- Patch Blanacing Mod for LWM's Deep Storage's compatible mods.
 
 ## What is this?
 This is a mod that balances the different available storage mods that use LWM's Deep Storage's storage system.
