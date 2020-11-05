@@ -68,11 +68,13 @@ As you can see, it is quite extensive. I added more stuff as I realized that I w
 At start I didn't want to add research projects, but I quickly realized that I needed to balance the progression of the storage buildings. It just doesn't make sense for 95% of the storage solutions to unlock when "Complex Furniture" got reserached.
 
 I decided to add 7 research projects of different costs. They are as follow
+´´´
 Neolithic               Medieval                Industrial
 Neolithic Storage   -> Medieval Storage ->  Modern Storage.
                     -> Storage Boxes ->     Cardboard Storage
                                             Industrial Storage
                                             Pallets
+´´´
 
 All of the industrial level storage requires Complex Furniture as well.
 
