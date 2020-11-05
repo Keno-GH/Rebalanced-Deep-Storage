@@ -1,0 +1,36 @@
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Little Storage 2</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <!-- <success>Always</success> -->
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="sixdd_BasketSingle"]</xpath>
+                    <value>
+                        <researchPrerequisites Inherit="false">
+                            <li>RS_NeolithicStorage</li>
+                        </researchPrerequisites>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="sixdd_DeepShelfSingle"]</xpath>
+                    <value>
+                        <researchPrerequisites Inherit="false">
+                            <li>RS_MedievalStorage</li>
+                        </researchPrerequisites>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="sixdd_TrayRackSingle" or defName="sixdd_FabricHamperSingle"]</xpath>
+                    <value>
+                        <researchPrerequisites Inherit="false">
+                            <li>RS_ModernStorage</li>
+                        </researchPrerequisites>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

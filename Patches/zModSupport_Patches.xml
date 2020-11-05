@@ -1,0 +1,514 @@
+<Patch>
+<!--FertileFields-->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Fertile Fields [1.1]</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <!-- <success>Always</success> -->
+            <operations>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs</xpath>
+                    <value>
+                        <ThingCategoryDef>
+                            <defName>RS_FFResources</defName>
+                            <label>Fertile Field's Resources</label>
+                            <parent>ResourcesRaw</parent>
+                        </ThingCategoryDef>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="RawCompost"
+                        or defName="Fertilizer"
+                        or defName="PileofDirt"
+                        or defName="SandPile"
+                        or defName="RFFClay"
+                        or defName="RottedMush"
+                        or defName="CrushedRocks"]/thingCategories</xpath>
+                    <value>
+                        <thingCategories>
+                            <li>RS_FFResources</li>
+                        </thingCategories>
+                    </value>
+                </li>
+            <!--Heavy Loose-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                        /filter[thingDefs[li="Gold" and li="Silver" and li="Jade" and not(li="Pemmican")] 
+                        and not(categories)]</xpath>
+                    <match Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                            /filter[thingDefs[li="Gold" and li="Silver" and li="Jade" and not(li="Pemmican")] 
+                            and not(categories)]</xpath>
+                        <value>
+                            <categories>
+                                <li>RS_FFResources</li>
+                            </categories>
+                        </value>
+                    </match>
+                </li>
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                        /filter[thingDefs[li="Gold" and li="Silver" and li="Jade" and not(li="Pemmican")]]
+                        /categories[not(li="RS_FFResources")]</xpath>
+                    <match Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                            /filter[thingDefs[li="Gold" and li="Silver" and li="Jade" and not(li="Pemmican")]]
+                            /categories[not(li="RS_FFResources")]</xpath>
+                        <value>
+                            <li>RS_FFResources</li>
+                        </value>
+                    </match>
+                </li>
+            <!--Hard Loose-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                        /filter[thingDefs[li="Gold" and li="Silver" and li="Jade" and li="Pemmican"]]
+                        /categories[li="PlantMatter" and not(li="RS_FFResources")]</xpath>
+                    <value>
+                        <li>RS_FFResources</li>
+                    </value>
+                </li>
+            <!--Soft Loose-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                        /filter[categories[li="PlantMatter" and not(li="RS_FFResources")]]
+                        /thingDefs[li="Kibble" and li="Pemmican" and not(li="Gold")]</xpath>
+                    <value>
+                        <li>Fertilizer</li>
+                        <li>PileofDirt</li>
+                        <li>SandPile</li>
+                        <li>RFFClay</li>
+                        <li>CrushedRocks</li>
+                    </value>
+                </li>
+            <!--Disallow pallets-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                        /filter[categories[li="ResourcesRaw" and li="Textiles"]]
+                        /disallowedCategories[li="PlantMatter"]</xpath>
+                    <value>
+                        <li>RS_FFResources</li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+<!--DZ + Dubs Bad Hygiene +/- FertileFields -->
+    <!--This is a complex one, it follows the next logic:
+    If Dubs Bad Hygiene, DocWorld and Fertile Fields are found, then add D9Ash and FecalSludge
+    If Only Dubs Bad Hygiene and Docworld are found, then add FecalSludge and Biosolids
+    If Only Dubs Bad Hygiene and Fertile Fields are found, then add FecalSludge, Biosolids and D9Ash
+    If Only Dubs Bad Hygiene is found, then add FecalSludge And Biosolids
+    If Only Fertile Fields is found, then add nothing-->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Dubs Bad Hygiene</li>
+        </mods>
+        <match Class="PatchOperationFindMod">
+            <mods>
+                <li>DocWorld</li>
+            </mods>
+            <match Class="PatchOperationFindMod">
+                <mods>
+                    <li>Fertile Fields [1.1]</li>
+                </mods>
+                <match Class="PatchOperationSequence">
+                <!--Add D9Ash and FecalSludge-->
+                    <!-- <success>Always</success> -->
+                    <operations>
+                    <!--Heavy Loose-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                                /filter/thingDefs[li="Gold" and li="Silver" and li="Jade" and not(li="Pemmican")]</xpath>
+                            <value>
+                                <li>D9Ash</li>
+                                <li>FecalSludge</li>
+                            </value>
+                        </li>
+                    <!--Hard Loose-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                                /filter[thingDefs[li="Gold" and li="Silver" and li="Jade" and li="Pemmican"]
+                                and categories[li="PlantMatter"]]/thingDefs</xpath>
+                            <value>
+                                <li>D9Ash</li>
+                                <li>FecalSludge</li>
+                            </value>
+                        </li>
+                    <!--Soft Loose-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                                /filter[categories[li="PlantMatter"]]
+                                /thingDefs[li="Kibble" and li="Pemmican" and not(li="Gold")]</xpath>
+                            <value>
+                                <li>D9Ash</li>
+                            </value>
+                        </li>
+                    </operations>
+                </match>
+                <nomatch Class="PatchOperationSequence">
+                <!--Add FecalSludge and Biosolids-->
+                    <success>Always</success>
+                    <operations>
+                    <!--Heavy Loose-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                                /filter/thingDefs[li="Gold" and li="Silver" and li="Jade" and not(li="Pemmican")]</xpath>
+                            <value>
+                                <li>Biosolids</li>
+                                <li>FecalSludge</li>
+                            </value>
+                        </li>
+                    <!--Hard Loose-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                                /filter[thingDefs[li="Gold" and li="Silver" and li="Jade" and li="Pemmican"]
+                                and categories[li="PlantMatter"]]/thingDefs</xpath>
+                            <value>
+                                <li>Biosolids</li>
+                                <li>FecalSludge</li>
+                            </value>
+                        </li>
+                    </operations>
+                </nomatch>
+            </match>
+            <nomatch Class="PatchOperationFindMod">
+                <mods>
+                    <li>Fertile Fields [1.1]</li>
+                </mods>
+                <match Class="PatchOperationSequence">
+                <!--Add D9Ash, FecalSludge and Biosolids-->
+                    <success>Always</success>
+                    <operations>
+                    <!--Heavy Loose-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                                /filter/thingDefs[li="Gold" and li="Silver" and li="Jade" and not(li="Pemmican")]</xpath>
+                            <value>
+                                <li>D9Ash</li>
+                                <li>Biosolids</li>
+                                <li>FecalSludge</li>
+                            </value>
+                        </li>
+                    <!--Hard Loose-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                                /filter[thingDefs[li="Gold" and li="Silver" and li="Jade" and li="Pemmican"]
+                                and categories[li="PlantMatter"]]/thingDefs</xpath>
+                            <value>
+                                <li>D9Ash</li>
+                                <li>Biosolids</li>
+                                <li>FecalSludge</li>
+                            </value>
+                        </li>
+                    <!--Soft Loose-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                                /filter[categories[li="PlantMatter"]]
+                                /thingDefs[li="Kibble" and li="Pemmican" and not(li="Gold")]</xpath>
+                            <value>
+                                <li>D9Ash</li>
+                            </value>
+                        </li>
+                    </operations>
+                </match>
+                <nomatch Class="PatchOperationSequence">
+                <!--Add FecalSludge and Biosolids-->
+                    <success>Always</success>
+                    <operations>
+                    <!--Heavy Loose-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                                /filter/thingDefs[li="Gold" and li="Silver" and li="Jade" and not(li="Pemmican")]</xpath>
+                            <value>
+                                <li>Biosolids</li>
+                                <li>FecalSludge</li>
+                            </value>
+                        </li>
+                    <!--Hard Loose-->
+                        <li Class="PatchOperationAdd">
+                            <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                                /filter[thingDefs[li="Gold" and li="Silver" and li="Jade" and li="Pemmican"]
+                                and categories[li="PlantMatter"]]/thingDefs</xpath>
+                            <value>
+                                <li>Biosolids</li>
+                                <li>FecalSludge</li>
+                            </value>
+                        </li>
+                    </operations>
+                </nomatch>
+            </nomatch>
+        </match>
+    </Operation>
+
+<!--Concrete for FertileFields-->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Concrete for Fertile Fields</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <!-- <success>Always</success> -->
+            <operations>
+            <!--Heavy Loose-->
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                    /filter/thingDefs[li="Gold" and li="Silver" and li="Jade" and not(li="Pemmican")]</xpath>
+                <value>
+                    <li>RFFCement</li>
+                    <li>RFFConcrete</li>
+                </value>
+            </li>
+            <!--Hard Loose-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                        /filter[thingDefs[li="Gold" and li="Silver" and li="Jade" and li="Pemmican"]
+                        and categories[li="PlantMatter"]]/thingDefs</xpath>
+                    <value>
+                        <li>RFFCement</li>
+                        <li>RFFConcrete</li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+<!--PawnMorpher-->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Pawnmorpher</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <!-- <success>Always</success> -->
+            <operations>
+            <!--Heavy Loose-->
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                    /filter/thingDefs[li="Gold" and li="Silver" and li="Jade" and not(li="Pemmican")]</xpath>
+                <value>
+                    <li>Mutanite</li>
+                </value>
+            </li>
+            <!--Hard Loose-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                        /filter[thingDefs[li="Gold" and li="Silver" and li="Jade" and li="Pemmican"]
+                        and categories[li="PlantMatter"]]/thingDefs</xpath>
+                    <value>
+                        <li>Mutanite</li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+<!--Salted Meat-->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Salted Meat</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <!-- <success>Always</success> -->
+            <operations>
+            <!--Hard Loose-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                        /filter[thingDefs[li="Gold" and li="Silver" and li="Jade" and li="Pemmican"]
+                        and categories[li="PlantMatter"]]/thingDefs</xpath>
+                    <value>
+                        <li>VCE_Salt</li>
+                    </value>
+                </li>
+            <!--Soft Loose-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                        /filter[categories[li="PlantMatter"]]
+                        /thingDefs[li="Kibble" and li="Pemmican" and not(li="Gold")]</xpath>
+                    <value>
+                        <li>VCE_Salt</li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+<!--Vanilla Brewing Expanded - Coffees and Teas-->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Vanilla Brewing Expanded - Coffees and Teas</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+            <!--Drinkable Liquid-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings/filter[thingDefs[li="Beer"]]/categories</xpath>
+                    <match Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef/building/fixedStorageSettings/filter[thingDefs[li="Beer"]]/categories</xpath>
+                        <value>
+                            <li>VBE_DrinksNonAlcoholic</li>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef/building/fixedStorageSettings/filter[thingDefs[li="Beer"]]</xpath>
+                        <value>
+                            <categories>
+                                <li>VBE_DrinksNonAlcoholic</li>
+                            </categories>
+                        </value>
+                    </nomatch>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+<!--Vanilla Brewing Expanded -->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Vanilla Brewing Expanded</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+            <!--Drinkable Liquid-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings/filter[thingDefs[li="Beer"]]/categories</xpath>
+                    <match Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef/building/fixedStorageSettings/filter[thingDefs[li="Beer"]]/categories</xpath>
+                        <value>
+                            <li>VBE_DrinksSimpleSpirits</li>
+                            <li>VBE_DrinksLuxurySpirits</li>
+                        </value>
+                    </match>
+                    <nomatch Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef/building/fixedStorageSettings/filter[thingDefs[li="Beer"]]</xpath>
+                        <value>
+                            <categories>
+                                <li>VBE_DrinksSimpleSpirits</li>
+                                <li>VBE_DrinksLuxurySpirits</li>
+                            </categories>
+                        </value>
+                    </nomatch>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+<!--Vanilla Factions Expanded - Medieval -->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Vanilla Factions Expanded - Medieval</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+            <!--Drinkable Liquid-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings/filter/thingDefs[li="Beer"]</xpath>
+                    <value>
+                        <li>VFEM_Wine</li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+<!--Vanilla Factions Expanded - Vikings -->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Vanilla Factions Expanded - Vikings</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+            <!--Drinkable Liquid-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings/filter/thingDefs[li="Beer"]</xpath>
+                    <value>
+                        <li>VFEV_Mead</li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+<!--Combat Extended-->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Combat Extended</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+            <!--Chemicals-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings/filter/thingDefs[li="Chemfuel"]</xpath>
+                    <value>
+                        <li>FSX</li>
+                        <li>Prometheum</li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+<!--Rimefeller-->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Rimefeller</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+            <!--Chemicals-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings/filter/thingDefs[li="Chemfuel"]</xpath>
+                    <value>
+                        <li>Napalm</li>
+                        <li>OilBarrel</li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+<!--Apparel Organizer (Continued)-->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Apparel Organizer (Continued)</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+            <!--Armor-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings/filter/categories[li="ApparelArmor"]</xpath>
+                    <value>
+                        <li>Combat_Apparel</li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+<!--Vanilla Expanded Framework-->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Vanilla Expanded Framework</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+            <!--Armor-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings/filter/categories[li="ApparelArmor"]</xpath>
+                    <value>
+                        <li>VFEC_Shields</li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+</Patch>

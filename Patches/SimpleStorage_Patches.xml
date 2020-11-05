@@ -1,0 +1,3483 @@
+<Patch>
+<!--Vanilla-->
+   <Operation Class="PatchOperationFindMod">
+      <mods>
+         <li>[JDS] Simple Storage</li>
+      </mods>
+      <match Class="PatchOperationSequence">
+         <!-- <success>Always</success> -->
+         <operations>
+         <!--Barrels - Drinkable Liquid-->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Barrel"]/description</xpath>
+               <value>
+                  <description>A wooden barrel. You can store drinkable liquids here. You better not dare mixing different liquids here. Doing so will increase the storing time an inmense amount because it would require to make chambers inside to keep the liquids separate. Items stored here won't deteriorate.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Barrel_Pile"]/description</xpath>
+               <value>
+                  <description>A pile of wooden barrels. You can store a variety of drinkable liquids in these. Items stored here won't deteriorate.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Barrel_Pile" or defName="JDS_Wooden_Barrel_Pile"]/castEdgeShadows</xpath>
+               <value>
+                  <castEdgeShadows>false</castEdgeShadows>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Barrel_Pile"]/size</xpath>
+               <value>
+                  <size>(2,1)</size>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Barrel_Pile"]/graphicData</xpath>
+               <value>
+                  <drawOffsetNorth>(0,0,0.3)</drawOffsetNorth>
+                  <drawOffsetSouth>(0,0,0.3)</drawOffsetSouth>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Barrel"]/costStuffCount</xpath>
+               <value>
+                  <costStuffCount>50</costStuffCount>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Barrel" or defName="JDS_Wooden_Barrel_Pile"]/building</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                           <filter>
+                              <thingDefs>
+                                 <li>Beer</li>
+                              </thingDefs>
+                           </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                           <priority>Important</priority>
+                           <filter>
+                           </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Barrel" or defName="JDS_Wooden_Barrel_Pile"]</xpath>
+               <value>
+                  <researchPrerequisites Inherit="false">
+                        <li>Brewing</li>
+                  </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Barrel"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties" >
+                     <maxNumberStacks>3</maxNumberStacks>
+                     <minTimeStoringTakes>100</minTimeStoringTakes>
+                     <additionalTimeEachStack>80</additionalTimeEachStack>
+                     <additionalTimeEachDef>10000</additionalTimeEachDef>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfAllItems</overlayType>
+                  </li>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Barrel_Pile"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties" >
+                     <maxNumberStacks>5</maxNumberStacks>
+                     <minTimeStoringTakes>200</minTimeStoringTakes>
+                     <additionalTimeEachStack>80</additionalTimeEachStack>
+                     <additionalTimeEachDef>50</additionalTimeEachDef>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfItemsPerCell</overlayType>
+                  </li>
+               </value>
+            </li>
+         <!--Wooden Basket - Apparel -->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Basket"]/description</xpath>
+               <value>
+                  <description>A wooden basket for storage. You can store apparel here. Items stored here can still deteriorate</description>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_Basket"]</xpath>
+               <value>
+                  <researchPrerequisites Inherit="false">
+                     <li>RS_NeolithicStorage</li>
+                  </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_Basket"]</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>false</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                           <categories>
+                                 <li>Apparel</li>
+                           </categories>
+                        </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Basket"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>3</maxNumberStacks>
+                     <maxTotalMass>1</maxTotalMass>
+                     <minTimeStoringTakes>300</minTimeStoringTakes>
+                     <additionalTimeEachStack>80</additionalTimeEachStack>
+                     <showContents>true</showContents>
+                     <overlayType>SumOfAllItems</overlayType>
+                  </li>
+               </value>
+            </li>
+         <!--Bundles Wrap - Soft loose -->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Bundles_Wrap"]/description</xpath>
+               <value>
+                  <description>Some bundles wraps for storage. You can store dry and light loose items here. Too much variety will increase the time it takes to use this storage. Items stored here will not deteriorate</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Bundles_Wrap"]/castEdgeShadows</xpath>
+               <value>
+                  <castEdgeShadows>false</castEdgeShadows>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_Bundles_Wrap"]</xpath>
+               <value>
+                  <researchPrerequisites Inherit="false">
+                     <li>ComplexClothing</li>
+                  </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Bundles_Wrap"]/costList</xpath>
+               <value>
+                  <costList>
+                     <Cloth>30</Cloth>
+                  </costList>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_Bundles_Wrap"]</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                           <categories>
+                              <li>PlantMatter</li>
+                           </categories>
+                           <thingDefs>
+                              <li>Yayo</li>
+                              <li>WakeUp</li>
+                              <li>Flake</li>
+                              <li>Luciferium</li>
+                              <li>Kibble</li>
+                              <li>Pemmican</li>
+                           </thingDefs>
+                        </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Bundles_Wrap"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>3</maxNumberStacks>
+                     <minTimeStoringTakes>400</minTimeStoringTakes>
+                     <additionalTimeEachStack>200</additionalTimeEachStack>
+                     <additionalTimeEachDef>200</additionalTimeEachDef>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfAllItems</overlayType>
+                  </li>
+               </value>
+            </li>
+         <!--Bundles Wrap Pile - Soft loose -->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Bundles_Wrap_Pile"]/description</xpath>
+               <value>
+                  <description>A pile of bundles wraps for storage. You can store dry and light loose items here. Items stored here will not deteriorate</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Bundles_Wrap_Pile"]/castEdgeShadows</xpath>
+               <value>
+                  <castEdgeShadows>false</castEdgeShadows>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_Bundles_Wrap_Pile"]</xpath>
+               <value>
+                  <researchPrerequisites Inherit="false">
+                     <li>ComplexClothing</li>
+                  </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Bundles_Wrap_Pile"]/costList</xpath>
+               <value>
+                  <costList>
+                     <Cloth>180</Cloth>
+                  </costList>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_Bundles_Wrap_Pile"]</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                           <categories>
+                              <li>PlantMatter</li>
+                           </categories>
+                           <thingDefs>
+                              <li>Yayo</li>
+                              <li>WakeUp</li>
+                              <li>Flake</li>
+                              <li>Luciferium</li>
+                              <li>Kibble</li>
+                              <li>Pemmican</li>
+                           </thingDefs>
+                        </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Bundles_Wrap_Pile"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>4</maxNumberStacks>
+                     <minTimeStoringTakes>400</minTimeStoringTakes>
+                     <additionalTimeEachStack>200</additionalTimeEachStack>
+                     <additionalTimeEachDef>10</additionalTimeEachDef>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfAllItems</overlayType>
+                  </li>
+               </value>
+            </li>
+         <!--Bundles Wrap Big - Soft loose -->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Bundles_Wrap_Big"]/description</xpath>
+               <value>
+                  <description>A mass of big bundles wraps for storage. You can store dry and light loose items here. This building is slow to use given how bulky these wraps are. Items stored here will not deteriorate</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Bundles_Wrap_Big"]/castEdgeShadows</xpath>
+               <value>
+                  <castEdgeShadows>false</castEdgeShadows>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_Bundles_Wrap_Big"]</xpath>
+               <value>
+                  <researchPrerequisites Inherit="false">
+                     <li>ComplexClothing</li>
+                  </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Bundles_Wrap_Big"]/costList</xpath>
+               <value>
+                  <costList>
+                     <Cloth>400</Cloth>
+                  </costList>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_Bundles_Wrap_Big"]</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                           <categories>
+                              <li>PlantMatter</li>
+                           </categories>
+                           <thingDefs>
+                              <li>Yayo</li>
+                              <li>WakeUp</li>
+                              <li>Flake</li>
+                              <li>Luciferium</li>
+                              <li>Kibble</li>
+                              <li>Pemmican</li>
+                           </thingDefs>
+                        </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Bundles_Wrap_Big"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>6</maxNumberStacks>
+                     <minTimeStoringTakes>1000</minTimeStoringTakes>
+                     <additionalTimeEachStack>200</additionalTimeEachStack>
+                     <additionalTimeEachDef>10</additionalTimeEachDef>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfAllItems</overlayType>
+                  </li>
+               </value>
+            </li>
+         <!--Metal Crates - General. Sturdy, slow.-->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Metal_Crate"]/description</xpath>
+               <value>
+                  <description>A sturdy metal crate for securely storing many things. It is slow to use, but harder to break. Items stored in this will not deteriorate, even if outside.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Metal_Crate_Small_Pile"]/description</xpath>
+               <value>
+                  <description>A small pile of sturdy metal crates for securely storing many things. It is slow to use, but harder to break. Items stored in this will not deteriorate, even if outside.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Metal_Crate_Pile"]/description</xpath>
+               <value>
+                  <description>A big pile of sturdy metal crates for securely storing many things. It is slow to use, but harder to break. Items stored in this will not deteriorate, even if outside.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Metal_Crate_Bigger_Pile"]/description</xpath>
+               <value>
+                  <description>A very big pile of sturdy metal crates for securely storing many things. It is slow to use, but harder to break. Items stored in this will not deteriorate, even if outside.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Metal_Crate_Small_Pile"]/costList</xpath>
+               <value>
+                  <costList>
+                     <Steel>200</Steel>
+                  </costList>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Metal_Crate_Pile"]/costList</xpath>
+               <value>
+                  <costList>
+                     <Steel>400</Steel>
+                  </costList>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Metal_Crate_Bigger_Pile"]/costList</xpath>
+               <value>
+                  <costList>
+                     <Steel>600</Steel>
+                  </costList>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Metal_Crate"
+                                    or defName="JDS_Metal_Crate_Pile"
+                                    or defName="JDS_Metal_Crate_Small_Pile"
+                                    or defName="JDS_Metal_Crate_Bigger_Pile"]/researchPrerequisites</xpath>
+               <value>
+                  <researchPrerequisites Inherit="false">
+                     <li>Smithing</li>
+                     <li>RS_BoxesStorage</li>
+                  </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Metal_Crate"
+                                    or defName="JDS_Metal_Crate_Pile"
+                                    or defName="JDS_Metal_Crate_Small_Pile"
+                                    or defName="JDS_Metal_Crate_Bigger_Pile"]/building</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Metal_Crate" or defName="JDS_Metal_Crate_Small_Pile"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>2</maxNumberStacks>
+                     <maxTotalMass>30</maxTotalMass>
+                     <minTimeStoringTakes>800</minTimeStoringTakes>
+                     <additionalTimeEachStack>200</additionalTimeEachStack>
+                     <additionalTimeEachDef>200</additionalTimeEachDef>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfAllItems</overlayType>
+                  </li>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Metal_Crate_Pile" or defName="JDS_Metal_Crate_Bigger_Pile"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>3</maxNumberStacks>
+                     <maxTotalMass>45</maxTotalMass>
+                     <minTimeStoringTakes>900</minTimeStoringTakes>
+                     <additionalTimeEachStack>200</additionalTimeEachStack>
+                     <additionalTimeEachDef>200</additionalTimeEachDef>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfAllItems</overlayType>
+                  </li>
+               </value>
+            </li>
+         <!--Wooden boxes - General. Slow.-->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate"]/description</xpath>
+               <value>
+                  <description>A wooden crate for storing general items. It is slower to use than shelves. Items stored in this will not deteriorate, even if outside.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate_Two"]/description</xpath>
+               <value>
+                  <description>A small pile of wooden crates for storing general items. It is slower to use than shelves. Items stored in this will not deteriorate, even if outside.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate_Three"]/description</xpath>
+               <value>
+                  <description>A pile of wooden crates for storing general items. It is slower to use than shelves. Items stored in this will not deteriorate, even if outside.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate_four"]/description</xpath>
+               <value>
+                  <description>A large pile of wooden crates for storing general items. It is slower to use than shelves. Items stored in this will not deteriorate, even if outside.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate_B"]/description</xpath>
+               <value>
+                  <description>A tall wooden crate for storing general items. It is slower to use than shelves. Items stored in this will not deteriorate, even if outside.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate_C"]/description</xpath>
+               <value>
+                  <description>A large wooden crate for storing general items. It is slower to use than other crates. Items stored in this will not deteriorate, even if outside.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate_Large"]/description</xpath>
+               <value>
+                  <description>A very large wooden crate for storing general items. It is even slower to use than other slow crates. Items stored in this will not deteriorate, even if outside.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate"]/costStuffCount</xpath>
+               <value>
+                  <costStuffCount>40</costStuffCount>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate_Two"]/costStuffCount</xpath>
+               <value>
+                  <costStuffCount>120</costStuffCount>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate_Three"]/costStuffCount</xpath>
+               <value>
+                  <costStuffCount>200</costStuffCount>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate_four"]/costStuffCount</xpath>
+               <value>
+                  <costStuffCount>320</costStuffCount>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate_B"]/costStuffCount</xpath>
+               <value>
+                  <costStuffCount>50</costStuffCount>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate_C"]/costStuffCount</xpath>
+               <value>
+                  <costStuffCount>150</costStuffCount>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate_Large"]/costStuffCount</xpath>
+               <value>
+                  <costStuffCount>450</costStuffCount>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate"
+                                    or defName="JDS_Wooden_Crate_Two"
+                                    or defName="JDS_Wooden_Crate_Three"
+                                    or defName="JDS_Wooden_Crate_four"
+                                    or defName="JDS_Wooden_Crate_B"
+                                    or defName="JDS_Wooden_Crate_C"]</xpath>
+               <value>
+                  <researchPrerequisites Inherit="false">
+                     <li>RS_BoxesStorage</li>
+                  </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate_Large"]/researchPrerequisites</xpath>
+               <value>
+                  <researchPrerequisites Inherit="false">
+                     <li>RS_BoxesStorage</li>
+                     <li>RS_ModernStorage</li>
+                  </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate"
+                                    or defName="JDS_Wooden_Crate_Two"
+                                    or defName="JDS_Wooden_Crate_Three"
+                                    or defName="JDS_Wooden_Crate_four"
+                                    or defName="JDS_Wooden_Crate_B"
+                                    or defName="JDS_Wooden_Crate_C"
+                                    or defName="JDS_Wooden_Crate_Large"]/building</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>2</maxNumberStacks>
+                     <maxTotalMass>20</maxTotalMass>
+                     <minTimeStoringTakes>500</minTimeStoringTakes>
+                     <additionalTimeEachStack>200</additionalTimeEachStack>
+                     <additionalTimeEachDef>200</additionalTimeEachDef>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfAllItems</overlayType>
+                  </li>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate_Two" or defName="JDS_Wooden_Crate_Three"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>2</maxNumberStacks>
+                     <maxTotalMass>25</maxTotalMass>
+                     <minTimeStoringTakes>500</minTimeStoringTakes>
+                     <additionalTimeEachStack>200</additionalTimeEachStack>
+                     <additionalTimeEachDef>100</additionalTimeEachDef>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfItemsPerCell</overlayType>
+                  </li>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate_four"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>3</maxNumberStacks>
+                     <maxTotalMass>40</maxTotalMass>
+                     <minTimeStoringTakes>600</minTimeStoringTakes>
+                     <additionalTimeEachStack>200</additionalTimeEachStack>
+                     <additionalTimeEachDef>100</additionalTimeEachDef>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfItemsPerCell</overlayType>
+                  </li>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate_B"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>2</maxNumberStacks>
+                     <maxTotalMass>40</maxTotalMass>
+                     <minTimeStoringTakes>500</minTimeStoringTakes>
+                     <additionalTimeEachStack>200</additionalTimeEachStack>
+                     <additionalTimeEachDef>200</additionalTimeEachDef>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfItemsPerCell</overlayType>
+                  </li>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate_C"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>3</maxNumberStacks>
+                     <maxTotalMass>40</maxTotalMass>
+                     <minTimeStoringTakes>1100</minTimeStoringTakes>
+                     <additionalTimeEachStack>200</additionalTimeEachStack>
+                     <additionalTimeEachDef>200</additionalTimeEachDef>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfItemsPerCell</overlayType>
+                  </li>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate_Large"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>5</maxNumberStacks>
+                     <maxTotalMass>60</maxTotalMass>
+                     <minTimeStoringTakes>1500</minTimeStoringTakes>
+                     <additionalTimeEachStack>200</additionalTimeEachStack>
+                     <additionalTimeEachDef>500</additionalTimeEachDef>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfItemsPerCell</overlayType>
+                  </li>
+               </value>
+            </li>
+         <!--Vending Machine - Small items-->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSVending_Machine" or defName="JDSVending_Machine_two"]/description</xpath>
+               <value>
+                     <description>A vending machine. Your pawns refuse to pay for using it, though. You can store a great variety of items here, so long they are small enough to fit. Items stored here will not deteriorate, even if outside.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSVending_Machine" or defName="JDSVending_Machine_two"]/stuffCategories</xpath>
+               <value>
+                     <stuffCategories Inherit="false">
+                        <li>Metallic</li>
+                     </stuffCategories>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSVending_Machine" or defName="JDSVending_Machine_two"]/costStuffCount</xpath>
+               <value>
+                     <costStuffCount>60</costStuffCount>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSVending_Machine" or defName="JDSVending_Machine_two"]/researchPrerequisites</xpath>
+               <value>
+                     <researchPrerequisites Inherit="false">
+                        <li>RS_CardboardStorage</li>
+                        <li>RS_ModernStorage</li>
+                     </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDSVending_Machine" or defName="JDSVending_Machine_two"]</xpath>
+               <value>
+                     <building Inherit="false">
+                        <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                        <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                        <fixedStorageSettings>
+                           <filter>
+                                 <categories>
+                                    <li>Manufactured</li>
+                                    <li>Foods</li>
+                                    <li>PlantMatter</li>
+                                    <li>Items</li>
+                                 </categories>
+                           </filter>
+                        </fixedStorageSettings>
+                        <defaultStorageSettings>
+                           <priority>Important</priority>
+                           <filter>
+                           </filter>
+                        </defaultStorageSettings>
+                        <isInert>true</isInert>
+                     </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSVending_Machine" or defName="JDSVending_Machine_two"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                     <li Class="LWM.DeepStorage.Properties">
+                        <maxNumberStacks>10</maxNumberStacks>
+                        <minNumberStacks>5</minNumberStacks>
+                        <maxTotalMass>10</maxTotalMass>
+                        <maxMassOfStoredItem>0.5</maxMassOfStoredItem>
+                        <minTimeStoringTakes>50</minTimeStoringTakes>
+                        <additionalTimeEachStack>20</additionalTimeEachStack>
+                        <showContents>false</showContents>
+                        <overlayType>SumOfAllItems</overlayType>
+                     </li>
+               </value>
+            </li>
+         <!--Med storage - Medical -->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Med_Storage"]/description</xpath>
+               <value>
+                     <description>An advanced medicine storage. You can store medicine and drugs here. Items stored here will not deteriorate, even if outside.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Med_Storage"]/stuffCategories</xpath>
+               <value>
+                     <stuffCategories Inherit="false">
+                        <li>Metallic</li>
+                     </stuffCategories>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Med_Storage"]/costStuffCount</xpath>
+               <value>
+                     <costStuffCount>80</costStuffCount>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Med_Storage"]/researchPrerequisites</xpath>
+               <value>
+                     <researchPrerequisites Inherit="false">
+                        <li>RS_CardboardStorage</li>
+                        <li>RS_ModernStorage</li>
+                     </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Med_Storage"]/building</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                           <categories>
+                              <li>Medicine</li>
+                              <li>Drugs</li>
+                           </categories>
+                           <thingDefs>
+                              <li>Neutroamine</li>
+                           </thingDefs>
+                        </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Med_Storage"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                     <li Class="LWM.DeepStorage.Properties">
+                        <maxNumberStacks>10</maxNumberStacks>
+                        <minTimeStoringTakes>50</minTimeStoringTakes>
+                        <additionalTimeEachStack>20</additionalTimeEachStack>
+                        <showContents>false</showContents>
+                        <overlayType>SumOfAllItems</overlayType>
+                     </li>
+               </value>
+            </li>
+         <!--Safe - General -->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSSafe"]/description</xpath>
+               <value>
+                     <description>An strong safe. Items stored here will not deteriorate, even if outside.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSSafe"]/stuffCategories</xpath>
+               <value>
+                  <stuffCategories Inherit="false">
+                     <li>Metallic</li>
+                  </stuffCategories>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSSafe"]/costStuffCount</xpath>
+               <value>
+                  <costStuffCount>80</costStuffCount>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSSafe"]/researchPrerequisites</xpath>
+               <value>
+                  <researchPrerequisites Inherit="false">
+                     <li>Machining</li>
+                     <li>RS_ModernStorage</li>
+                  </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDSSafe"]</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                        </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSSafe"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                     <li Class="LWM.DeepStorage.Properties">
+                        <maxNumberStacks>5</maxNumberStacks>
+                        <minTimeStoringTakes>500</minTimeStoringTakes>
+                        <additionalTimeEachStack>20</additionalTimeEachStack>
+                        <showContents>false</showContents>
+                        <overlayType>SumOfAllItems</overlayType>
+                     </li>
+               </value>
+            </li>
+         <!--Metal Shelves (empty) - Small Items -->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSMetal_Shelf_A" or defName="JDSMetal_Shelf_B"]/description</xpath>
+               <value>
+                     <description>A big metal shelf. It can store small items. Sadly, without cardboard boxes these shelves can only store so much before stuff falls off. Item stored here can deteriorate.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSMetal_Shelf_A" or defName="JDSMetal_Shelf_B"]/costList</xpath>
+               <value>
+                  <costList>
+                     <Steel>150</Steel>
+                  </costList>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSMetal_Shelf_A" or defName="JDSMetal_Shelf_B"]/researchPrerequisites</xpath>
+               <value>
+                     <researchPrerequisites Inherit="false">
+                        <li>Smithing</li>
+                        <li>RS_ModernStorage</li>
+                     </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSMetal_Shelf_A" or defName="JDSMetal_Shelf_B"]/building</xpath>
+               <value>
+                     <building Inherit="false">
+                        <ignoreStoredThingsBeauty>false</ignoreStoredThingsBeauty>
+                        <preventDeteriorationOnTop>false</preventDeteriorationOnTop>
+                        <fixedStorageSettings>
+                           <filter>
+                                 <categories>
+                                    <li>Manufactured</li>
+                                    <li>Foods</li>
+                                    <li>PlantMatter</li>
+                                    <li>Items</li>
+                                 </categories>
+                           </filter>
+                        </fixedStorageSettings>
+                        <defaultStorageSettings>
+                           <priority>Important</priority>
+                           <filter>
+                           </filter>
+                        </defaultStorageSettings>
+                        <isInert>true</isInert>
+                     </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSMetal_Shelf_A" or defName="JDSMetal_Shelf_B"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                     <li Class="LWM.DeepStorage.Properties">
+                        <maxNumberStacks>4</maxNumberStacks>
+                        <minNumberStacks>1</minNumberStacks>
+                        <maxTotalMass>7</maxTotalMass>
+                        <maxMassOfStoredItem>0.5</maxMassOfStoredItem>
+                        <minTimeStoringTakes>50</minTimeStoringTakes>
+                        <additionalTimeEachStack>20</additionalTimeEachStack>
+                        <showContents>true</showContents>
+                        <overlayType>SumOfItemsPerCell</overlayType>
+                     </li>
+               </value>
+            </li>
+         <!--Metal Shelves (full) - Small Items -->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSMetal_Shelf_A_Full" or defName="JDSMetal_Shelf_B_Full"]/description</xpath>
+               <value>
+                     <description>A big metal shelf with cardboard boxes. It can store small items. Item stored here can deteriorate.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSMetal_Shelf_A_Full" or defName="JDSMetal_Shelf_B_Full"]/costList</xpath>
+               <value>
+                  <costList>
+                     <Steel>150</Steel>
+                     <WoodLog>100</WoodLog>
+                  </costList>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSMetal_Shelf_A_Full" or defName="JDSMetal_Shelf_B_Full"]/researchPrerequisites</xpath>
+               <value>
+                     <researchPrerequisites Inherit="false">
+                        <li>RS_CardboardStorage</li>
+                        <li>Smithing</li>
+                        <li>RS_ModernStorage</li>
+                     </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDSMetal_Shelf_A_Full" or defName="JDSMetal_Shelf_B_Full"]</xpath>
+               <value>
+                     <building Inherit="false">
+                        <ignoreStoredThingsBeauty>false</ignoreStoredThingsBeauty>
+                        <preventDeteriorationOnTop>false</preventDeteriorationOnTop>
+                        <fixedStorageSettings>
+                           <filter>
+                                 <categories>
+                                    <li>Manufactured</li>
+                                    <li>Foods</li>
+                                    <li>PlantMatter</li>
+                                    <li>Items</li>
+                                 </categories>
+                           </filter>
+                        </fixedStorageSettings>
+                        <defaultStorageSettings>
+                           <priority>Important</priority>
+                           <filter>
+                           </filter>
+                        </defaultStorageSettings>
+                        <isInert>true</isInert>
+                     </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSMetal_Shelf_A_Full" or defName="JDSMetal_Shelf_B_Full"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                     <li Class="LWM.DeepStorage.Properties">
+                        <maxNumberStacks>10</maxNumberStacks>
+                        <minNumberStacks>5</minNumberStacks>
+                        <maxTotalMass>15</maxTotalMass>
+                        <maxMassOfStoredItem>0.5</maxMassOfStoredItem>
+                        <minTimeStoringTakes>100</minTimeStoringTakes>
+                        <additionalTimeEachStack>40</additionalTimeEachStack>
+                        <showContents>false</showContents>
+                        <overlayType>SumOfItemsPerCell</overlayType>
+                     </li>
+               </value>
+            </li>
+         <!--Chemfuel Storage - Chemicals-->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Chemfuel_Storage"]/description</xpath>
+               <value>
+                     <description>A chemfuel storage tank. You can store chemicals here. You better not dare mixing different items here. Doing so will increase the storing time an inmense amount because it would require to make chambers inside to keep the items separate. Items stored here will not deteriorate, even if outside.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Chemfuel_Storage"]/costList</xpath>
+               <value>
+                  <costList>
+                     <Steel>150</Steel>
+                  </costList>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Chemfuel_Storage"]/researchPrerequisites</xpath>
+               <value>
+                     <researchPrerequisites Inherit="false">
+                        <li>Machining</li>
+                        <li>RS_ModernStorage</li>
+                     </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Chemfuel_Storage"]/building</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                           <thingDefs>
+                              <li>Chemfuel</li>
+                           </thingDefs>
+                        </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Chemfuel_Storage"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                     <li Class="LWM.DeepStorage.Properties">
+                        <maxNumberStacks>5</maxNumberStacks>
+                        <minTimeStoringTakes>400</minTimeStoringTakes>
+                        <additionalTimeEachStack>20</additionalTimeEachStack>
+                        <additionalTimeEachDef>30000</additionalTimeEachDef>
+                        <showContents>false</showContents>
+                        <overlayType>SumOfAllItems</overlayType>
+                     </li>
+               </value>
+            </li>
+         <!--Chemfuel Pump - Chemicals-->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_ChemfuelPump"]/description</xpath>
+               <value>
+                     <description>A chemfuel pump with an underground storage tank. It is very slow to build. You can store chemicals here. You better not dare mixing different items here. Doing so will increase the storing time an inmense amount because it would require to make chambers inside to keep the items separate. Items stored here will not deteriorate, even if outside.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_ChemfuelPump"]/stuffCategories</xpath>
+               <value>
+                  <stuffCategories>
+                     <li>Metallic</li>
+                  </stuffCategories>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_ChemfuelPump"]/costStuffCount</xpath>
+               <value>
+                  <costStuffCount>50</costStuffCount>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_ChemfuelPump"]</xpath>
+               <value>
+                  <costList>
+                     <Steel>150</Steel>
+                     <ComponentIndustrial>4</ComponentIndustrial>
+                  </costList>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_ChemfuelPump"]/statBases</xpath>
+               <value>
+                  <statBases>
+                     <MaxHitPoints>200</MaxHitPoints>
+                     <WorkToBuild>2000</WorkToBuild>
+                     <Flammability>3</Flammability>
+                     <Mass>200</Mass>
+                  </statBases>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_ChemfuelPump"]</xpath>
+               <value>
+                  <researchPrerequisites Inherit="false">
+                     <li>Machining</li>
+                     <li>RS_ModernStorage</li>
+                  </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_ChemfuelPump"]/building</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                           <thingDefs>
+                              <li>Chemfuel</li>
+                           </thingDefs>
+                        </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_ChemfuelPump"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>10</maxNumberStacks>
+                     <minTimeStoringTakes>800</minTimeStoringTakes>
+                     <additionalTimeEachStack>20</additionalTimeEachStack>
+                     <additionalTimeEachDef>100000</additionalTimeEachDef>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfAllItems</overlayType>
+                  </li>
+               </value>
+            </li>
+         <!--Large Pallet - Big items-->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_Pallet"]/description</xpath>
+               <value>
+                  <description>A bigger flat pallet for packing things. Does not protect against the weather. Sometimes difficult to manage, but useful nonetheless. It is faster to use with less variety.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_Pallet"]/stuffCategories</xpath>
+               <value>
+                  <stuffCategories>
+                     <li>Woody</li>
+                     <li>Metallic</li>
+                  </stuffCategories>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_Pallet"]/costStuffCount</xpath>
+               <value>
+                  <costStuffCount>130</costStuffCount>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_Pallet"]/statBases</xpath>
+               <value>
+                  <statBases>
+                     <MaxHitPoints>150</MaxHitPoints>
+                     <WorkToBuild>1200</WorkToBuild>
+                     <Flammability>1</Flammability>
+                     <Beauty>-2</Beauty>
+                     <Mass>20</Mass>
+                  </statBases>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_Pallet"]</xpath>
+               <value>
+                  <researchPrerequisites Inherit="false">
+                     <li>RS_PalletsStorage</li>
+                  </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_Pallet"]</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>false</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>false</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                           <categories>
+                              <li>ResourcesRaw</li>
+                              <li>Textiles</li>
+                              <li>MortarShells</li>
+                           </categories>
+                           <disallowedCategories>
+                              <li>PlantMatter</li>
+                           </disallowedCategories>
+                        </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_Pallet"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>4</maxNumberStacks>
+                     <minTimeStoringTakes>300</minTimeStoringTakes>
+                     <additionalTimeEachStack>110</additionalTimeEachStack>
+                     <additionalTimeEachDef>300</additionalTimeEachDef>
+                     <showContents>true</showContents>
+                     <overlayType>SumOfAllItems</overlayType>
+                  </li>
+               </value>
+            </li>
+         <!--Large Can Pallet - Chemicals and Heavy Loose-->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_Can_Pallet"]/description</xpath>
+               <value>
+                  <description>A bunch of cans on top of a pallet. You can store chemicals and heavy loose items here. Items stored here won't deteriorate.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_Can_Pallet"]/stuffCategories</xpath>
+               <value>
+                  <stuffCategories Inherit="false">
+                     <li>Metallic</li>
+                  </stuffCategories>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_Can_Pallet"]/costStuffCount</xpath>
+               <value>
+                  <costStuffCount>400</costStuffCount>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_Can_Pallet"]</xpath>
+               <value>  
+                  <costList>
+                     <WoodLog>130</WoodLog>
+                  </costList>
+               </value> 
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_Can_Pallet"]/statBases</xpath>
+               <value>
+                  <statBases>
+                     <MaxHitPoints>150</MaxHitPoints>
+                     <WorkToBuild>1500</WorkToBuild>
+                     <Flammability>1</Flammability>
+                     <Beauty>-2</Beauty>
+                     <Mass>20</Mass>
+                  </statBases>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_Can_Pallet"]</xpath>
+               <value>
+                  <researchPrerequisites Inherit="false">
+                     <li>Smithing</li>
+                     <li>RS_PalletsStorage</li>
+                  </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_Can_Pallet"]</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                           <thingDefs>
+                              <li>Chemfuel</li>
+                              <li>Gold</li>
+                              <li>Silver</li>
+                              <li>Jade</li>
+                          </thingDefs>
+                        </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_Can_Pallet"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>8</maxNumberStacks>
+                     <minTimeStoringTakes>500</minTimeStoringTakes>
+                     <additionalTimeEachStack>20</additionalTimeEachStack>
+                     <additionalTimeEachDef>20</additionalTimeEachDef>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfItemsPerCell</overlayType>
+                  </li>
+               </value>
+            </li>
+         <!--Large Pallet A - Boxes, General.-->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_A_Pallet"]/description</xpath>
+               <value>
+                  <description>A pile of wooden crates on top of a pallet. You can store general items here. It is slow to use. Items stored here won't deteriorate.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_A_Pallet"]/costStuffCount</xpath>
+               <value>
+                  <costStuffCount>310</costStuffCount>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_A_Pallet"]/statBases</xpath>
+               <value>
+                  <statBases>
+                     <MaxHitPoints>100</MaxHitPoints>
+                     <WorkToBuild>1000</WorkToBuild>
+                     <Flammability>1</Flammability>
+                     <Beauty>-2</Beauty>
+                     <Mass>20</Mass>
+                  </statBases>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_A_Pallet"]</xpath>
+               <value>
+                  <researchPrerequisites Inherit="false">
+                     <li>RS_BoxesStorage</li>
+                     <li>RS_PalletsStorage</li>
+                  </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_A_Pallet"]</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                        </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_A_Pallet"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>3</maxNumberStacks>
+                     <maxTotalMass>22.5</maxTotalMass>
+                     <minTimeStoringTakes>500</minTimeStoringTakes>
+                     <additionalTimeEachStack>200</additionalTimeEachStack>
+                     <additionalTimeEachDef>20</additionalTimeEachDef>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfItemsPerCell</overlayType>
+                  </li>
+               </value>
+            </li>
+         <!--Large Pallet B - Boxes, General.-->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_B_Pallet"]/description</xpath>
+               <value>
+                  <description>A pile of wooden crates and barrels on top of a pallet. You can store general items here. It is slow to use. Items stored here won't deteriorate.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_B_Pallet"]/costStuffCount</xpath>
+               <value>
+                  <costStuffCount>310</costStuffCount>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_B_Pallet"]/statBases</xpath>
+               <value>
+                  <statBases>
+                     <MaxHitPoints>100</MaxHitPoints>
+                     <WorkToBuild>1000</WorkToBuild>
+                     <Flammability>1</Flammability>
+                     <Beauty>-2</Beauty>
+                     <Mass>20</Mass>
+                  </statBases>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_B_Pallet"]</xpath>
+               <value>
+                  <researchPrerequisites Inherit="false">
+                     <li>Brewing</li>
+                     <li>RS_BoxesStorage</li>
+                     <li>RS_PalletsStorage</li>
+                  </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_B_Pallet"]</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                        </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_B_Pallet"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>3</maxNumberStacks>
+                     <maxTotalMass>22.5</maxTotalMass>
+                     <minTimeStoringTakes>500</minTimeStoringTakes>
+                     <additionalTimeEachStack>200</additionalTimeEachStack>
+                     <additionalTimeEachDef>20</additionalTimeEachDef>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfItemsPerCell</overlayType>
+                  </li>
+               </value>
+            </li>
+         <!--Large Pallet C - Boxes, General.-->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_C_Pallet"]/description</xpath>
+               <value>
+                  <description>A bunch of tidy wooden crates on top of a pallet. You can store general items here. It is slightly faster to use than the other pallets on top of crates options. Items stored here won't deteriorate.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_C_Pallet"]/costStuffCount</xpath>
+               <value>
+                  <costStuffCount>350</costStuffCount>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_C_Pallet"]/statBases</xpath>
+               <value>
+                  <statBases>
+                     <MaxHitPoints>100</MaxHitPoints>
+                     <WorkToBuild>1300</WorkToBuild>
+                     <Flammability>1</Flammability>
+                     <Beauty>-1</Beauty>
+                     <Mass>20</Mass>
+                  </statBases>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_C_Pallet"]</xpath>
+               <value>
+                  <researchPrerequisites Inherit="false">
+                     <li>RS_BoxesStorage</li>
+                     <li>RS_PalletsStorage</li>
+                  </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_C_Pallet"]</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                        </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_C_Pallet"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>3</maxNumberStacks>
+                     <maxTotalMass>22.5</maxTotalMass>
+                     <minTimeStoringTakes>400</minTimeStoringTakes>
+                     <additionalTimeEachStack>100</additionalTimeEachStack>
+                     <additionalTimeEachDef>20</additionalTimeEachDef>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfItemsPerCell</overlayType>
+                  </li>
+               </value>
+            </li>
+         <!--Large Pallet D - Boxes, General.-->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_D_Pallet"]/description</xpath>
+               <value>
+                  <description>A small amount of wooden crates on top of a pallet. You can store general items here. It is slightly faster to use than the other pallets on top of crates options. Items stored here won't deteriorate.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_D_Pallet"]/costStuffCount</xpath>
+               <value>
+                  <costStuffCount>220</costStuffCount>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_D_Pallet"]/statBases</xpath>
+               <value>
+                  <statBases>
+                     <MaxHitPoints>100</MaxHitPoints>
+                     <WorkToBuild>600</WorkToBuild>
+                     <Flammability>1</Flammability>
+                     <Beauty>-1</Beauty>
+                     <Mass>20</Mass>
+                  </statBases>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_D_Pallet"]</xpath>
+               <value>
+                  <researchPrerequisites Inherit="false">
+                     <li>RS_BoxesStorage</li>
+                     <li>RS_PalletsStorage</li>
+                  </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_D_Pallet"]</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                        </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_D_Pallet"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>2</maxNumberStacks>
+                     <maxTotalMass>30</maxTotalMass>
+                     <minTimeStoringTakes>400</minTimeStoringTakes>
+                     <additionalTimeEachStack>100</additionalTimeEachStack>
+                     <additionalTimeEachDef>20</additionalTimeEachDef>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfItemsPerCell</overlayType>
+                  </li>
+               </value>
+            </li>
+         <!--Small Pallet - Big items.-->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSPallet"]/label</xpath>
+               <value>
+                  <label>small pallet</label>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSPallet"]/description</xpath>
+               <value>
+                  <description>A small flat pallet for packing things. Does not protect against the weather. Sometimes difficult to manage, but useful nonetheless.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSPallet"]/costStuffCount</xpath>
+               <value>
+                  <costStuffCount>40</costStuffCount>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSPallet"]/statBases</xpath>
+               <value>
+                  <statBases>
+                     <MaxHitPoints>50</MaxHitPoints>
+                     <WorkToBuild>300</WorkToBuild>
+                     <Flammability>1</Flammability>
+                     <Beauty>-1</Beauty>
+                     <Mass>5</Mass>
+                  </statBases>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDSPallet"]</xpath>
+               <value>
+                  <researchPrerequisites Inherit="false">
+                     <li>RS_PalletsStorage</li>
+                  </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDSPallet"]</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>false</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>false</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                           <categories>
+                             <li>ResourcesRaw</li>
+                             <li>Textiles</li>
+                             <li>MortarShells</li>
+                           </categories>
+                           <disallowedCategories>
+                             <li>PlantMatter</li>
+                           </disallowedCategories>
+                         </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSPallet"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>4</maxNumberStacks>
+                     <minTimeStoringTakes>300</minTimeStoringTakes>
+                     <additionalTimeEachStack>110</additionalTimeEachStack>
+                     <additionalTimeEachDef>20</additionalTimeEachDef>
+                     <showContents>true</showContents>
+                     <overlayType>SumOfAllItems</overlayType>
+                  </li>
+               </value>
+            </li>
+         <!--Small Pallet Can - Chemicals + Hard Loose.-->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSPallet_Can"]/label</xpath>
+               <value>
+                  <label>small pallet can</label>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSPallet_Can"]/description</xpath>
+               <value>
+                  <description>Two cans on top of a small flat pallet. You can store Chemicals and Hard Loose items here. Items stored here won't deteriorate.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSPallet_Can"]/stuffCategories</xpath>
+               <value>
+                  <stuffCategories Inherit="false">
+                     <li>Metallic</li>
+                  </stuffCategories>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSPallet_Can"]/costStuffCount</xpath>
+               <value>
+                  <costStuffCount>50</costStuffCount>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSPallet_Can"]/costList</xpath>
+               <value>  
+                  <costList>
+                     <WoodLog>40</WoodLog>
+                  </costList>
+               </value> 
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSPallet_Can"]/statBases</xpath>
+               <value>
+                  <statBases>
+                     <MaxHitPoints>150</MaxHitPoints>
+                     <WorkToBuild>600</WorkToBuild>
+                     <Flammability>1</Flammability>
+                     <Beauty>-1</Beauty>
+                     <Mass>10</Mass>
+                  </statBases>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDSPallet_Can"]</xpath>
+               <value>
+                  <researchPrerequisites Inherit="false">
+                     <li>Smithing</li>
+                     <li>RS_PalletsStorage</li>
+                  </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDSPallet_Can"]</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                           <thingDefs>
+                              <li>Chemfuel</li>
+                              <li>Gold</li>
+                              <li>Silver</li>
+                              <li>Jade</li>
+                          </thingDefs>
+                        </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSPallet_Can"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>4</maxNumberStacks>
+                     <minTimeStoringTakes>300</minTimeStoringTakes>
+                     <additionalTimeEachStack>110</additionalTimeEachStack>
+                     <additionalTimeEachDef>200</additionalTimeEachDef>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfAllItems</overlayType>
+                  </li>
+               </value>
+            </li>
+         <!--Small Pallet Crate - Boxes, General.-->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSPallet_Crate"]/label</xpath>
+               <value>
+                  <label>small pallet crate</label>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSPallet_Crate"]/description</xpath>
+               <value>
+                  <description>A single wooden crate on top of a pallet. You can store general items here. It is faster to use than just a crate on the floor. Items stored here won't deteriorate.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSPallet_Crate"]/costStuffCount</xpath>
+               <value>
+                  <costStuffCount>60</costStuffCount>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSPallet_Crate"]/statBases</xpath>
+               <value>
+                  <statBases>
+                     <MaxHitPoints>100</MaxHitPoints>
+                     <WorkToBuild>500</WorkToBuild>
+                     <Flammability>1</Flammability>
+                     <Beauty>-1</Beauty>
+                     <Mass>5</Mass>
+                  </statBases>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDSPallet_Crate"]</xpath>
+               <value>
+                  <researchPrerequisites Inherit="false">
+                     <li>RS_BoxesStorage</li>
+                     <li>RS_PalletsStorage</li>
+                  </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDSPallet_Crate"]</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                        </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSPallet_Crate"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>2</maxNumberStacks>
+                     <maxTotalMass>20</maxTotalMass>
+                     <minTimeStoringTakes>200</minTimeStoringTakes>
+                     <additionalTimeEachStack>200</additionalTimeEachStack>
+                     <additionalTimeEachDef>100</additionalTimeEachDef>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfAllItems</overlayType>
+                  </li>
+               </value>
+            </li>
+         <!--Industrial Shelf Empty - Heavy Items-->
+         <!--Note: The footprint size of this building will be modified through patches, meaning that
+            this will be highly unstable. -->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSIndustrial_shelf_empty"]/description</xpath>
+               <value>
+                  <description>A very big industrial shelf, the kind that only can be used with big machinery. You can store a very big amount of heavy items here, but it will be undoubtly be slow to use. Items stored here can deteriorate.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSIndustrial_shelf_empty"]/costList</xpath>
+               <value>
+                  <costList>
+                     <Steel>750</Steel>
+                  </costList>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSIndustrial_shelf_empty"]/size</xpath>
+               <value>
+                  <size>(5,2)</size>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDSIndustrial_shelf_empty"]/graphicData</xpath>
+               <value>
+                  <drawOffsetNorth>(0,0,1)</drawOffsetNorth>
+                  <drawOffsetSouth>(0,0,1)</drawOffsetSouth>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSIndustrial_shelf_empty"]/statBases</xpath>
+               <value>
+                  <statBases>
+                     <MaxHitPoints>500</MaxHitPoints>
+                     <WorkToBuild>5000</WorkToBuild>
+                     <Flammability>1</Flammability>
+                     <Beauty>-1</Beauty>
+                     <Mass>300</Mass>
+                  </statBases>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSIndustrial_shelf_empty"]/researchPrerequisites</xpath>
+               <value>
+                  <researchPrerequisites Inherit="false">
+                     <li>Machining</li>
+                     <li>RS_IndustrialStorage</li>
+                  </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSIndustrial_shelf_empty"]/building</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>false</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>false</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                           <categories>
+                              <li>ResourcesRaw</li>
+                              <li>Textiles</li>
+                              <li>MortarShells</li>
+                           </categories>
+                           <disallowedCategories>
+                              <li>PlantMatter</li>
+                           </disallowedCategories>
+                        </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSIndustrial_shelf_empty"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>7</maxNumberStacks>
+                     <maxMassOfStoredItem>150</maxMassOfStoredItem>
+                     <maxTotalMass>450</maxTotalMass>
+                     <minTimeStoringTakes>1000</minTimeStoringTakes>
+                     <additionalTimeEachStack>100</additionalTimeEachStack>
+                     <showContents>true</showContents>
+                     <overlayType>SumOfItemsPerCell</overlayType>
+                  </li>
+               </value>
+            </li>
+         <!--Industrial Shelf Full - General-->
+         <!--Note: The footprint size of this building will be modified through patches, meaning that
+            this will be highly unstable. -->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSIndustrial_shelf"]/description</xpath>
+               <value>
+                  <description>A very big industrial shelf, the kind that only can be used with big machinery. This one has boxes on it, allowing you to store any item. But it will be undoubtly be slow to use. Items stored here will not deteriorate.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSIndustrial_shelf"]/costList</xpath>
+               <value>
+                  <costList>
+                     <Steel>750</Steel>
+                  </costList>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSIndustrial_shelf"]/costStuffCount</xpath>
+               <value>
+                  <costStuffCount>1500</costStuffCount>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSIndustrial_shelf"]/size</xpath>
+               <value>
+                  <size>(5,2)</size>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDSIndustrial_shelf"]/graphicData</xpath>
+               <value>
+                  <drawOffsetNorth>(0,0,1)</drawOffsetNorth>
+                  <drawOffsetSouth>(0,0,1)</drawOffsetSouth>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSIndustrial_shelf"]/statBases</xpath>
+               <value>
+                  <statBases>
+                     <MaxHitPoints>500</MaxHitPoints>
+                     <WorkToBuild>5000</WorkToBuild>
+                     <Flammability>1</Flammability>
+                     <Beauty>-1</Beauty>
+                     <Mass>300</Mass>
+                  </statBases>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSIndustrial_shelf"]/researchPrerequisites</xpath>
+               <value>
+                  <researchPrerequisites Inherit="false">
+                     <li>RS_BoxesStorage</li>
+                     <li>RS_PalletsStorage</li>
+                     <li>Machining</li>
+                     <li>RS_IndustrialStorage</li>
+                  </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSIndustrial_shelf"]/building</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                        </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSIndustrial_shelf"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>8</maxNumberStacks>
+                     <maxMassOfStoredItem>150</maxMassOfStoredItem>
+                     <maxTotalMass>450</maxTotalMass>
+                     <minTimeStoringTakes>1000</minTimeStoringTakes>
+                     <additionalTimeEachStack>100</additionalTimeEachStack>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfItemsPerCell</overlayType>
+                  </li>
+               </value>
+            </li>
+         <!--Industrial Dumpsters - Skip-->
+         <!--Note: The footprint size of this building will be modified through patches, meaning that
+            this will be highly unstable. -->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Industrial_Dumpster_Chunk"]/description</xpath>
+               <value>
+                  <description>An industrial size dumpster. This one is dedicated for stone chucnks. While this is limiting, this means that this building with no suffer penalties from different types of items whatsoever. Overall this is a fast to use storage building.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Industrial_Dumpster_Slag"]/description</xpath>
+               <value>
+                  <description>An industrial size dumpster. This one is dedicated for slag chucnks. While this is limiting, this means that this building with no suffer penalties from different types of items whatsoever. Overall this is a fast to use storage building.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSIndustrial_Dumpster"]/description</xpath>
+               <value>
+                  <description>An industrial size dumpster. This building can store chunks and raw resources. It is recommended to keep variety low. A high variety will mean a long time tidying up the insides of the dumpster. Overall this is a fast to use storage building.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Industrial_Dumpster_Chunk"
+                  or defName="JDS_Industrial_Dumpster_Slag"
+                  or defName="JDSIndustrial_Dumpster"]/stuffCategories</xpath>
+               <value>
+                  <stuffCategories>
+                     <li>Stony</li>	
+                     <li>Metallic</li>  
+                   </stuffCategories>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Industrial_Dumpster_Chunk"
+                  or defName="JDS_Industrial_Dumpster_Slag"
+                  or defName="JDSIndustrial_Dumpster"]/costStuffCount</xpath>
+               <value>
+                  <costStuffCount>500</costStuffCount>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Industrial_Dumpster_Chunk"
+                  or defName="JDS_Industrial_Dumpster_Slag"
+                  or defName="JDSIndustrial_Dumpster"]/size</xpath>
+               <value>
+                  <size>(4,2)</size>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_Industrial_Dumpster_Chunk"
+                  or defName="JDS_Industrial_Dumpster_Slag"
+                  or defName="JDSIndustrial_Dumpster"]/graphicData</xpath>
+               <value>
+                  <drawOffsetNorth>(0,0,0.5)</drawOffsetNorth>
+                  <drawOffsetSouth>(0,0,0.5)</drawOffsetSouth>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Industrial_Dumpster_Chunk"
+                  or defName="JDS_Industrial_Dumpster_Slag"
+                  or defName="JDSIndustrial_Dumpster"]/statBases</xpath>
+               <value>
+                  <statBases>
+                     <MaxHitPoints>500</MaxHitPoints>
+                     <WorkToBuild>1000</WorkToBuild>
+                     <Flammability>1</Flammability>
+                     <Beauty>-10</Beauty>
+                     <Mass>300</Mass>
+                  </statBases>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Industrial_Dumpster_Chunk"
+                  or defName="JDS_Industrial_Dumpster_Slag"
+                  or defName="JDSIndustrial_Dumpster"]/researchPrerequisites</xpath>
+               <value>
+                  <researchPrerequisites Inherit="false">
+                     <li>RS_IndustrialStorage</li>
+                  </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Industrial_Dumpster_Chunk"]/building</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>false</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                           <categories>
+                             <li>Chunks</li>
+                          </categories>
+                           <disallowedThingDefs>
+                              <li>ChunkSlagSteel</li>
+                           </disallowedThingDefs>
+                         </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Industrial_Dumpster_Slag"]/building</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>false</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                           <thingDefs>
+                              <li>ChunkSlagSteel</li>
+                           </thingDefs>
+                         </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDSIndustrial_Dumpster"]</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>false</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                           <categories>
+                             <li>Chunks</li>
+                             <li>ResourcesRaw</li>
+                           </categories>
+                           <disallowedCategories>
+                              <li>PlantMatter</li>
+                           </disallowedCategories>
+                         </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Industrial_Dumpster_Chunk" or defName="JDS_Industrial_Dumpster_Slag"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>8</maxNumberStacks>
+                     <minTimeStoringTakes>100</minTimeStoringTakes>
+                     <additionalTimeEachStack>20</additionalTimeEachStack>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfAllItems</overlayType>
+                  </li>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSIndustrial_Dumpster"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>8</maxNumberStacks>
+                     <minTimeStoringTakes>100</minTimeStoringTakes>
+                     <additionalTimeEachDef>600</additionalTimeEachDef>
+                     <additionalTimeEachStack>20</additionalTimeEachStack>
+                     <showContents>true</showContents>
+                     <overlayType>SumOfItemsPerCell</overlayType>
+                  </li>
+               </value>
+            </li>
+         <!--Silo - Vegetables-->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSSilo"]/description</xpath>
+               <value>
+                  <description>A big silo able to store very large quantities of vegetarian food. This silo has internal chambers to keep different items separate, so you can store a big variety here. Items stored here won't deteriorate.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSSilo"]/costList</xpath>
+               <value>
+                  <costList>
+                     <Steel>600</Steel>
+                  </costList>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDSSilo"]</xpath>
+               <value>
+                  <canBeUsedUnderRoof>false</canBeUsedUnderRoof>   
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSSilo"]/size</xpath>
+               <value>
+                  <size>(4,3)</size>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDSSilo"]/graphicData</xpath>
+               <value>
+                  <drawOffset>(0,0,1)</drawOffset>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSSilo"]/statBases</xpath>
+               <value>
+                  <statBases>
+                     <MaxHitPoints>500</MaxHitPoints>
+                     <WorkToBuild>4000</WorkToBuild>
+                     <Flammability>1</Flammability>
+                     <Mass>300</Mass>
+                  </statBases>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSSilo"]/researchPrerequisites</xpath>
+               <value>
+                  <researchPrerequisites Inherit="false">
+                     <li>Machining</li>
+                     <li>RS_IndustrialStorage</li>
+                  </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDSSilo"]</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                           <categories>
+                              <li>PlantFoodRaw</li>
+                              <li>PlantMatter</li>
+                            </categories>
+                        </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSSilo"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>10</maxNumberStacks>
+                     <minTimeStoringTakes>500</minTimeStoringTakes>
+                     <additionalTimeEachStack>20</additionalTimeEachStack>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfAllItems</overlayType>
+                  </li>
+               </value>
+            </li>
+         <!--Shipping Container - Small items + Apparel + Weapons-->
+         <!--The footpring of this one is extremely problematic, not much can be done.-->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSShippingContainerRed"
+                  or defName="JDSShippingContainerBlue"
+                  or defName="JDSShippingContainerGreen"]/description</xpath>
+               <value>
+                  <description>A metal cargo container. You can store many items here and they won't deteriorate even if outside. This building is a bit slow to use, though. Passable. Cannot hold roof.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSShippingContainerRed"
+                  or defName="JDSShippingContainerBlue"
+                  or defName="JDSShippingContainerGreen"]/costList</xpath>
+               <value>
+                  <costList>
+                     <Steel>800</Steel>
+                 </costList>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSShippingContainerRed"
+                  or defName="JDSShippingContainerBlue"
+                  or defName="JDSShippingContainerGreen"]/size</xpath>
+               <value>
+                  <size>(5,2)</size>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDSShippingContainerRed"
+                  or defName="JDSShippingContainerBlue"
+                  or defName="JDSShippingContainerGreen"]/graphicData</xpath>
+               <value>
+                  <drawOffsetNorth>(0,0,0.5)</drawOffsetNorth>
+                  <drawOffsetSouth>(0,0,0.5)</drawOffsetSouth>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSShippingContainerRed"
+                  or defName="JDSShippingContainerBlue"
+                  or defName="JDSShippingContainerGreen"]/statBases</xpath>
+               <value>
+                  <statBases>
+                     <MaxHitPoints>500</MaxHitPoints>
+                     <WorkToBuild>2500</WorkToBuild>
+                     <Flammability>1</Flammability>
+                     <Mass>300</Mass>
+                  </statBases>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSShippingContainerRed"
+                  or defName="JDSShippingContainerBlue"
+                  or defName="JDSShippingContainerGreen"]/researchPrerequisites</xpath>
+               <value>
+                  <researchPrerequisites Inherit="false">
+                     <li>RS_IndustrialStorage</li>
+                  </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSShippingContainerRed"
+                  or defName="JDSShippingContainerBlue"
+                  or defName="JDSShippingContainerGreen"]/building</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                           <categories>
+                              <li>Manufactured</li>
+                              <li>Foods</li>
+                              <li>Items</li>
+                              <li>Apparel</li>
+                              <li>Weapons</li>
+                          </categories>
+                        </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSShippingContainerRed"
+                  or defName="JDSShippingContainerBlue"
+                  or defName="JDSShippingContainerGreen"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>5</maxNumberStacks>
+                     <minTimeStoringTakes>500</minTimeStoringTakes>
+                     <additionalTimeEachStack>20</additionalTimeEachStack>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfAllItems</overlayType>
+                  </li>
+               </value>
+            </li>
+         <!--Lockers - Apparel-->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSmaller_locker"
+                  or defName="JDSLarge_locker"]/description</xpath>
+               <value>
+                  <description>A metal locker unit. You can store apparel here. Items stored here will not deteriorate, even if outside.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSmaller_locker"]/costStuffCount</xpath>
+               <value>
+                  <costStuffCount>60</costStuffCount>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSLarge_locker"]/costStuffCount</xpath>
+               <value>
+                  <costStuffCount>120</costStuffCount>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+            <xpath>/Defs/ThingDef[defName="JDSmaller_locker"
+               or defName="JDSLarge_locker"]/stuffCategories</xpath>
+            <value>
+               <stuffCategories Inherit="false">
+                  <li>Metallic</li>	  
+               </stuffCategories>
+            </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSmaller_locker"
+                  or defName="JDSLarge_locker"]/researchPrerequisites</xpath>
+               <value>
+                  <researchPrerequisites Inherit="false">
+                     <li>RS_ModernStorage</li>
+                  </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDSmaller_locker"
+                  or defName="JDSLarge_locker"]</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                     <filter>
+                           <categories>
+                              <li>Apparel</li>
+                           </categories>
+                     </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                           <priority>Important</priority>
+                           <filter>
+                           </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSmaller_locker"
+                  or defName="JDSLarge_locker"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>10</maxNumberStacks>
+                     <minNumberStacks>5</minNumberStacks>
+                     <maxTotalMass>5</maxTotalMass>
+                     <minTimeStoringTakes>50</minTimeStoringTakes>
+                     <additionalTimeEachStack>20</additionalTimeEachStack>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfAllItems</overlayType>
+                  </li>
+               </value>
+            </li>
+         <!--Military Grade Crates - General -->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSMilitaryGradeCrateSmall"]/description</xpath>
+               <value>
+                  <description>A military grade crate for storing general items. Items stored here will not deteriorate, even if outside.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSMilitaryGradeCrateSmall"]/costList</xpath>
+               <value>
+                  <costList>
+                     <Steel>100</Steel>
+                     <Plasteel>30</Plasteel>
+                  </costList>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSMilitary_Grade_Crate_Small_Pile"]/description</xpath>
+               <value>
+                  <description>A pile of military grade crates for storing general items. Items stored here will not deteriorate, even if outside.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSMilitary_Grade_Crate_Small_Pile"]/costList</xpath>
+               <value>
+                  <costList>
+                     <Steel>400</Steel>
+                     <Plasteel>120</Plasteel>
+                  </costList>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSMilitary_Grade_Crate_Long"]/description</xpath>
+               <value>
+                  <description>A long military grade crate for storing general items. Items stored here will not deteriorate, even if outside.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSMilitary_Grade_Crate_Long"]/costList</xpath>
+               <value>
+                  <costList>
+                     <Steel>250</Steel>
+                     <Plasteel>80</Plasteel>
+                  </costList>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSMilitary_Grade_crate_Large"]/description</xpath>
+               <value>
+                  <description>A large military grade crate for storing general items. Items stored here will not deteriorate, even if outside.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSMilitary_Grade_crate_Large"]/costList</xpath>
+               <value>
+                  <costList>
+                     <Steel>200</Steel>
+                     <Plasteel>50</Plasteel>
+                  </costList>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSMilitaryGradeCrateSmall"
+                                    or defName="JDSMilitary_Grade_Crate_Small_Pile"
+                                    or defName="JDSMilitary_Grade_Crate_Long"
+                                    or defName="JDSMilitary_Grade_crate_Large"]/researchPrerequisites</xpath>
+               <value>
+                  <researchPrerequisites Inherit="false">
+                     <li>Gunsmithing</li>
+                     <li>RS_BoxesStorage</li>
+                  </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSMilitaryGradeCrateSmall"
+                  or defName="JDSMilitary_Grade_Crate_Small_Pile"
+                  or defName="JDSMilitary_Grade_Crate_Long"
+                  or defName="JDSMilitary_Grade_crate_Large"]/building</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSMilitaryGradeCrateSmall"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>3</maxNumberStacks>
+                     <maxTotalMass>30</maxTotalMass>
+                     <minTimeStoringTakes>300</minTimeStoringTakes>
+                     <additionalTimeEachStack>200</additionalTimeEachStack>
+                     <additionalTimeEachDef>200</additionalTimeEachDef>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfAllItems</overlayType>
+                  </li>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSMilitary_Grade_Crate_Small_Pile"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>6</maxNumberStacks>
+                     <maxTotalMass>50</maxTotalMass>
+                     <minTimeStoringTakes>400</minTimeStoringTakes>
+                     <additionalTimeEachStack>100</additionalTimeEachStack>
+                     <additionalTimeEachDef>100</additionalTimeEachDef>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfItemsPerCell</overlayType>
+                  </li>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSMilitary_Grade_Crate_Long"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>3</maxNumberStacks>
+                     <maxTotalMass>35</maxTotalMass>
+                     <minTimeStoringTakes>600</minTimeStoringTakes>
+                     <additionalTimeEachStack>100</additionalTimeEachStack>
+                     <additionalTimeEachDef>50</additionalTimeEachDef>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfItemsPerCell</overlayType>
+                  </li>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSMilitary_Grade_crate_Large"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>4</maxNumberStacks>
+                     <maxTotalMass>60</maxTotalMass>
+                     <minTimeStoringTakes>500</minTimeStoringTakes>
+                     <additionalTimeEachStack>100</additionalTimeEachStack>
+                     <additionalTimeEachDef>200</additionalTimeEachDef>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfItemsPerCell</overlayType>
+                  </li>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate_C"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>3</maxNumberStacks>
+                     <maxTotalMass>40</maxTotalMass>
+                     <minTimeStoringTakes>1100</minTimeStoringTakes>
+                     <additionalTimeEachStack>200</additionalTimeEachStack>
+                     <additionalTimeEachDef>200</additionalTimeEachDef>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfItemsPerCell</overlayType>
+                  </li>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate_Large"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>5</maxNumberStacks>
+                     <maxTotalMass>60</maxTotalMass>
+                     <minTimeStoringTakes>1500</minTimeStoringTakes>
+                     <additionalTimeEachStack>200</additionalTimeEachStack>
+                     <additionalTimeEachDef>500</additionalTimeEachDef>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfItemsPerCell</overlayType>
+                  </li>
+               </value>
+            </li>
+         <!--Bank vault - General.
+            Problematic footprint but what can you do.-->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSBank_Vault"]/description</xpath>
+               <value>
+                  <description>A large vault capable of holding whatever you throw at it. It is extremely slow to use, but very sturdy.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSBank_Vault"]/costList</xpath>
+               <value>
+                  <costList>
+                     <Plasteel>500</Plasteel>
+                     <Steel>1000</Steel>
+                     <ComponentIndustrial>5</ComponentIndustrial>
+                  </costList>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSBank_Vault"]/statBases</xpath>
+               <value>
+                  <statBases>
+                     <MaxHitPoints>5000</MaxHitPoints>
+                     <WorkToBuild>6500</WorkToBuild>
+                     <Flammability>0</Flammability>
+                     <Mass>2500</Mass>
+                  </statBases>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSBank_Vault"]/researchPrerequisites</xpath>
+               <value>
+                  <researchPrerequisites Inherit="false">
+                     <li>Machining</li>
+                     <li>RS_IndustrialStorage</li>
+                  </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSBank_Vault"]/building</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                        </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSBank_Vault"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>10</maxNumberStacks>
+                     <minTimeStoringTakes>2000</minTimeStoringTakes>
+                     <additionalTimeEachStack>20</additionalTimeEachStack>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfAllItems</overlayType>
+                  </li>
+               </value>
+            </li>
+         <!--Chemfuel Storage - Chemicals-->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_Chemfuel_Storage"]/description</xpath>
+               <value>
+                     <description>A large chemfuel storage tank. You can store chemicals here. You better not dare mixing different items here. Doing so will increase the storing time an inmense amount because it would require to make chambers inside to keep the items separate. Items stored here will not deteriorate, even if outside.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_Chemfuel_Storage"]/costList</xpath>
+               <value>
+                  <costList>
+                     <Steel>650</Steel>
+                     <ComponentIndustrial>1</ComponentIndustrial>
+                  </costList>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_Chemfuel_Storage"]/size</xpath>
+               <value>
+                  <size>(5,2)</size>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_Chemfuel_Storage"]/graphicData</xpath>
+               <value>
+                  <drawOffsetNorth>(0,0,0.5)</drawOffsetNorth>
+                  <drawOffsetSouth>(0,0,0.5)</drawOffsetSouth>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_Chemfuel_Storage"]/researchPrerequisites</xpath>
+               <value>
+                     <researchPrerequisites Inherit="false">
+                        <li>Machining</li>
+                        <li>RS_IndustrialStorage</li>
+                     </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_Chemfuel_Storage"]/building</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                           <thingDefs>
+                              <li>Chemfuel</li>
+                           </thingDefs>
+                        </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_Chemfuel_Storage"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                     <li Class="LWM.DeepStorage.Properties">
+                        <maxNumberStacks>5</maxNumberStacks>
+                        <minTimeStoringTakes>400</minTimeStoringTakes>
+                        <additionalTimeEachStack>20</additionalTimeEachStack>
+                        <additionalTimeEachDef>30000</additionalTimeEachDef>
+                        <showContents>false</showContents>
+                        <overlayType>SumOfAllItems</overlayType>
+                     </li>
+               </value>
+            </li>
+         </operations>
+      </match>
+   </Operation>
+
+<!--Mod compt only buildings.-->
+<!--Post box - Paper, books, etc -->
+<Operation Class="PatchOperationFindMod">
+   <mods>
+      <li>[JDS] Simple Storage</li>
+   </mods>
+   <match Class="PatchOperationFindMod">
+      <mods>
+         <li>Vanilla Books Expanded</li>
+      </mods>
+      <match Class="PatchOperationSequence">
+         <!-- <success>Always</success> -->
+         <operations>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_Post_Box"]/description</xpath>
+               <value>
+                  <description>A post box. Here you can store books, newspapers and blueprints. Items stored here won't deteriorate.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_Post_Box"]</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                           <categories>
+                              <li>VBE_Books</li>
+                           </categories>
+                        </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationAdd">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_Post_Box"]</xpath>
+               <value>
+                     <researchPrerequisites Inherit="false">
+                        <li>RS_ModernStorage</li>
+                     </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_Post_Box"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                     <li Class="LWM.DeepStorage.Properties">
+                        <maxNumberStacks>20</maxNumberStacks>
+                        <minTimeStoringTakes>100</minTimeStoringTakes>
+                        <additionalTimeEachStack>20</additionalTimeEachStack>
+                        <showContents>false</showContents>
+                        <overlayType>SumOfAllItems</overlayType>
+                     </li>
+               </value>
+            </li>
+         </operations>
+      </match>
+      <nomatch Class="PatchOperationRemove">
+         <xpath>/Defs/ThingDef[defName="JDS_Large_Post_Box"]</xpath>
+      </nomatch>
+   </match>
+</Operation>
+
+<!--Ammo boxes-->
+<!--I will assume u only using combat extended or yayo combat 3, not both bc wtf-->
+<Operation Class="PatchOperationFindMod">
+   <mods>
+      <li>[JDS] Simple Storage</li>
+   </mods>
+   <match Class="PatchOperationFindMod">
+      <mods>
+         <li>Combat Extended</li>
+      </mods>
+      <match Class="PatchOperationSequence">
+         <!-- <success>Always</success> -->
+         <operations>
+         <!--Ammo boxes-->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSAmmo_BoxA"]/description</xpath>
+               <value>
+                  <description>A metal ammo box. You can store ammo here. Items stored here won't deteriorate.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSAmmo_BoxB"]/description</xpath>
+               <value>
+                  <description>Three metal ammo boxes. You can store ammo here. Items stored here won't deteriorate.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSAmmo_BoxC"]/description</xpath>
+               <value>
+                  <description>A pile of metal ammo boxes. You can store ammo here. Items stored here won't deteriorate.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSAmmo_BoxA"]/statBases</xpath>
+               <value>
+                  <statBases>
+                     <Beauty>0.7</Beauty>
+                     <MaxHitPoints>150</MaxHitPoints>
+                     <WorkToBuild>1000</WorkToBuild>
+                     <Flammability>0</Flammability>
+                     <Mass>5</Mass>
+                   </statBases>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSAmmo_BoxB"]/statBases</xpath>
+               <value>
+                  <statBases>
+                     <Beauty>0.7</Beauty>
+                     <MaxHitPoints>300</MaxHitPoints>
+                     <WorkToBuild>2000</WorkToBuild>
+                     <Flammability>0</Flammability>
+                     <Mass>15</Mass>
+                   </statBases>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSAmmo_BoxC"]/statBases</xpath>
+               <value>
+                  <statBases>
+                     <Beauty>0.7</Beauty>
+                     <MaxHitPoints>600</MaxHitPoints>
+                     <WorkToBuild>5000</WorkToBuild>
+                     <Flammability>0</Flammability>
+                     <Mass>60</Mass>
+                   </statBases>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSAmmo_BoxA"]/costList</xpath>
+               <value>
+                  <costList>
+                     <Plasteel>10</Plasteel>
+                     <Steel>50</Steel>
+                  </costList>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSAmmo_BoxB"]/costList</xpath>
+               <value>
+                  <costList>
+                     <Plasteel>30</Plasteel>
+                     <Steel>150</Steel>
+                  </costList>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSAmmo_BoxC"]/costList</xpath>
+               <value>
+                  <costList>
+                     <Plasteel>120</Plasteel>
+                     <Steel>600</Steel>
+                  </costList>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSAmmo_BoxA"
+                  or defName="JDSAmmo_BoxB"
+                  or defName="JDSAmmo_BoxC"]/building</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                           <categories>
+                              <li>Ammo</li>
+                           </categories>
+                        </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSAmmo_BoxA"
+                  or defName="JDSAmmo_BoxB"
+                  or defName="JDSAmmo_BoxC"]/researchPrerequisites</xpath>
+               <value>
+                     <researchPrerequisites Inherit="false">
+                        <li>Gunsmithing</li>
+                     </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSAmmo_BoxA"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                     <li Class="LWM.DeepStorage.Properties">
+                        <maxNumberStacks>1</maxNumberStacks>
+                        <minTimeStoringTakes>50</minTimeStoringTakes>
+                        <additionalTimeEachStack>20</additionalTimeEachStack>
+                        <showContents>false</showContents>
+                        <overlayType>SumOfAllItems</overlayType>
+                     </li>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSAmmo_BoxB"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                     <li Class="LWM.DeepStorage.Properties">
+                        <maxNumberStacks>3</maxNumberStacks>
+                        <minTimeStoringTakes>50</minTimeStoringTakes>
+                        <additionalTimeEachStack>20</additionalTimeEachStack>
+                        <showContents>false</showContents>
+                        <overlayType>SumOfAllItems</overlayType>
+                     </li>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSAmmo_BoxC"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                     <li Class="LWM.DeepStorage.Properties">
+                        <maxNumberStacks>12</maxNumberStacks>
+                        <minTimeStoringTakes>50</minTimeStoringTakes>
+                        <additionalTimeEachStack>20</additionalTimeEachStack>
+                        <showContents>false</showContents>
+                        <overlayType>SumOfAllItems</overlayType>
+                     </li>
+               </value>
+            </li>
+         <!--Ammo Crates-->
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSAmmo_Crate"]/description</xpath>
+               <value>
+                  <description>A wooden ammo crate. You can store ammo here. Items stored here won't deteriorate.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSAmmo_Crate_Piles"]/description</xpath>
+               <value>
+                  <description>A big pile of wooden ammo crates. You can store ammo here. Items stored here won't deteriorate.</description>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSAmmo_Crate"]/statBases</xpath>
+               <value>
+                  <statBases>
+                     <Beauty>0.7</Beauty>
+                     <MaxHitPoints>150</MaxHitPoints>
+                     <WorkToBuild>1000</WorkToBuild>
+                     <Flammability>1</Flammability>
+                     <Mass>10</Mass>
+                   </statBases>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSAmmo_Crate_Piles"]/statBases</xpath>
+               <value>
+                  <statBases>
+                     <Beauty>0.7</Beauty>
+                     <MaxHitPoints>450</MaxHitPoints>
+                     <WorkToBuild>3000</WorkToBuild>
+                     <Flammability>1</Flammability>
+                     <Mass>50</Mass>
+                   </statBases>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSAmmo_Crate"]/costStuffCount</xpath>
+               <value>
+                  <costStuffCount>50</costStuffCount>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSAmmo_Crate_Piles"]/costStuffCount</xpath>
+               <value>
+                  <costStuffCount>1200</costStuffCount>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSAmmo_Crate"
+                  or defName="JDSAmmo_Crate_Piles"]/building</xpath>
+               <value>
+                  <building Inherit="false">
+                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                     <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                     <fixedStorageSettings>
+                        <filter>
+                           <categories>
+                              <li>Ammo</li>
+                           </categories>
+                        </filter>
+                     </fixedStorageSettings>
+                     <defaultStorageSettings>
+                        <priority>Important</priority>
+                        <filter>
+                        </filter>
+                     </defaultStorageSettings>
+                     <isInert>true</isInert>
+                  </building>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSAmmo_Crate"
+                  or defName="JDSAmmo_Crate_Piles"]/researchPrerequisites</xpath>
+               <value>
+                     <researchPrerequisites Inherit="false">
+                        <li>RS_BoxesStorage</li>
+                     </researchPrerequisites>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSAmmo_Crate"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                     <li Class="LWM.DeepStorage.Properties">
+                        <maxNumberStacks>2</maxNumberStacks>
+                        <minTimeStoringTakes>300</minTimeStoringTakes>
+                        <additionalTimeEachStack>20</additionalTimeEachStack>
+                        <showContents>false</showContents>
+                        <overlayType>SumOfAllItems</overlayType>
+                     </li>
+               </value>
+            </li>
+            <li Class="PatchOperationReplace">
+               <xpath>/Defs/ThingDef[defName="JDSAmmo_Crate_Piles"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+               <value>
+                     <li Class="LWM.DeepStorage.Properties">
+                        <maxNumberStacks>48</maxNumberStacks>
+                        <minTimeStoringTakes>650</minTimeStoringTakes>
+                        <additionalTimeEachStack>20</additionalTimeEachStack>
+                        <showContents>false</showContents>
+                        <overlayType>SumOfAllItems</overlayType>
+                     </li>
+               </value>
+            </li>
+         </operations>
+      </match>
+      <nomatch Class="PatchOperationFindMod">
+         <mods>
+            <li>Yayo's Combat 3</li>
+         </mods>
+         <match Class="PatchOperationSequence">
+            <!-- <success>Always</success> -->
+            <operations>
+            <!--Ammo boxes-->
+               <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ThingDef[defName="JDSAmmo_BoxA"]/description</xpath>
+                  <value>
+                     <description>A metal ammo box. You can store ammo here. Items stored here won't deteriorate.</description>
+                  </value>
+               </li>
+               <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ThingDef[defName="JDSAmmo_BoxB"]/description</xpath>
+                  <value>
+                     <description>Three metal ammo boxes. You can store ammo here. Items stored here won't deteriorate.</description>
+                  </value>
+               </li>
+               <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ThingDef[defName="JDSAmmo_BoxC"]/description</xpath>
+                  <value>
+                     <description>A pile of metal ammo boxes. You can store ammo here. Items stored here won't deteriorate.</description>
+                  </value>
+               </li>
+               <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ThingDef[defName="JDSAmmo_BoxA"]/statBases</xpath>
+                  <value>
+                     <statBases>
+                        <Beauty>0.7</Beauty>
+                        <MaxHitPoints>150</MaxHitPoints>
+                        <WorkToBuild>1000</WorkToBuild>
+                        <Flammability>0</Flammability>
+                        <Mass>5</Mass>
+                      </statBases>
+                  </value>
+               </li>
+               <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ThingDef[defName="JDSAmmo_BoxB"]/statBases</xpath>
+                  <value>
+                     <statBases>
+                        <Beauty>0.7</Beauty>
+                        <MaxHitPoints>300</MaxHitPoints>
+                        <WorkToBuild>2000</WorkToBuild>
+                        <Flammability>0</Flammability>
+                        <Mass>15</Mass>
+                      </statBases>
+                  </value>
+               </li>
+               <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ThingDef[defName="JDSAmmo_BoxC"]/statBases</xpath>
+                  <value>
+                     <statBases>
+                        <Beauty>0.7</Beauty>
+                        <MaxHitPoints>600</MaxHitPoints>
+                        <WorkToBuild>5000</WorkToBuild>
+                        <Flammability>0</Flammability>
+                        <Mass>60</Mass>
+                      </statBases>
+                  </value>
+               </li>
+               <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ThingDef[defName="JDSAmmo_BoxA"]/costList</xpath>
+                  <value>
+                     <costList>
+                        <Plasteel>10</Plasteel>
+                        <Steel>50</Steel>
+                     </costList>
+                  </value>
+               </li>
+               <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ThingDef[defName="JDSAmmo_BoxB"]/costList</xpath>
+                  <value>
+                     <costList>
+                        <Plasteel>30</Plasteel>
+                        <Steel>150</Steel>
+                     </costList>
+                  </value>
+               </li>
+               <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ThingDef[defName="JDSAmmo_BoxC"]/costList</xpath>
+                  <value>
+                     <costList>
+                        <Plasteel>120</Plasteel>
+                        <Steel>600</Steel>
+                     </costList>
+                  </value>
+               </li>
+               <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ThingDef[defName="JDSAmmo_BoxA"
+                     or defName="JDSAmmo_BoxB"
+                     or defName="JDSAmmo_BoxC"]/building</xpath>
+                  <value>
+                     <building Inherit="false">
+                        <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                        <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                        <fixedStorageSettings>
+                           <filter>
+                              <categories>
+                                 <li>yy_ammo_category</li>
+                              </categories>
+                           </filter>
+                        </fixedStorageSettings>
+                        <defaultStorageSettings>
+                           <priority>Important</priority>
+                           <filter>
+                           </filter>
+                        </defaultStorageSettings>
+                        <isInert>true</isInert>
+                     </building>
+                  </value>
+               </li>
+               <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ThingDef[defName="JDSAmmo_BoxA"
+                     or defName="JDSAmmo_BoxB"
+                     or defName="JDSAmmo_BoxC"]/researchPrerequisites</xpath>
+                  <value>
+                        <researchPrerequisites Inherit="false">
+                           <li>Gunsmithing</li>
+                        </researchPrerequisites>
+                  </value>
+               </li>
+               <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ThingDef[defName="JDSAmmo_BoxA"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                  <value>
+                        <li Class="LWM.DeepStorage.Properties">
+                           <maxNumberStacks>3</maxNumberStacks>
+                           <minTimeStoringTakes>50</minTimeStoringTakes>
+                           <additionalTimeEachStack>20</additionalTimeEachStack>
+                           <showContents>false</showContents>
+                           <overlayType>SumOfAllItems</overlayType>
+                        </li>
+                  </value>
+               </li>
+               <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ThingDef[defName="JDSAmmo_BoxB"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                  <value>
+                        <li Class="LWM.DeepStorage.Properties">
+                           <maxNumberStacks>10</maxNumberStacks>
+                           <minTimeStoringTakes>50</minTimeStoringTakes>
+                           <additionalTimeEachStack>20</additionalTimeEachStack>
+                           <showContents>false</showContents>
+                           <overlayType>SumOfAllItems</overlayType>
+                        </li>
+                  </value>
+               </li>
+               <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ThingDef[defName="JDSAmmo_BoxC"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                  <value>
+                        <li Class="LWM.DeepStorage.Properties">
+                           <maxNumberStacks>40</maxNumberStacks>
+                           <minTimeStoringTakes>50</minTimeStoringTakes>
+                           <additionalTimeEachStack>20</additionalTimeEachStack>
+                           <showContents>false</showContents>
+                           <overlayType>SumOfAllItems</overlayType>
+                        </li>
+                  </value>
+               </li>
+            <!--Ammo Crates-->
+               <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ThingDef[defName="JDSAmmo_Crate"]/description</xpath>
+                  <value>
+                     <description>A wooden ammo crate. You can store ammo here. Items stored here won't deteriorate.</description>
+                  </value>
+               </li>
+               <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ThingDef[defName="JDSAmmo_Crate_Piles"]/description</xpath>
+                  <value>
+                     <description>A big pile of wooden ammo crates. You can store ammo here. Items stored here won't deteriorate.</description>
+                  </value>
+               </li>
+               <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ThingDef[defName="JDSAmmo_Crate"]/statBases</xpath>
+                  <value>
+                     <statBases>
+                        <Beauty>0.7</Beauty>
+                        <MaxHitPoints>150</MaxHitPoints>
+                        <WorkToBuild>1000</WorkToBuild>
+                        <Flammability>1</Flammability>
+                        <Mass>10</Mass>
+                      </statBases>
+                  </value>
+               </li>
+               <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ThingDef[defName="JDSAmmo_Crate_Piles"]/statBases</xpath>
+                  <value>
+                     <statBases>
+                        <Beauty>0.7</Beauty>
+                        <MaxHitPoints>450</MaxHitPoints>
+                        <WorkToBuild>3000</WorkToBuild>
+                        <Flammability>1</Flammability>
+                        <Mass>50</Mass>
+                      </statBases>
+                  </value>
+               </li>
+               <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ThingDef[defName="JDSAmmo_Crate"]/costStuffCount</xpath>
+                  <value>
+                     <costStuffCount>50</costStuffCount>
+                  </value>
+               </li>
+               <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ThingDef[defName="JDSAmmo_Crate_Piles"]/costStuffCount</xpath>
+                  <value>
+                     <costStuffCount>1200</costStuffCount>
+                  </value>
+               </li>
+               <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ThingDef[defName="JDSAmmo_Crate"
+                     or defName="JDSAmmo_Crate_Piles"]/building</xpath>
+                  <value>
+                     <building Inherit="false">
+                        <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                        <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                        <fixedStorageSettings>
+                           <filter>
+                              <categories>
+                                 <li>yy_ammo_category</li>
+                              </categories>
+                           </filter>
+                        </fixedStorageSettings>
+                        <defaultStorageSettings>
+                           <priority>Important</priority>
+                           <filter>
+                           </filter>
+                        </defaultStorageSettings>
+                        <isInert>true</isInert>
+                     </building>
+                  </value>
+               </li>
+               <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ThingDef[defName="JDSAmmo_Crate"
+                     or defName="JDSAmmo_Crate_Piles"]/researchPrerequisites</xpath>
+                  <value>
+                        <researchPrerequisites Inherit="false">
+                           <li>RS_BoxesStorage</li>
+                        </researchPrerequisites>
+                  </value>
+               </li>
+               <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ThingDef[defName="JDSAmmo_Crate"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                  <value>
+                        <li Class="LWM.DeepStorage.Properties">
+                           <maxNumberStacks>3</maxNumberStacks>
+                           <minTimeStoringTakes>300</minTimeStoringTakes>
+                           <additionalTimeEachStack>20</additionalTimeEachStack>
+                           <showContents>false</showContents>
+                           <overlayType>SumOfAllItems</overlayType>
+                        </li>
+                  </value>
+               </li>
+               <li Class="PatchOperationReplace">
+                  <xpath>/Defs/ThingDef[defName="JDSAmmo_Crate_Piles"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                  <value>
+                        <li Class="LWM.DeepStorage.Properties">
+                           <maxNumberStacks>60</maxNumberStacks>
+                           <minTimeStoringTakes>650</minTimeStoringTakes>
+                           <additionalTimeEachStack>20</additionalTimeEachStack>
+                           <showContents>false</showContents>
+                           <overlayType>SumOfAllItems</overlayType>
+                        </li>
+                  </value>
+               </li>
+            </operations>
+         </match>
+         <nomatch Class="PatchOperationRemove">
+            <xpath>/Defs/ThingDef[defName="JDSAmmo_Crate"
+               or defName="JDSAmmo_Crate_Piles"
+               or defName="JDSAmmo_BoxA"
+               or defName="JDSAmmo_BoxB"
+               or defName="JDSAmmo_BoxC"]</xpath>
+         </nomatch>
+      </nomatch>
+   </match>
+</Operation>
+
+<!--Removed stuff-->
+<Operation Class="PatchOperationFindMod">
+      <mods>
+         <li>[JDS] Simple Storage</li>
+      </mods>
+      <match Class="PatchOperationSequence">
+         <!-- <success>Always</success> -->
+         <operations>
+         <!--Pallet box - Its too small to realistically stock anything. It also has a slightly
+            different artstyle.-->
+            <li Class="PatchOperationRemove">
+               <xpath>/Defs/ThingDef[defName="JDSPallet_Box"]</xpath>
+            </li>
+         <!--Pallet container - Too small again. It also has a weird description. Probably
+            just a leftover from an idea.-->
+            <li Class="PatchOperationRemove">
+               <xpath>/Defs/ThingDef[defName="JDSPallet_Container"]</xpath>
+            </li>
+         <!--Beer crate - wayyyy to small, this is more a cute prop than a storage building. -->
+            <li Class="PatchOperationRemove">
+               <xpath>/Defs/ThingDef[defName="JDSBeer_Crate"]</xpath>
+            </li>
+         <!--Stuffable Shelf A and B - These one has broken graphics. -->
+            <li Class="PatchOperationRemove">
+               <xpath>/Defs/ThingDef[defName="JDSShelf_A_Empty" or defName="JDSShelf_A_Full"]</xpath>
+            </li>
+         <!--Bulk Water - I guess it could be used in Dub's Bad Hygiene, but that is out of the scope
+            of this mod. -->
+            <li Class="PatchOperationRemove">
+               <xpath>/Defs/ThingDef[defName="JDS_Bulk_Water"]</xpath>
+            </li>
+         <!--Wheelbarrow - It's cute, but very small. Would be a nice prop, though! -->
+            <li Class="PatchOperationRemove">
+               <xpath>/Defs/ThingDef[defName="JDSwheelbarrow"]</xpath>
+            </li>
+         <!--Resource Crates from 1 to 10 - An open crate will not have different storage capabilities
+            than a close one, so it would mostly add clutter. The art direction is weird too, the size
+            of the items shown is very different than of the ingame version. All that being said,
+            this removal is the one that I am the most unsure of, because it simplifies making the
+            filters settings.-->
+            <li Class="PatchOperationRemove">
+               <xpath>/Defs/ThingDef[defName="JDS_1ResourcesCrate"
+                                    or defName="JDS_2ResourcesCrate"
+                                    or defName="JDS_3ResourcesCrate"
+                                    or defName="JDS_4ResourcesCrate"
+                                    or defName="JDS_5ResourcesCrate"
+                                    or defName="JDS_6ResourcesCrate"
+                                    or defName="JDS_7ResourcesCrate"
+                                    or defName="JDS_8ResourcesCrate"
+                                    or defName="JDS_9ResourcesCrate"
+                                    or defName="JDS_10ResourcesCrate"]</xpath>
+            </li>
+         <!--Large Pallet F - Small pallets on top of a pallet, sadly not a storage option
+            that makes much sense unless we get a 'pallet' item. -->
+            <li Class="PatchOperationRemove">
+               <xpath>/Defs/ThingDef[defName="JDS_Large_E_Pallet"]</xpath>
+            </li>
+         <!--ToolBox - I don't really understand what this is supposed to be, so I can't
+            balance it. I am open to suggestions -->
+            <li Class="PatchOperationRemove">
+               <xpath>/Defs/ThingDef[defName="JDSTool_Box"]</xpath>
+            </li>
+         </operations>
+      </match>
+   </Operation>
+
+<!--Research-->
+
+</Patch>

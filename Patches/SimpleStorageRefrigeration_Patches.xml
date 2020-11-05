@@ -1,0 +1,143 @@
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>[JDS] Simple Storage - Refrigeration</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <!-- <success>Always</success> -->
+            <operations>
+            <!--Refrigerator-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="JDS_Refrigerator"]/researchPrerequisites</xpath>
+                    <value>
+                        <researchPrerequisites>
+                            <li>RS_ModernStorage</li>
+                        </researchPrerequisites>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="JDS_Refrigerator"]/description</xpath>
+                    <value>
+                        <description>A fridge cabinet. Can hold food and freeze it. Easier to build and use than a deep fridge.</description>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="JDS_Refrigerator"]/costList</xpath>
+                    <value>
+                        <costList>
+                            <Steel>200</Steel>
+                            <ComponentIndustrial>4</ComponentIndustrial>
+                        </costList>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="JDS_Refrigerator"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                    <value>
+                        <li Class="LWM.DeepStorage.Properties">
+                            <minNumberStacks>2</minNumberStacks>
+                            <maxNumberStacks>4</maxNumberStacks>
+                            <maxMassOfStoredItem>100</maxMassOfStoredItem>
+                            <minTimeStoringTakes>25</minTimeStoringTakes>
+                            <additionalTimeEachStack>10</additionalTimeEachStack>
+                            <additionalTimeEachDef>10</additionalTimeEachDef>
+                            <showContents>false</showContents>
+                            <overlayType>SumOfAllItems</overlayType>
+                        </li>
+                    </value>
+                </li>
+            <!--Ice box-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="JDS_IceBox"]/researchPrerequisites</xpath>
+                    <value>
+                        <researchPrerequisites>
+                            <li>RS_ModernStorage</li>
+                        </researchPrerequisites>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="JDS_IceBox"]/description</xpath>
+                    <value>
+                        <description>An freezing box. Can hold food and freeze it. Easier to build and use than a deep fridge.</description>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="JDS_IceBox"]/costList</xpath>
+                    <value>
+                        <costList>
+                            <Steel>250</Steel>
+                            <ComponentIndustrial>8</ComponentIndustrial>
+                        </costList>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="JDS_IceBox"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                    <value>
+                        <li Class="LWM.DeepStorage.Properties">
+                            <minNumberStacks>2</minNumberStacks>
+                            <maxNumberStacks>4</maxNumberStacks>
+                            <maxMassOfStoredItem>100</maxMassOfStoredItem>
+                            <minTimeStoringTakes>25</minTimeStoringTakes>
+                            <additionalTimeEachStack>10</additionalTimeEachStack>
+                            <additionalTimeEachDef>10</additionalTimeEachDef>
+                            <showContents>false</showContents>
+                            <overlayType>SumOfAllItems</overlayType>
+                        </li>
+                    </value>
+                </li>
+            <!--Box Truck-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="JDS_RefrigeratedBoxTrucks"]/researchPrerequisites</xpath>
+                    <value>
+                        <researchPrerequisites>
+                            <li>RS_IndustrialStorage</li>
+                        </researchPrerequisites>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="JDS_RefrigeratedBoxTrucks"]/description</xpath>
+                    <value>
+                        <description>An refrigerated container. Can hold food and freeze it. Easier to build and use than a deep fridge.</description>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="JDS_RefrigeratedBoxTrucks"]/costList</xpath>
+                    <value>
+                        <costList>
+                            <Steel>800</Steel>
+                            <ComponentIndustrial>15</ComponentIndustrial>
+                        </costList>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                <xpath>/Defs/ThingDef[defName="JDS_RefrigeratedBoxTrucks"]/size</xpath>
+                    <value>
+                        <size>(4,2)</size>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="JDS_RefrigeratedBoxTrucks"]/graphicData</xpath>
+                    <value>
+                        <drawOffsetNorth>(-0.5,-0.5,0.4)</drawOffsetNorth>
+                        <drawOffsetEast>(0,0,0.5)</drawOffsetEast>
+                        <drawOffsetSouth>(0.5,0.5,0.4)</drawOffsetSouth>
+                        <drawOffsetWest>(0,0,0.5)</drawOffsetWest>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="JDS_RefrigeratedBoxTrucks"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                    <value>
+                        <li Class="LWM.DeepStorage.Properties">
+                            <minNumberStacks>2</minNumberStacks>
+                            <maxNumberStacks>5</maxNumberStacks>
+                            <minTimeStoringTakes>150</minTimeStoringTakes>
+                            <additionalTimeEachStack>10</additionalTimeEachStack>
+                            <additionalTimeEachDef>10</additionalTimeEachDef>
+                            <showContents>false</showContents>
+                            <overlayType>SumOfAllItems</overlayType>
+                        </li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+</Patch>

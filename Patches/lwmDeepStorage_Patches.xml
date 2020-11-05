@@ -1,0 +1,79 @@
+<Patch>
+    <Operation Class="PatchOperationSequence">
+        <!-- <success>Always</success> -->
+        <operations>
+        <!--Research Changes-->
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/ThingDef[defName="LWM_DeepStorage_Skip"]</xpath>
+                <value>
+                    <researchPrerequisites Inherit="false">
+                        <li>Smithing</li>
+                    </researchPrerequisites>
+                </value>
+            </li>
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/ThingDef[defName="LWM_Food_Basket"]/researchPrerequisites</xpath>
+                <value>
+                    <researchPrerequisites Inherit="false">
+                        <li>RS_NeolithicStorage</li>
+                    </researchPrerequisites>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/ThingDef[defName="LWM_BigShelf" or defName="LWM_Hayloft" or defName="LWM_Clothing_Rack"]</xpath>
+                <value>
+                    <researchPrerequisites Inherit="false">
+                        <li>RS_MedievalStorage</li>
+                    </researchPrerequisites>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/ThingDef[defName="LWM_MealRack" or defName="LWM_FabricHamper" or defName="LWM_VeryBigShelf" or defName="LWM_Medicine_Cabinet"]</xpath>
+                <value>
+                    <researchPrerequisites Inherit="false">
+                        <li>RS_ModernStorage</li>
+                    </researchPrerequisites>
+                </value>
+            </li>
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/ThingDef[defName="LWM_WeaponsCabinet"]/researchPrerequisites</xpath>
+                <value>
+                    <researchPrerequisites Inherit="false">
+                        <li>RS_ModernStorage</li>
+                    </researchPrerequisites>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/ThingDef[defName="LWM_Pallet" or defName="LWM_Pallet_Covered"]</xpath>
+                <value>
+                    <researchPrerequisites Inherit="false">
+                        <li>RS_PalletsStorage</li>
+                    </researchPrerequisites>
+                </value>
+            </li>
+        <!--Filter Changes-->
+        <!--Hampers - Soft loose + Apparel-->
+            <li Class="PatchOperationReplace">
+                <xpath>/Defs/ThingDef[defName="LWM_FabricHamper"]/building/fixedStorageSettings</xpath>
+                <value>
+                    <fixedStorageSettings>
+                        <filter>
+                            <categories>
+                                <li>PlantMatter</li>
+                                <li>Apparel</li>
+                            </categories>
+                            <thingDefs>
+                                <li>Yayo</li>
+                                <li>WakeUp</li>
+                                <li>Flake</li>
+                                <li>Luciferium</li>
+                                <li>Kibble</li>
+                                <li>Pemmican</li>
+                            </thingDefs>
+                        </filter>
+                    </fixedStorageSettings>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+</Patch>

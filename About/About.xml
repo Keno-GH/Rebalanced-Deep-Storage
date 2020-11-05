@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ModMetaData>
+	<name>Rebalanced Deep Storage</name>
+	<author>Oken</author>
+	<supportedVersions>
+		<li>1.2</li>
+	</supportedVersions>
+	<packageId>Oken.RebalancedDeepStorage</packageId>
+	<description>Check the Steam workshop page for more info.</description>
+	<modDependencies>
+		<li>
+			<displayName>LWM's Deep Storage</displayName>			
+			<packageId>LWM.DeepStorage</packageId>
+			<steamWorkshopUrl>steam://url/CommunityFilePage/1617282896</steamWorkshopUrl>
+		</li>
+	</modDependencies>
+	<loadAfter>
+		<li>lwm.deepstorage</li>
+		<li>drzhivago.docworld</li>
+		<li>sixdd.littlestorage2</li>
+		<li>jangodsoul.simplestorage</li>
+		<li>jangodsoul.simplestorage.ref</li>
+		<li>primitivestorage.velcroboy333</li>
+	</loadAfter>
+</ModMetaData>

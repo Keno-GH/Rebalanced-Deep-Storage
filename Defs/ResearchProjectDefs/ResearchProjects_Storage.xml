@@ -1,0 +1,102 @@
+<Defs>
+    <ResearchProjectDef>
+        <defName>RS_NeolithicStorage</defName>
+        <label>neolithic storage</label>
+        <tab>RS_Storage</tab>
+        <description>Build simple storage like woven baskets and dedicated storage tents.</description>
+        <baseCost>200</baseCost>
+        <techLevel>Neolithic</techLevel>
+        <tags>
+            <li>TribalStart</li>
+        </tags>
+        <researchViewX>0.00</researchViewX>
+        <researchViewY>0.00</researchViewY>
+    </ResearchProjectDef>
+    <ResearchProjectDef>
+        <defName>RS_MedievalStorage</defName>
+        <label>medieval storage</label>
+        <tab>RS_Storage</tab>
+        <description>Build medieval storage like chests and simple shelves.</description>
+        <baseCost>300</baseCost>
+        <techLevel>Medieval</techLevel>
+        <prerequisites>
+            <li>RS_NeolithicStorage</li>
+        </prerequisites>
+        <researchViewX>1.00</researchViewX>
+        <researchViewY>0.00</researchViewY>
+    </ResearchProjectDef>
+    <ResearchProjectDef>
+        <defName>RS_BoxesStorage</defName>
+        <label>storage boxes</label>
+        <tab>RS_Storage</tab>
+        <description>Build storabe boxes that are sturdy but slow to use.</description>
+        <baseCost>400</baseCost>
+        <techLevel>Medieval</techLevel>
+        <prerequisites>
+            <li>RS_NeolithicStorage</li>
+        </prerequisites>
+        <researchViewX>1.00</researchViewX>
+        <researchViewY>2.00</researchViewY>
+    </ResearchProjectDef>
+    <ResearchProjectDef>
+        <defName>RS_ModernStorage</defName>
+        <label>modern storage</label>
+        <tab>RS_Storage</tab>
+        <description>Build modern day storage like cabbinets and shelves.</description>
+        <baseCost>700</baseCost>
+        <techLevel>Industrial</techLevel>
+        <tags>
+            <li>ClassicStart</li>
+        </tags>
+        <prerequisites>
+            <li>RS_MedievalStorage</li>
+            <li>ComplexFurniture</li>
+        </prerequisites>
+        <researchViewX>2.00</researchViewX>
+        <researchViewY>0.00</researchViewY>
+    </ResearchProjectDef>
+    <ResearchProjectDef>
+        <defName>RS_IndustrialStorage</defName>
+        <label>industrial storage</label>
+        <tab>RS_Storage</tab>
+        <description>Build complex industrial storage like big shelves and dumpsters.</description>
+        <baseCost>800</baseCost>
+        <techLevel>Industrial</techLevel>
+        <prerequisites>
+            <li>ComplexFurniture</li>
+            <li>Smithing</li>
+        </prerequisites>
+        <researchViewX>2.00</researchViewX>
+        <researchViewY>1.00</researchViewY>
+    </ResearchProjectDef>
+    <ResearchProjectDef>
+        <defName>RS_CardboardStorage</defName>
+        <label>cardboard storage</label>
+        <tab>RS_Storage</tab>
+        <description>Build cardboard boxes which are weaker but cheaper than wooden boxes.</description>
+        <baseCost>200</baseCost>
+        <techLevel>Industrial</techLevel>
+        <prerequisites>
+            <li>RS_BoxesStorage</li>
+            <li>ComplexFurniture</li>
+        </prerequisites>
+        <researchViewX>2.00</researchViewX>
+        <researchViewY>2.00</researchViewY>
+    </ResearchProjectDef>
+    <ResearchProjectDef>
+        <defName>RS_PalletsStorage</defName>
+        <label>pallets</label>
+        <tab>RS_Storage</tab>
+        <description>Build cheap pallets which can store bulky things.</description>
+        <baseCost>500</baseCost>
+        <techLevel>Industrial</techLevel>
+        <tags>
+            <li>ClassicStart</li>
+        </tags>
+        <prerequisites>
+            <li>ComplexFurniture</li>
+        </prerequisites>
+        <researchViewX>2.00</researchViewX>
+        <researchViewY>3.00</researchViewY>
+    </ResearchProjectDef>
+</Defs>

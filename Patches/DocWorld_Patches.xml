@@ -1,0 +1,1646 @@
+<Patch>
+<!--Vanilla-->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>DocWorld</li>
+        </mods>
+        <match Class="PatchOperationFindMod">
+            <mods>
+                <li>Vanilla Furniture Expanded - Props and Decor</li>
+            </mods>
+            <match Class="PatchOperationSequence">
+                <!-- <success>Always</success> -->
+                <operations>
+                <!--DZ_VFEPD_BrickPile - Stonecutting - Pile-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_BrickPile"]/description</xpath>
+                        <value>
+                            <description>A dedicated pile of bricks. You can store more bricks here. It is recommended to keep this pile for one tipe of bricks, though. Fiddling around heavy bricks to find the type you want will take a long time.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_BrickPile"]</xpath>
+                        <value>
+                            <building Inherit="false">
+                                <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                                <preventDeteriorationOnTop>false</preventDeteriorationOnTop>
+                                <fixedStorageSettings>
+                                    <filter>
+                                    <categories>
+                                        <li>StoneBlocks</li>
+                                    </categories>
+                                    </filter>
+                                </fixedStorageSettings>
+                                <defaultStorageSettings>
+                                    <priority>Important</priority>
+                                    <filter>
+                                    </filter>
+                                </defaultStorageSettings>
+                                <isInert>true</isInert>
+                            </building>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_BrickPile"]</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>Stonecutting</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_BrickPile"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>3</maxNumberStacks>
+                                <minTimeStoringTakes>100</minTimeStoringTakes>
+                                <additionalTimeEachStack>100</additionalTimeEachStack>
+                                <additionalTimeEachDef>300</additionalTimeEachDef>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                <!--VFEPD_WoodenLogs - Pile-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WoodenLogs" or defName="DZ_VFEPD_WoodenLogsLarge"]/description</xpath>
+                        <value>
+                            <description>A dedicated stack of wooden logs. You can store more logs here.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WoodenLogs"]/building</xpath>
+                        <value>
+                            <building Inherit="false">
+                                <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                                <preventDeteriorationOnTop>true</preventDeteriorationOnTop> <!--Deterioration of wood is a joke ingame anyways-->
+                                <fixedStorageSettings>
+                                    <filter>
+                                    <thingDefs>
+                                        <li>WoodLog</li>
+                                    </thingDefs>
+                                    </filter>
+                                </fixedStorageSettings>
+                                <defaultStorageSettings>
+                                    <priority>Important</priority>
+                                    <filter>
+                                    </filter>
+                                </defaultStorageSettings>
+                                <isInert>true</isInert>
+                            </building>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WoodenLogs"]/costList</xpath>
+                        <value>
+                            <costList>
+                                <WoodLog>30</WoodLog>
+                            </costList>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WoodenLogsLarge"]/costList</xpath>
+                        <value>
+                            <costList>
+                                <WoodLog>75</WoodLog>
+                            </costList>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WoodenLogs" or defName="DZ_VFEPD_WoodenLogsLarge"]/researchPrerequisites</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false" />
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WoodenLogs" or defName="DZ_VFEPD_WoodenLogsLarge"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>3</maxNumberStacks>
+                                <minTimeStoringTakes>100</minTimeStoringTakes>
+                                <additionalTimeEachStack>100</additionalTimeEachStack>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                <!--Storage Bags - Soft Loose-->
+                <!--Wooden Chest - General-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WoodenChest"]/description</xpath>
+                        <value>
+                            <description>A medium size wooden chest for storing miscellaneous items. It is fast to use. Items stored in this will not deteriorate, even if outside.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WoodenChest"]/researchPrerequisites</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>RS_MedievalStorage</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WoodenChest"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>2</maxNumberStacks>
+                                <maxTotalMass>30</maxTotalMass>
+                                <minTimeStoringTakes>100</minTimeStoringTakes>
+                                <additionalTimeEachStack>100</additionalTimeEachStack>
+                                <additionalTimeEachDef>100</additionalTimeEachDef>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                <!--Large Wooden Chest - General-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WoodenChestLarge"]/label</xpath>
+                        <value>
+                            <label>large wooden chest</label>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WoodenChestLarge"]/description</xpath>
+                        <value>
+                            <description>A large size wooden chest for storing miscellaneous items. It is fast to use. Items stored in this will not deteriorate, even if outside.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WoodenChestLarge"]/costList</xpath>
+                        <value>
+                            <costList>
+                                <WoodLog>60</WoodLog>
+                            </costList>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WoodenChestLarge"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>2</maxNumberStacks>
+                                <maxTotalMass>40</maxTotalMass>
+                                <minTimeStoringTakes>100</minTimeStoringTakes>
+                                <additionalTimeEachStack>100</additionalTimeEachStack>
+                                <additionalTimeEachDef>100</additionalTimeEachDef>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                <!--Large Wooden Boxes - General-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_BoxLarge"]/description</xpath>
+                        <value>
+                            <description>A large size wooden box for storing miscellaneous items. It is slow to use. Storing a big variety of items in a single box will increase storing time. Items stored in this will not deteriorate, even if outside.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_BoxLarge"]/researchPrerequisites</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>RS_BoxesStorage</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_BoxLarge"]/costList</xpath>
+                        <value>
+                            <costList>
+                                <WoodLog>40</WoodLog>
+                            </costList>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_BoxLarge"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>2</maxNumberStacks>
+                                <maxTotalMass>20</maxTotalMass>
+                                <minTimeStoringTakes>500</minTimeStoringTakes>
+                                <additionalTimeEachStack>200</additionalTimeEachStack>
+                                <additionalTimeEachDef>600</additionalTimeEachDef>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                <!--Small Wooden Boxes - General-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_BoxSmall"]/description</xpath>
+                        <value>
+                            <description>A small size wooden box for storing miscellaneous items. It is slow to use. Storing a big variety of items in a single box will increase storing time. Items stored in this will not deteriorate, even if outside.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_BoxSmall"]/costList</xpath>
+                        <value>
+                            <costList>
+                                <WoodLog>20</WoodLog>
+                            </costList>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_BoxSmall"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>2</maxNumberStacks>
+                                <maxTotalMass>10</maxTotalMass>
+                                <minTimeStoringTakes>500</minTimeStoringTakes>
+                                <additionalTimeEachStack>200</additionalTimeEachStack>
+                                <additionalTimeEachDef>600</additionalTimeEachDef>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                <!--Wooden Boxes Pallet - General-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_PalletBoxes"]/description</xpath>
+                        <value>
+                            <description>A pallet of wooden boxes for storing miscellaneous items. It is slow to use. Items stored in this will not deteriorate, even if outside.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_PalletBoxes"]/costList</xpath>
+                        <value>
+                            <costList>
+                                <WoodLog>330</WoodLog>
+                            </costList>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_PalletBoxes"]</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>RS_BoxesStorage</li>
+                                <li>RS_PalletsStorage</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_PalletBoxes"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>3</maxNumberStacks>
+                                <maxTotalMass>40</maxTotalMass>
+                                <minTimeStoringTakes>500</minTimeStoringTakes>
+                                <additionalTimeEachStack>200</additionalTimeEachStack>
+                                <additionalTimeEachDef>100</additionalTimeEachDef>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                <!--Weapon Racks - Weapons -->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WeaponRackEmpty"]/researchPrerequisites</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>Smithing</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WeaponRackEmpty"]/building</xpath>
+                        <value>
+                            <building Inherit="false">
+                                <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                                <preventDeteriorationOnTop>false</preventDeteriorationOnTop>
+                                <fixedStorageSettings>
+                                    <filter>
+                                    <categories>
+                                        <li>Weapons</li>
+                                    </categories>
+                                    </filter>
+                                </fixedStorageSettings>
+                                <defaultStorageSettings>
+                                    <priority>Important</priority>
+                                    <filter>
+                                    </filter>
+                                </defaultStorageSettings>
+                                <isInert>true</isInert>
+                            </building>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WeaponRackEmpty"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>4</maxNumberStacks>
+                                <maxTotalMass>15</maxTotalMass>
+                                <minTimeStoringTakes>500</minTimeStoringTakes>
+                                <showContents>true</showContents>
+                                <overlayType>SumOfItemsPerCell</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WeaponRackSwords"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>4</maxNumberStacks>
+                                <maxTotalMass>15</maxTotalMass>
+                                <minTimeStoringTakes>500</minTimeStoringTakes>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfItemsPerCell</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                <!--Armor Stands - Armor -->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_ArmorStandEmpty"]/description</xpath>
+                        <value>
+                            <description>An armor stand. It can store armor. Items stored can deteriorate.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_ArmorStandEmpty"]/description</xpath>
+                        <value>
+                            <description>An armor stand. It can store armor. Items stored here will not be visible but can deteriorate.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_ArmorStandEmpty"]/researchPrerequisites</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>Smithing</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_ArmorStandEmpty"]/building</xpath>
+                        <value>
+                            <building Inherit="false">
+                                <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                                <preventDeteriorationOnTop>false</preventDeteriorationOnTop>
+                                <fixedStorageSettings>
+                                    <filter>
+                                    <categories>
+                                        <li>ApparelArmor</li>
+                                    </categories>
+                                    </filter>
+                                </fixedStorageSettings>
+                                <defaultStorageSettings>
+                                    <priority>Important</priority>
+                                    <filter>
+                                    </filter>
+                                </defaultStorageSettings>
+                                <isInert>true</isInert>
+                            </building>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_ArmorStandEmpty"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>5</maxNumberStacks>
+                                <maxTotalMass>30</maxTotalMass>
+                                <minTimeStoringTakes>500</minTimeStoringTakes>
+                                <showContents>true</showContents>
+                                <overlayType>SumOfItemsPerCell</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_ArmorStandFull"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>5</maxNumberStacks>
+                                <maxTotalMass>30</maxTotalMass>
+                                <minTimeStoringTakes>500</minTimeStoringTakes>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfItemsPerCell</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                <!--Large Cardboard Boxes - General-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_CardboardBoxLarge"]/description</xpath>
+                        <value>
+                            <description>A large size cardboard box for storing miscellaneous items. It is slow to use. Storing a big variety of items in a single box will increase storing time. Items stored in this will not deteriorate, even if outside.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_CardboardBoxLarge"]/researchPrerequisites</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>RS_CardboardStorage</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_CardboardBoxLarge"]/costList</xpath>
+                        <value>
+                            <costList>
+                                <WoodLog>15</WoodLog>
+                            </costList>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_CardboardBoxLarge"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>2</maxNumberStacks>
+                                <maxTotalMass>10</maxTotalMass>
+                                <minTimeStoringTakes>400</minTimeStoringTakes>
+                                <additionalTimeEachStack>200</additionalTimeEachStack>
+                                <additionalTimeEachDef>600</additionalTimeEachDef>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                <!--Small Cardboard Boxes - General-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_CardboardBoxSmall"]/description</xpath>
+                        <value>
+                            <description>A small size wooden box for storing miscellaneous items. It is slow to use. Storing a big variety of items in a single box will increase storing time. Items stored in this will not deteriorate, even if outside.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_CardboardBoxSmall"]/costList</xpath>
+                        <value>
+                            <costList>
+                                <WoodLog>10</WoodLog>
+                            </costList>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_CardboardBoxSmall"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>2</maxNumberStacks>
+                                <maxTotalMass>5</maxTotalMass>
+                                <minTimeStoringTakes>500</minTimeStoringTakes>
+                                <additionalTimeEachStack>200</additionalTimeEachStack>
+                                <additionalTimeEachDef>600</additionalTimeEachDef>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                <!--Cardboard Boxes Pallet - General-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="VFEPD_PalletCardboard"]/description</xpath>
+                        <value>
+                            <description>A pallet of cardboard boxes for storing miscellaneous items. It is slow to use. Items stored in this will not deteriorate, even if outside.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="VFEPD_PalletCardboard"]/costList</xpath>
+                        <value>
+                            <costList>
+                                <WoodLog>80</WoodLog>
+                            </costList>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[defName="VFEPD_PalletCardboard"]</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>RS_CardboardStorage</li>
+                                <li>RS_PalletsStorage</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="VFEPD_PalletCardboard"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>3</maxNumberStacks>
+                                <maxTotalMass>20</maxTotalMass>
+                                <minTimeStoringTakes>500</minTimeStoringTakes>
+                                <additionalTimeEachStack>200</additionalTimeEachStack>
+                                <additionalTimeEachDef>100</additionalTimeEachDef>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                <!--Tall Cabinet - Raw Food-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_TallCabinet"]/description</xpath>
+                        <value>
+                            <description>A tall cabinet that can hold items like food, drugs and medicine. It is fast to use. Items stored in this will not deteriorate, even if outside.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_TallCabinet"]/costStuffCount</xpath>
+                        <value>
+                            <costStuffCount>100</costStuffCount>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_TallCabinet"]/researchPrerequisites</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>RS_ModernStorage</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_TallCabinet"]/building</xpath>
+                        <value>
+                            <building Inherit="false">
+                                <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                                <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                                <fixedStorageSettings>
+                                <filter>
+                                    <categories>
+                                        <li>FoodRaw</li>
+                                        <li>PlantMatter</li>
+                                        <li>Drugs</li>
+                                        <li>Medicine</li>
+                                    </categories>
+                                    <thingDefs>
+                                        <li>Pemmican</li>
+                                        <li>Kibble</li>
+                                    </thingDefs>
+                                </filter>
+                                </fixedStorageSettings>
+                                <defaultStorageSettings>
+                                    <priority>Important</priority>
+                                    <filter>
+                                    </filter>
+                                </defaultStorageSettings>
+                                <isInert>true</isInert>
+                            </building>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_TallCabinet"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>5</maxNumberStacks>
+                                <maxTotalMass>30</maxTotalMass>
+                                <minTimeStoringTakes>50</minTimeStoringTakes>
+                                <additionalTimeEachStack>20</additionalTimeEachStack>
+                                <additionalTimeEachDef>20</additionalTimeEachDef>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                <!--Lockers - Apparel -->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Lockers"]/description</xpath>
+                        <value>
+                            <description>A metal locker unit. You can store apparel here. Items stored here will not deteriorate, even if outside.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Lockers"]/costStuffCount</xpath>
+                        <value>
+                            <costStuffCount>60</costStuffCount>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Lockers"]/researchPrerequisites</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>RS_ModernStorage</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Lockers"]/building</xpath>
+                        <value>
+                            <building Inherit="false">
+                                <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                                <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                                <fixedStorageSettings>
+                                <filter>
+                                    <categories>
+                                        <li>Apparel</li>
+                                    </categories>
+                                </filter>
+                                </fixedStorageSettings>
+                                <defaultStorageSettings>
+                                    <priority>Important</priority>
+                                    <filter>
+                                    </filter>
+                                </defaultStorageSettings>
+                                <isInert>true</isInert>
+                            </building>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Lockers"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>10</maxNumberStacks>
+                                <minNumberStacks>5</minNumberStacks>
+                                <maxTotalMass>5</maxTotalMass>
+                                <minTimeStoringTakes>50</minTimeStoringTakes>
+                                <additionalTimeEachStack>20</additionalTimeEachStack>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                <!-- Vending Machine - Small items -->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_VendingMachine"]/description</xpath>
+                        <value>
+                            <description>A vending machine. Your pawns refuse to pay for using it, though. You can store a great variety of items here, so long they are small enough to fit. Items stored here will not deteriorate, even if outside.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_VendingMachine"]/costStuffCount</xpath>
+                        <value>
+                            <costStuffCount>60</costStuffCount>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_VendingMachine"]/researchPrerequisites</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>RS_CardboardStorage</li>
+                                <li>RS_ModernStorage</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_VendingMachine"]/building</xpath>
+                        <value>
+                            <building Inherit="false">
+                                <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                                <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                                <fixedStorageSettings>
+                                    <filter>
+                                        <categories>
+                                            <li>Manufactured</li>
+                                            <li>Foods</li>
+                                            <li>PlantMatter</li>
+                                            <li>Items</li>
+                                        </categories>
+                                    </filter>
+                                </fixedStorageSettings>
+                                <defaultStorageSettings>
+                                    <priority>Important</priority>
+                                    <filter>
+                                    </filter>
+                                </defaultStorageSettings>
+                                <isInert>true</isInert>
+                            </building>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_VendingMachine"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>10</maxNumberStacks>
+                                <minNumberStacks>5</minNumberStacks>
+                                <maxTotalMass>10</maxTotalMass>
+                                <maxMassOfStoredItem>0.5</maxMassOfStoredItem>
+                                <minTimeStoringTakes>50</minTimeStoringTakes>
+                                <additionalTimeEachStack>20</additionalTimeEachStack>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                <!--Barrels - Chemicals and Heavy Loose-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_BarrelGreen"
+                                            or defName="DZ_VFEPD_BarrelGrey"
+                                            or defName="DZ_VFEPD_BarrelRed"
+                                            or defName="DZ_VFEPD_BarrelYellow"
+                                            or defName="DZ_VFEPD_BarrelBlue"]/description</xpath>
+                        <value>
+                            <description>A steel barrel. You can store chemicals and loose items here. You better not dare mixing different items here. Doing so will increase the storing time an inmense amount because it would require to make chambers inside to keep the items separate. Items stored here will not deteriorate, even if outside.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_BarrelGreen"]/costList</xpath>
+                        <value>
+                            <costList>
+                                <Steel>50</Steel>
+                            </costList>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_BarrelGreen"]/researchPrerequisites</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>Smithing</li>
+                                <li>RS_ModernStorage</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_BarrelGreen"]</xpath>
+                        <value>
+                            <building Inherit="false">
+                                <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                                <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                                <fixedStorageSettings>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>Chemfuel</li>
+                                            <li>Gold</li>
+                                            <li>Silver</li>
+                                            <li>Jade</li>
+                                        </thingDefs>
+                                    </filter>
+                                </fixedStorageSettings>
+                                <defaultStorageSettings>
+                                    <priority>Important</priority>
+                                    <filter>
+                                    </filter>
+                                </defaultStorageSettings>
+                                <isInert>true</isInert>
+                            </building>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_BarrelGreen"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>4</maxNumberStacks>
+                                <minTimeStoringTakes>500</minTimeStoringTakes>
+                                <additionalTimeEachStack>20</additionalTimeEachStack>
+                                <additionalTimeEachDef>10000</additionalTimeEachDef>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                <!--Pallet Barrels - Chemicals and Heavy Loose-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_PalletBarrelGreen"
+                                            or defName="DZ_VFEPD_PalletBarrelGrey"
+                                            or defName="DZ_VFEPD_PalletBarrelRed"
+                                            or defName="DZ_VFEPD_PalletBarrelYellow"
+                                            or defName="DZ_VFEPD_PalletBarrelBlue"]/description</xpath>
+                        <value>
+                            <description>A pallet of steel barrels. You can store a variety of chemicals and loose items here. Items stored here will not deteriorate, even if outside.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_PalletBarrelGreen"]/costList</xpath>
+                        <value>
+                            <costList>
+                                <Steel>450</Steel>
+                                <WoodLog>130</WoodLog>
+                            </costList>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_PalletBarrelGreen"]/researchPrerequisites</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>Smithing</li>
+                                <li>RS_ModernStorage</li>
+                                <li>RS_PalletsStorage</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_PalletBarrelGreen"]</xpath>
+                        <value>
+                            <building Inherit="false">
+                                <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                                <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                                <fixedStorageSettings>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>Chemfuel</li>
+                                            <li>Gold</li>
+                                            <li>Silver</li>
+                                            <li>Jade</li>
+                                        </thingDefs>
+                                    </filter>
+                                </fixedStorageSettings>
+                                <defaultStorageSettings>
+                                    <priority>Important</priority>
+                                    <filter>
+                                    </filter>
+                                </defaultStorageSettings>
+                                <isInert>true</isInert>
+                            </building>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_PalletBarrelGreen"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>9</maxNumberStacks>
+                                <minTimeStoringTakes>500</minTimeStoringTakes>
+                                <additionalTimeEachStack>20</additionalTimeEachStack>
+                                <additionalTimeEachDef>20</additionalTimeEachDef>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfItemsPerCell</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                <!--Bottle Rack - Drinkable-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WineRack"]/description</xpath>
+                        <value>
+                            <description>A civilized and nice looking bottle storage rack. You can store a drinks here. Items stored here will not deteriorate, even if outside.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WineRack"]/statBases</xpath>
+                        <value>
+                            <statBases>
+                                <MaxHitPoints>50</MaxHitPoints>
+                                <WorkToBuild>50</WorkToBuild>
+                                <Mass>15</Mass>
+                                <Beauty>5</Beauty>
+                                <Flammability>1</Flammability>
+                            </statBases>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WineRack"]/costList</xpath>
+                        <value>
+                            <costList>
+                                <WoodLog>50</WoodLog>
+                            </costList>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WineRack"]/researchPrerequisites</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>Brewing</li>
+                                <li>RS_ModernStorage</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WineRack"]</xpath>
+                        <value>
+                            <building Inherit="false">
+                                <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                                <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                                <fixedStorageSettings>
+                                    <filter>
+                                        <thingDefs>
+                                            <li>Beer</li>
+                                        </thingDefs>
+                                    </filter>
+                                </fixedStorageSettings>
+                                <defaultStorageSettings>
+                                    <priority>Important</priority>
+                                    <filter>
+                                    </filter>
+                                </defaultStorageSettings>
+                                <isInert>true</isInert>
+                            </building>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WineRack"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>3</maxNumberStacks>
+                                <minTimeStoringTakes>100</minTimeStoringTakes>
+                                <additionalTimeEachStack>20</additionalTimeEachStack>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                            </li>
+                            <li><compClass>CompQuality</compClass></li>
+                        </value>
+                    </li>
+                <!--Wooden Empty Pallet - General-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Pallet"]/description</xpath>
+                        <value>
+                            <description>A large flat pallet for packing things. Does not protect against the weather. Sometimes difficult to manage, but useful nonetheless.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Pallet"]/costList</xpath>
+                        <value>
+                            <costList>
+                                <WoodLog>130</WoodLog>
+                            </costList>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Pallet"]/building</xpath>
+                        <value>
+                           <building Inherit="false">
+                              <ignoreStoredThingsBeauty>false</ignoreStoredThingsBeauty>
+                              <preventDeteriorationOnTop>false</preventDeteriorationOnTop>
+                              <fixedStorageSettings>
+                                 <filter>
+                                    <categories>
+                                       <li>ResourcesRaw</li>
+                                       <li>Textiles</li>
+                                       <li>MortarShells</li>
+                                    </categories>
+                                    <disallowedCategories>
+                                       <li>PlantMatter</li>
+                                    </disallowedCategories>
+                                 </filter>
+                              </fixedStorageSettings>
+                              <defaultStorageSettings>
+                                 <priority>Important</priority>
+                                 <filter>
+                                 </filter>
+                              </defaultStorageSettings>
+                              <isInert>true</isInert>
+                           </building>
+                        </value>
+                     </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Pallet"]/researchPrerequisites</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>RS_PalletsStorage</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Pallet"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>4</maxNumberStacks>
+                                <minTimeStoringTakes>300</minTimeStoringTakes>
+                                <additionalTimeEachStack>110</additionalTimeEachStack>
+                                <additionalTimeEachDef>300</additionalTimeEachDef>
+                                <showContents>true</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                             </li>
+                        </value>
+                    </li>
+                <!--Empty Warehouse - Heavy items-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WarehouseShelfEmpty"]/description</xpath>
+                        <value>
+                            <description>An impassable warehouse shelf. Can store heavy things. Items stored here can deteriorate.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WarehouseShelfEmpty"]/costList</xpath>
+                        <value>
+                            <costList>
+                                <Steel>200</Steel>
+                            </costList>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WarehouseShelfEmpty"]/researchPrerequisites</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>RS_IndustrialStorage</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WarehouseShelfEmpty"]/building</xpath>
+                        <value>
+                           <building Inherit="false">
+                              <ignoreStoredThingsBeauty>false</ignoreStoredThingsBeauty>
+                              <preventDeteriorationOnTop>false</preventDeteriorationOnTop>
+                              <fixedStorageSettings>
+                                 <filter>
+                                    <categories>
+                                       <li>ResourcesRaw</li>
+                                       <li>Textiles</li>
+                                       <li>MortarShells</li>
+                                    </categories>
+                                    <disallowedCategories>
+                                       <li>PlantMatter</li>
+                                    </disallowedCategories>
+                                 </filter>
+                              </fixedStorageSettings>
+                              <defaultStorageSettings>
+                                 <priority>Important</priority>
+                                 <filter>
+                                 </filter>
+                              </defaultStorageSettings>
+                              <isInert>true</isInert>
+                           </building>
+                        </value>
+                     </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WarehouseShelfEmpty"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>5</maxNumberStacks>
+                                <minTimeStoringTakes>700</minTimeStoringTakes>
+                                <additionalTimeEachStack>50</additionalTimeEachStack>
+                                <showContents>true</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                             </li>
+                        </value>
+                    </li>
+                <!--Boxes Warehouse - Small items + Apparel-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WarehouseShelfBoxes"]/description</xpath>
+                        <value>
+                            <description>An impassable warehouse shelf with cardboard boxes. Can store most items. Items stored here can deteriorate.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WarehouseShelfBoxes"]/costList</xpath>
+                        <value>
+                            <costList>
+                                <Steel>200</Steel>
+                                <WoodLog>50</WoodLog>
+                            </costList>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WarehouseShelfBoxes"]/researchPrerequisites</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>RS_CardboardStorage</li>
+                                <li>RS_IndustrialStorage</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WarehouseShelfBoxes"]/building</xpath>
+                        <value>
+                           <building Inherit="false">
+                              <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                              <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                              <fixedStorageSettings>
+                                <filter>
+                                    <categories>
+                                        <li>Manufactured</li>
+                                        <li>Foods</li>
+                                        <li>PlantMatter</li>
+                                        <li>Items</li>
+                                        <li>Apparel</li>
+                                    </categories>
+                                </filter>
+                              </fixedStorageSettings>
+                              <defaultStorageSettings>
+                                 <priority>Important</priority>
+                                 <filter>
+                                 </filter>
+                              </defaultStorageSettings>
+                              <isInert>true</isInert>
+                           </building>
+                        </value>
+                     </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WarehouseShelfBoxes"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>6</maxNumberStacks>
+                                <maxTotalMass>50</maxTotalMass>
+                                <minTimeStoringTakes>700</minTimeStoringTakes>
+                                <additionalTimeEachStack>50</additionalTimeEachStack>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                             </li>
+                        </value>
+                    </li>
+                <!--Container - Small items + Apparel + Weapons-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_ContainerGreen"
+                                            or defName="DZ_VFEPD_ContainerGrey"
+                                            or defName="DZ_VFEPD_ContainerRed"
+                                            or defName="DZ_VFEPD_ContainerYellow"
+                                            or defName="DZ_VFEPD_ContainerBlue"]/description</xpath>
+                        <value>
+                            <description>A metal cargo container. You can store many items here and they won't deteriorate even if outside. This building is a bit slow to use, though. Passable. Cannot hold roof.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_ContainerGreen"]/costList</xpath>
+                        <value>
+                            <costList>
+                                <Steel>650</Steel>
+                            </costList>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_ContainerGreen"]/researchPrerequisites</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>RS_IndustrialStorage</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_ContainerGreen"]/building</xpath>
+                        <value>
+                           <building Inherit="false">
+                              <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                              <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                              <fixedStorageSettings>
+                                <filter>
+                                    <categories>
+                                        <li>Manufactured</li>
+                                        <li>Foods</li>
+                                        <li>Items</li>
+                                        <li>Apparel</li>
+                                        <li>Weapons</li>
+                                    </categories>
+                                </filter>
+                              </fixedStorageSettings>
+                              <defaultStorageSettings>
+                                 <priority>Important</priority>
+                                 <filter>
+                                 </filter>
+                              </defaultStorageSettings>
+                              <isInert>true</isInert>
+                           </building>
+                        </value>
+                     </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_ContainerGreen"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>5</maxNumberStacks>
+                                <minTimeStoringTakes>1000</minTimeStoringTakes>
+                                <additionalTimeEachStack>100</additionalTimeEachStack>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfItemsPerCell</overlayType>
+                             </li>
+                        </value>
+                    </li>
+                <!--Hay bales and blocks - Pile-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_HayBaleSmall"]/description</xpath>
+                        <value>
+                            <description>A small block of hay. You can store hay here, what a shocker.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_HayBaleMedium"]/description</xpath>
+                        <value>
+                            <description>A block of hay. You can store hay here, what a shocker.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_HayBaleLarge"]/description</xpath>
+                        <value>
+                            <description>A large roll of hay. You can store hay here, what a shocker.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_HayBaleSmall"]/researchPrerequisites</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>RS_MedievalStorage</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_HayBaleSmall"]</xpath>
+                        <value>
+                           <building Inherit="false">
+                              <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                              <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                              <fixedStorageSettings>
+                                <filter>
+                                    <thingDefs>
+                                        <li>Hay</li>
+                                    </thingDefs>
+                                </filter>
+                              </fixedStorageSettings>
+                              <defaultStorageSettings>
+                                 <priority>Important</priority>
+                                 <filter>
+                                 </filter>
+                              </defaultStorageSettings>
+                              <isInert>true</isInert>
+                           </building>
+                        </value>
+                     </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_HayBaleSmall"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>3</maxNumberStacks>
+                                <minTimeStoringTakes>100</minTimeStoringTakes>
+                                <additionalTimeEachStack>100</additionalTimeEachStack>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                             </li>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_HayBaleMedium"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>5</maxNumberStacks>
+                                <minTimeStoringTakes>100</minTimeStoringTakes>
+                                <additionalTimeEachStack>100</additionalTimeEachStack>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                             </li>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_HayBaleLarge"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>6</maxNumberStacks>
+                                <minTimeStoringTakes>100</minTimeStoringTakes>
+                                <additionalTimeEachStack>100</additionalTimeEachStack>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                             </li>
+                        </value>
+                    </li>
+                <!--Wooden wagon - General-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WoodenWagon"]/description</xpath>
+                        <value>
+                            <description>A large stationary wagon. Can hold various things. Items stored here can deteriorate.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WoodenWagon"]/researchPrerequisites</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>RS_MedievalStorage</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WoodenWagon"]/building</xpath>
+                        <value>
+                           <building Inherit="false">
+                              <ignoreStoredThingsBeauty>false</ignoreStoredThingsBeauty>
+                              <preventDeteriorationOnTop>false</preventDeteriorationOnTop>
+                              <fixedStorageSettings>
+                                <filter>
+                                </filter>
+                              </fixedStorageSettings>
+                              <defaultStorageSettings>
+                                 <priority>Important</priority>
+                                 <filter>
+                                 </filter>
+                              </defaultStorageSettings>
+                              <isInert>true</isInert>
+                           </building>
+                        </value>
+                     </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WoodenWagon"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>3</maxNumberStacks>
+                                <minTimeStoringTakes>100</minTimeStoringTakes>
+                                <additionalTimeEachStack>100</additionalTimeEachStack>
+                                <maxTotalMass>30</maxTotalMass>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfItemsPerCell</overlayType>
+                             </li>
+                        </value>
+                    </li>
+                <!--Storage Bags - Soft Loose-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_ConcreteBags"]/description</xpath>
+                        <value>
+                            <description>Some storage bags for storage. You can store dry and light loose items here. Too much variety will increase the time it takes to use this storage. Items stored here will not deteriorate</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_ConcreteBags"]/researchPrerequisites</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>ComplexClothing</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_ConcreteBags"]/costList</xpath>
+                        <value>
+                            <costList>
+                                <Cloth>30</Cloth>
+                            </costList>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_ConcreteBags"]</xpath>
+                        <value>
+                            <building Inherit="false">
+                                <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                                <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                                <fixedStorageSettings>
+                                    <filter>
+                                        <categories>
+                                            <li>PlantMatter</li>
+                                        </categories>
+                                        <thingDefs>
+                                            <li>Yayo</li>
+                                            <li>WakeUp</li>
+                                            <li>Flake</li>
+                                            <li>Luciferium</li>
+                                            <li>Kibble</li>
+                                            <li>Pemmican</li>
+                                        </thingDefs>
+                                    </filter>
+                                </fixedStorageSettings>
+                                <defaultStorageSettings>
+                                    <priority>Important</priority>
+                                    <filter>
+                                    </filter>
+                                </defaultStorageSettings>
+                                <isInert>true</isInert>
+                            </building>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_ConcreteBags"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>3</maxNumberStacks>
+                                <minTimeStoringTakes>400</minTimeStoringTakes>
+                                <additionalTimeEachStack>200</additionalTimeEachStack>
+                                <additionalTimeEachDef>200</additionalTimeEachDef>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                <!--Spacer Containers - General-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_SpacerContainer"]/description</xpath>
+                        <value>
+                            <description>A medium sized, triple sealed, password protected box. You can store any kind of item here. Items stored here won't deteriorate.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_SpacerContainerLarge"]/description</xpath>
+                        <value>
+                            <description>A large sized, triple sealed, password protected box. You can store any kind of item here. Items stored here won't deteriorate.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_SpacerContainerStack"]/description</xpath>
+                        <value>
+                            <description>A large stack of triple sealed, password protected box. It is slow to use. You can store any kind of item here. Items stored here won't deteriorate.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_SpacerStorage"]/description</xpath>
+                        <value>
+                            <description>A large, multi-chamber advanced storage device. You can store any kind of item here. Items stored here won't deteriorate.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_SpacerContainer" or defName="DZ_VFEPD_SpacerStorage"]/researchPrerequisites</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>RS_BoxesStorage</li>
+                                <li>RS_ModernStorage</li>
+                                <li>Fabrication</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_SpacerContainer"]/costList</xpath>
+                        <value>
+                            <costList>
+                                <Steel>80</Steel>
+                                <Plasteel>30</Plasteel>
+                                <Silver>50</Silver>
+                                <ComponentIndustrial>2</ComponentIndustrial>
+                            </costList>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_SpacerContainerLarge"]/costList</xpath>
+                        <value>
+                            <costList>
+                                <Steel>160</Steel>
+                                <Plasteel>50</Plasteel>
+                                <Silver>100</Silver>
+                                <ComponentIndustrial>3</ComponentIndustrial>
+                            </costList>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_SpacerContainerStack"]/costList</xpath>
+                        <value>
+                            <costList>
+                                <Steel>400</Steel>
+                                <Plasteel>230</Plasteel>
+                                <Silver>400</Silver>
+                                <ComponentIndustrial>12</ComponentIndustrial>
+                            </costList>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_SpacerStorage"]/costList</xpath>
+                        <value>
+                            <costList>
+                                <Steel>200</Steel>
+                                <Plasteel>150</Plasteel>
+                                <Silver>500</Silver>
+                                <ComponentIndustrial>8</ComponentIndustrial>
+                            </costList>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_SpacerContainer"]/building</xpath>
+                        <value>
+                            <building Inherit="false">
+                                <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                                <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                                <fixedStorageSettings>
+                                    <filter>
+                                    </filter>
+                                </fixedStorageSettings>
+                                <defaultStorageSettings>
+                                    <priority>Important</priority>
+                                    <filter>
+                                    </filter>
+                                </defaultStorageSettings>
+                                <isInert>true</isInert>
+                            </building>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_SpacerContainer"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>4</maxNumberStacks>
+                                <minTimeStoringTakes>400</minTimeStoringTakes>
+                                <additionalTimeEachStack>200</additionalTimeEachStack>
+                                <additionalTimeEachDef>200</additionalTimeEachDef>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_SpacerContainerLarge"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>4</maxNumberStacks>
+                                <minTimeStoringTakes>200</minTimeStoringTakes>
+                                <additionalTimeEachStack>100</additionalTimeEachStack>
+                                <additionalTimeEachDef>200</additionalTimeEachDef>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfItemsPerCell</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_SpacerContainerStack"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>8</maxNumberStacks>
+                                <minTimeStoringTakes>600</minTimeStoringTakes>
+                                <additionalTimeEachStack>100</additionalTimeEachStack>
+                                <additionalTimeEachDef>200</additionalTimeEachDef>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfItemsPerCell</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_SpacerStorage"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>6</maxNumberStacks>
+                                <minTimeStoringTakes>100</minTimeStoringTakes>
+                                <additionalTimeEachStack>100</additionalTimeEachStack>
+                                <additionalTimeEachDef>200</additionalTimeEachDef>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfItemsPerCell</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                </operations>
+            </match>
+        </match>
+   </Operation>
+
+<!--Mod comp Buildings-->
+<!--Bookshelf-->
+<Operation Class="PatchOperationFindMod">
+    <mods>
+        <li>DocWorld</li>
+    </mods>
+    <match Class="PatchOperationFindMod">
+        <mods>
+            <li>Vanilla Furniture Expanded - Props and Decor</li>
+        </mods>
+        <match Class="PatchOperationFindMod">
+            <mods>
+                <li>Vanilla Books Expanded</li>
+            </mods>
+            <match Class="PatchOperationSequence">
+                <!-- <success>Always</success> -->
+                <operations>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Bookshelf"]/description</xpath>
+                        <value>
+                            <description>A bookshelf capable of holding a variety of books, tomes and publications. You can also store blueprints and newspapers here. This building will not prevent deterioration.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Bookshelf"]/researchPrerequisites</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>RS_ModernStorage</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Bookshelf"]/costStuffCount</xpath>
+                        <value>
+                            <costStuffCount>100</costStuffCount>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Bookshelf"]/building</xpath>
+                        <value>
+                            <building Inherit="false">
+                                <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                                <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                                <fixedStorageSettings>
+                                    <filter>
+                                        <categories>
+                                            <li>VBE_Books</li>
+                                         </categories>
+                                    </filter>
+                                </fixedStorageSettings>
+                                <defaultStorageSettings>
+                                    <priority>Important</priority>
+                                    <filter>
+                                    </filter>
+                                </defaultStorageSettings>
+                                <isInert>true</isInert>
+                            </building>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Bookshelf"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>20</maxNumberStacks>
+                                <minTimeStoringTakes>10</minTimeStoringTakes>
+                                <additionalTimeEachStack>10</additionalTimeEachStack>
+                                <additionalTimeEachDef>10</additionalTimeEachDef>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                </operations>
+            </match>
+            <nomatch Class="PatchOperationRemove">
+                <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Bookshelf"]</xpath>
+            </nomatch>
+        </match>
+    </match>
+</Operation>
+
+<!--Frige-->
+<Operation Class="PatchOperationFindMod">
+    <mods>
+        <li>DocWorld</li>
+    </mods>
+    <match Class="PatchOperationFindMod">
+        <mods>
+            <li>Vanilla Furniture Expanded - Props and Decor</li>
+        </mods>
+        <match Class="PatchOperationFindMod">
+            <mods>
+                <li>[KV] RimFridge</li>
+            </mods>
+            <match Class="PatchOperationSequence">
+                <!-- <success>Always</success> -->
+                <operations>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Fridge"]/researchPrerequisites</xpath>
+                        <value>
+                            <researchPrerequisites>
+                                <li>RS_ModernStorage</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Fridge"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <minNumberStacks>2</minNumberStacks>
+                                <maxNumberStacks>4</maxNumberStacks>
+                                <maxMassOfStoredItem>100</maxMassOfStoredItem>
+                                <minTimeStoringTakes>25</minTimeStoringTakes>
+                                <additionalTimeEachStack>10</additionalTimeEachStack>
+                                <additionalTimeEachDef>10</additionalTimeEachDef>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                </operations>
+            </match>
+            <nomatch Class="PatchOperationRemove">
+                <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Bookshelf"]</xpath>
+            </nomatch>
+        </match>
+    </match>
+</Operation>
+
+</Patch>
