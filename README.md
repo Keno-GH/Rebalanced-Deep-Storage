@@ -120,4 +120,4 @@ Probably because balancing or visual logic issues, but there is a (very high) ch
 
 It would be very highly appreciated!
 
-<a href='https://ko-fi.com/B0B61GNYP' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://cdn.ko-fi.com/cdn/kofi3.png?v=2' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+<a href='https://ko-fi.com/B0B61GNYP' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://i.imgur.com/3wF8CqO.png' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
