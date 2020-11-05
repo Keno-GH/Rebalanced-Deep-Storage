@@ -71,38 +71,46 @@ I decided to add 7 research projects of different costs. They are as follow
 ```
 Neolithic               Medieval                Industrial
 Neolithic Storage   -> Medieval Storage ->  Modern Storage.
-                    -> Storage Boxes ->     Cardboard Storage
+                    -> Storage Boxes    ->  Cardboard Storage
                                             Industrial Storage
                                             Pallets
 ```
 
 All of the industrial level storage requires Complex Furniture as well.
 
+If, for some reason a research project wouldn't unlock anything, it will be removed.
+
+Most storage buildings will require one (or more) of these research projects. Some will also require specific ones like machining or gun smithing.
+
+### General idea of the new balance.
+
+The rule of thumb for balancing is as follows: The more specific filters the building has, the more stacks it can hold. For example, a Wooden Barrel costs 50 wood and it holds 3 drinkable liquids (like beer), while a Wooden Crate B also costs 50 wood but can only store 2 stacks of general items.
+
+Also, the more stacks (per tile) a building can hold, the more expensive it gets. Lategame storage like Industrial Shelves cost about 750 steel and 1500 wood to build, but can store a massive amount of items.
+
+Lastly, research requeriments are also taken into consideration. Late game storage like Spacer Containers are very powerful, but require Fabrication research.
+
+### Footprint changes
+
+Some items in Simple Storage had problematic footprints. Tall structures would cover the space behind them even if said space was actually empty. This mod modifieds the size of these buildings and offsets the texture to fix this and fit properly ingame. In general this meant that they are smaller ingame.
+
+### ThingDefCategories AKA ingame categories
+
+I decided against adding new categories, as it would make maintance and updating very time consuming, having make patches for almost all mods that add items. The only exception are Fertile Field resources. All of the resources in that mod are loose items (fertilizer, dirt, sand, etc), and so all of them went well together. In order to not clutter the description of loose type storage a lot adding all the individual thingDefs from Fertile Fields, I decided to add this category.
+
+### Removed content
+
+Some buildings in some mod were too problematic to balance around. This problem was mostly due to the small size of some buildings, or the redudancy of their existance. In some other cases, these buildings would have no items that fit in a vanilla game, so they are only added if a fitting mod is found. All the remove content has it's argument for removal in the notes inside the patches.
+ 
+### Where can I see ALL the changes?
+
+This list will probably be outdated at some point, but (here)[nolinkyet]
 
 
-Fertile Field Resources - All of these are loose stuff that would not go well with a pallet. To not spam 'thingDefs' in the filters I decided to place them inside their own thingCategoryDef, located inside Raw Resources.
-
-Supported Mods
-Storage Mods
-    DocWorld + Vanilla Furniture Expanded - Props and Decor
-    Primitive Storage
-    Simple Storage
-    Simple Storage - Refrigeration
-    Little Storage 2
-Other Mods (If it is not here, it may be unecessary to patch them. But do say if something seems off.)
-    Dubs Bad Hygiene
-    Fertile Fields [1.1]
-    Concrete for Fertile Fields
-    Vanilla Furniture Expanded Art
-    Vanilla Brewing Expanded
-    Vanilla Brewing Expanded - Coffees and Teas
-    Vanilla Books Expanded
-    Rimfeller
-    Combat Extended
-    Yayo's Combat 3
 
 New Research Projects
 Neolithic Storage - Things like baskets and pots.
+Boxes Storage - Crates, boxes.
 Medieval Storage - Chests, simple shelves and simple racks. Requires Neolithic Storage research.
 Modern Storage - Complex shelves and cabinets. Requires Medieval Storage and Complex Furniture research.
 Industrial Storage - Expensive and big storage solutions. Requires Smithing and Complex Furniture research.
