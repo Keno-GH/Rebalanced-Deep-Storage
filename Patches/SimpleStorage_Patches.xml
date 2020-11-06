@@ -2179,7 +2179,7 @@
                   </li>
                </value>
             </li>
-         <!--Silo - Vegetables-->
+         <!--Silo - Vegetables + Hay-->
             <li Class="PatchOperationReplace">
                <xpath>/Defs/ThingDef[defName="JDSSilo"]/description</xpath>
                <value>
@@ -2244,6 +2244,9 @@
                               <li>PlantFoodRaw</li>
                               <li>PlantMatter</li>
                             </categories>
+                            <thingDefs>
+                               <li>Hay</li>
+                            </thingDefs>
                         </filter>
                      </fixedStorageSettings>
                      <defaultStorageSettings>
@@ -3387,7 +3390,7 @@
             <li Class="PatchOperationRemove">
                <xpath>/Defs/ThingDef[defName="JDSBeer_Crate"]</xpath>
             </li>
-         <!--Stuffable Shelf A and B - These one has broken graphics. -->
+         <!--Stuffable Shelf A and B - These one have broken graphics. -->
             <li Class="PatchOperationRemove">
                <xpath>/Defs/ThingDef[defName="JDSShelf_A_Empty" or defName="JDSShelf_A_Full"]</xpath>
             </li>
