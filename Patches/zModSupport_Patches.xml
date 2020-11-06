@@ -927,8 +927,6 @@
         </match>
     </Operation>
 
-<!--Misc Patches-->
-
 <!--DocWorld Original Patches-->
 <!--https://github.com/DrZhivago1/DocWorld-->
     <Operation Class="PatchOperationFindMod">
@@ -963,6 +961,15 @@
                                         <costList>
                                             <Owl_WoodLog>75</Owl_WoodLog>
                                         </costList>
+                                    </value>
+                                </li>
+                                <li Class="PatchOperationReplace">
+                                    <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WoodenLogs" or defName="DZ_VFEPD_WoodenLogsLarge"]
+                                        /building/fixedStorageSettings/filter/thingDefs</xpath>
+                                    <value>
+                                        <thingDefs>
+                                            <li>Owl_WoodLog</li>
+                                        </thingDefs>
                                     </value>
                                 </li>
                             </operations>

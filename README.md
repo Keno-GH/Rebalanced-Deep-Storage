@@ -29,6 +29,7 @@ Note: If a mod is not here, it doesn't mean that it is not supported. Most mods 
 - [A Rimworld Of Magic](https://steamcommunity.com/sharedfiles/filedetails/?id=1833163132)
 - [Ceramics](https://steamcommunity.com/sharedfiles/filedetails/?id=1833163132)
 - [PawnMorpher](https://steamcommunity.com/sharedfiles/filedetails/?id=2206493896)
+- [Simple Chains: Lumber](https://steamcommunity.com/sharedfiles/filedetails/?id=1708709952)
 
 ## How was the balancing done?
 My idea was to balance around LWM's Deep Storage original balance. The original author put close attention to balancing details, but most mods ignored this and added highly unbalanced stuff, like a shelf capable of holding hundred of stacks with no delay. While it is possible to rebalance those mods to your liking ingame (thanks to Little White Mouse's excellent code), it was really tedious and often some things could get overlooked.
