@@ -1262,15 +1262,19 @@
                         </value>
                     </li>
                     <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WoodenWagon"]/costList</xpath>
+                        <value>
+                            <costList Inherit="false">
+                                <WoodLog>100</WoodLog>
+                            </costList>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
                         <xpath>/Defs/ThingDef[defName="DZ_VFEPD_WoodenWagon"]/building</xpath>
                         <value>
                            <building Inherit="false">
                               <ignoreStoredThingsBeauty>false</ignoreStoredThingsBeauty>
                               <preventDeteriorationOnTop>false</preventDeteriorationOnTop>
-                              <fixedStorageSettings>
-                                <filter>
-                                </filter>
-                              </fixedStorageSettings>
                               <defaultStorageSettings>
                                  <priority>Important</priority>
                                  <filter>
@@ -1444,10 +1448,6 @@
                             <building Inherit="false">
                                 <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
                                 <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
-                                <fixedStorageSettings>
-                                    <filter>
-                                    </filter>
-                                </fixedStorageSettings>
                                 <defaultStorageSettings>
                                     <priority>Important</priority>
                                     <filter>
@@ -1556,7 +1556,7 @@
                             <fixedStorageSettings>
                                 <filter>
                                     <categories>
-                                        </categories>
+                                    </categories>
                                 </filter>
                             </fixedStorageSettings>
                             <defaultStorageSettings>

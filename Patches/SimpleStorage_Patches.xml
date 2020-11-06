@@ -860,10 +860,6 @@
                   <building Inherit="false">
                      <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
                      <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
-                     <fixedStorageSettings>
-                        <filter>
-                        </filter>
-                     </fixedStorageSettings>
                      <defaultStorageSettings>
                         <priority>Important</priority>
                         <filter>
@@ -1369,10 +1365,6 @@
                   <building Inherit="false">
                      <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
                      <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
-                     <fixedStorageSettings>
-                        <filter>
-                        </filter>
-                     </fixedStorageSettings>
                      <defaultStorageSettings>
                         <priority>Important</priority>
                         <filter>
@@ -1437,10 +1429,6 @@
                   <building Inherit="false">
                      <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
                      <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
-                     <fixedStorageSettings>
-                        <filter>
-                        </filter>
-                     </fixedStorageSettings>
                      <defaultStorageSettings>
                         <priority>Important</priority>
                         <filter>
@@ -1504,10 +1492,6 @@
                   <building Inherit="false">
                      <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
                      <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
-                     <fixedStorageSettings>
-                        <filter>
-                        </filter>
-                     </fixedStorageSettings>
                      <defaultStorageSettings>
                         <priority>Important</priority>
                         <filter>
@@ -1571,10 +1555,6 @@
                   <building Inherit="false">
                      <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
                      <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
-                     <fixedStorageSettings>
-                        <filter>
-                        </filter>
-                     </fixedStorageSettings>
                      <defaultStorageSettings>
                         <priority>Important</priority>
                         <filter>
@@ -1817,10 +1797,6 @@
                   <building Inherit="false">
                      <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
                      <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
-                     <fixedStorageSettings>
-                        <filter>
-                        </filter>
-                     </fixedStorageSettings>
                      <defaultStorageSettings>
                         <priority>Important</priority>
                         <filter>
@@ -2001,10 +1977,6 @@
                   <building Inherit="false">
                      <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
                      <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
-                     <fixedStorageSettings>
-                        <filter>
-                        </filter>
-                     </fixedStorageSettings>
                      <defaultStorageSettings>
                         <priority>Important</priority>
                         <filter>
@@ -2692,10 +2664,6 @@
                   <building Inherit="false">
                      <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
                      <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
-                     <fixedStorageSettings>
-                        <filter>
-                        </filter>
-                     </fixedStorageSettings>
                      <defaultStorageSettings>
                         <priority>Important</priority>
                         <filter>
@@ -2815,12 +2783,6 @@
                <building Inherit="false">
                   <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
                   <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
-                  <fixedStorageSettings>
-                     <filter>
-                        <categories>
-                        </categories>
-                     </filter>
-                  </fixedStorageSettings>
                   <defaultStorageSettings>
                      <priority>Important</priority>
                      <filter>
