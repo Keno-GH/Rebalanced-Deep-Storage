@@ -149,14 +149,12 @@
                     <mods>
                         <li>Ceramics</li>
                     </mods>
-                    <nomatch Class="PatchOperationReplace">
+                    <nomatch Class="PatchOperationAdd">
                         <xpath>/Defs/ThingDef/building/fixedStorageSettings
                             /filter[categories[li="PlantMatter" and not(li="RS_FFResources")]]
                             /thingDefs[li="Kibble" and li="Pemmican" and not(li="Gold")]</xpath>
                         <value>
-                            <value>
-                                <li>RFFClay</li>
-                            </value>
+                            <li>RFFClay</li>
                         </value>
                     </nomatch>
                 </li>
