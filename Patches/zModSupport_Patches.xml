@@ -48,6 +48,160 @@
         </operations>
     </Operation>
 
+<!--Adding dummy thingdefs to avoid errors if mods are missing-->
+    <Operation Class="PatchOperationSequence">
+        <operations>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs</xpath>
+                <value>
+                    <ThingDef Name="RS_Dummy_Hard_Loose" ParentName="LWM_DeepStorage">
+                        <defName>RS_Dummy_Hard_Loose</defName>
+                        <building>
+                            <fixedStorageSettings>
+                                <filter>
+                                    <thingDefs>
+                                        <li>Gold</li>
+                                        <li>Silver</li>
+                                        <li>Jade</li>
+                                        <li>Pemmican</li>
+                                    </thingDefs>
+                                    <categories>
+                                        <li>PlantMatter</li>
+                                    </categories>
+                                    <disallowedThingDefs>
+                                    </disallowedThingDefs>
+                                    <disallowedCategories>
+                                    </disallowedCategories>
+                                </filter>
+                            </fixedStorageSettings>
+                        </building>
+                    </ThingDef>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs</xpath>
+                <value>
+                    <ThingDef Name="RS_Dummy_Heavy_Loose" ParentName="LWM_DeepStorage">
+                        <defName>RS_Dummy_Heavy_Loose</defName>
+                        <building>
+                            <fixedStorageSettings>
+                                <filter>
+                                    <thingDefs>
+                                        <li>Gold</li>
+                                        <li>Silver</li>
+                                        <li>Jade</li>
+                                    </thingDefs>
+                                    <categories>
+                                    </categories>
+                                    <disallowedThingDefs>
+                                    </disallowedThingDefs>
+                                    <disallowedCategories>
+                                    </disallowedCategories>
+                                </filter>
+                            </fixedStorageSettings>
+                        </building>
+                    </ThingDef>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs</xpath>
+                <value>
+                    <ThingDef Name="RS_Dummy_Soft_Loose" ParentName="LWM_DeepStorage">
+                        <defName>RS_Dummy_Soft_Loose</defName>
+                        <building>
+                            <fixedStorageSettings>
+                                <filter>
+                                    <thingDefs>
+                                        <li>Pemmican</li>
+                                        <li>Kibble</li>
+                                    </thingDefs>
+                                    <categories>
+                                        <li>PlantMatter</li>
+                                    </categories>
+                                    <disallowedThingDefs>
+                                    </disallowedThingDefs>
+                                    <disallowedCategories>
+                                    </disallowedCategories>
+                                </filter>
+                            </fixedStorageSettings>
+                        </building>
+                    </ThingDef>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs</xpath>
+                <value>
+                    <ThingDef Name="RS_Dummy_Pallet" ParentName="LWM_DeepStorage">
+                        <defName>RS_Dummy_Pallet</defName>
+                        <building>
+                            <fixedStorageSettings>
+                                <filter>
+                                    <thingDefs>
+                                    </thingDefs>
+                                    <categories>
+                                        <li>ResourcesRaw</li>
+                                        <li>Textiles</li>
+                                    </categories>
+                                    <disallowedThingDefs>
+                                    </disallowedThingDefs>
+                                    <disallowedCategories>
+                                        <li>PlantMatter</li>
+                                    </disallowedCategories>
+                                </filter>
+                            </fixedStorageSettings>
+                        </building>
+                    </ThingDef>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs</xpath>
+                <value>
+                    <ThingDef Name="RS_Dummy_Drinkable_Liquid" ParentName="LWM_DeepStorage">
+                        <defName>RS_Dummy_Drinkable_Liquid</defName>
+                        <building>
+                            <fixedStorageSettings>
+                                <filter>
+                                    <thingDefs>
+                                        <li>Beer</li>
+                                    </thingDefs>
+                                    <categories>
+                                    </categories>
+                                    <disallowedThingDefs>
+                                    </disallowedThingDefs>
+                                    <disallowedCategories>
+                                    </disallowedCategories>
+                                </filter>
+                            </fixedStorageSettings>
+                        </building>
+                    </ThingDef>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs</xpath>
+                <value>
+                    <ThingDef Name="RS_Dummy_Chemical" ParentName="LWM_DeepStorage">
+                        <defName>RS_Dummy_Chemical</defName>
+                        <building>
+                            <fixedStorageSettings>
+                                <filter>
+                                    <thingDefs>
+                                        <li>Chemfuel</li>
+                                    </thingDefs>
+                                    <categories>
+                                    </categories>
+                                    <disallowedThingDefs>
+                                    </disallowedThingDefs>
+                                    <disallowedCategories>
+                                    </disallowedCategories>
+                                </filter>
+                            </fixedStorageSettings>
+                        </building>
+                    </ThingDef>
+                </value>
+            </li>
+        </operations>
+    </Operation>
+
 <!--FertileFields-->
     <Operation Class="PatchOperationFindMod">
         <mods>
@@ -833,6 +987,11 @@
     <Operation Class="PatchOperationRemove">
         <success>Always</success>
         <xpath>/Defs/ThingDef[contains(description, "a variety of books, tomes and publications") and building[fixedStorageSettings[filter[categories[not(*)]]]]]</xpath>
+    </Operation>
+
+<!--Deleting Dummy Defs-->
+    <Operation Class="PatchOperationRemove">
+        <xpath>/Defs/ThingDef[contains(defName, "RS_Dummy")]</xpath>
     </Operation>
 
 </Patch>

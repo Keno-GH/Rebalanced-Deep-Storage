@@ -1677,7 +1677,7 @@
                   </li>
                </value>
             </li>
-         <!--Small Pallet Can - Chemicals + Hard Loose.-->
+         <!--Small Pallet Can - Chemicals + Heavy Loose.-->
             <li Class="PatchOperationReplace">
                <xpath>/Defs/ThingDef[defName="JDSPallet_Can"]/label</xpath>
                <value>
@@ -1687,7 +1687,7 @@
             <li Class="PatchOperationReplace">
                <xpath>/Defs/ThingDef[defName="JDSPallet_Can"]/description</xpath>
                <value>
-                  <description>Two cans on top of a small flat pallet. You can store Chemicals and Hard Loose items here. Items stored here won't deteriorate.</description>
+                  <description>Two cans on top of a small flat pallet. You can store Chemicals and Heavy Loose items here. Items stored here won't deteriorate.</description>
                </value>
             </li>
             <li Class="PatchOperationReplace">
