@@ -1524,73 +1524,64 @@
         <mods>
             <li>Vanilla Furniture Expanded - Props and Decor</li>
         </mods>
-        <match Class="PatchOperationFindMod">
-            <mods>
-                <li>Vanilla Books Expanded</li>
-            </mods>
-            <match Class="PatchOperationSequence">
-                <!-- <success>Always</success> -->
-                <operations>
-                    <li Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Bookshelf"]/description</xpath>
-                        <value>
-                            <description>A bookshelf capable of holding a variety of books, tomes and publications. You can also store blueprints and newspapers here. This building will not prevent deterioration.</description>
-                        </value>
-                    </li>
-                    <li Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Bookshelf"]/researchPrerequisites</xpath>
-                        <value>
-                            <researchPrerequisites Inherit="false">
-                                <li>RS_ModernStorage</li>
-                            </researchPrerequisites>
-                        </value>
-                    </li>
-                    <li Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Bookshelf"]/costStuffCount</xpath>
-                        <value>
-                            <costStuffCount>100</costStuffCount>
-                        </value>
-                    </li>
-                    <li Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Bookshelf"]/building</xpath>
-                        <value>
-                            <building Inherit="false">
-                                <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
-                                <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
-                                <fixedStorageSettings>
-                                    <filter>
-                                        <categories>
-                                            <li>VBE_Books</li>
-                                         </categories>
-                                    </filter>
-                                </fixedStorageSettings>
-                                <defaultStorageSettings>
-                                    <priority>Important</priority>
-                                    <filter>
-                                    </filter>
-                                </defaultStorageSettings>
-                                <isInert>true</isInert>
-                            </building>
-                        </value>
-                    </li>
-                    <li Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Bookshelf"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
-                        <value>
-                            <li Class="LWM.DeepStorage.Properties">
-                                <maxNumberStacks>20</maxNumberStacks>
-                                <minTimeStoringTakes>10</minTimeStoringTakes>
-                                <additionalTimeEachStack>10</additionalTimeEachStack>
-                                <additionalTimeEachDef>10</additionalTimeEachDef>
-                                <showContents>false</showContents>
-                                <overlayType>SumOfAllItems</overlayType>
-                            </li>
-                        </value>
-                    </li>
-                </operations>
-            </match>
-            <nomatch Class="PatchOperationRemove">
-                <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Bookshelf"]</xpath>
-            </nomatch>
+        <match Class="PatchOperationSequence">
+            <!-- <success>Always</success> -->
+            <operations>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Bookshelf"]/description</xpath>
+                    <value>
+                        <description>A bookshelf capable of holding a variety of books, tomes and publications. This building will not prevent deterioration.</description>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Bookshelf"]/researchPrerequisites</xpath>
+                    <value>
+                        <researchPrerequisites Inherit="false">
+                            <li>RS_ModernStorage</li>
+                        </researchPrerequisites>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Bookshelf"]/costStuffCount</xpath>
+                    <value>
+                        <costStuffCount>100</costStuffCount>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Bookshelf"]/building</xpath>
+                    <value>
+                        <building Inherit="false">
+                            <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                            <preventDeteriorationOnTop>false</preventDeteriorationOnTop>
+                            <fixedStorageSettings>
+                                <filter>
+                                    <categories>
+                                        </categories>
+                                </filter>
+                            </fixedStorageSettings>
+                            <defaultStorageSettings>
+                                <priority>Important</priority>
+                                <filter>
+                                </filter>
+                            </defaultStorageSettings>
+                            <isInert>true</isInert>
+                        </building>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Bookshelf"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                    <value>
+                        <li Class="LWM.DeepStorage.Properties">
+                            <maxNumberStacks>20</maxNumberStacks>
+                            <minTimeStoringTakes>10</minTimeStoringTakes>
+                            <additionalTimeEachStack>10</additionalTimeEachStack>
+                            <additionalTimeEachDef>10</additionalTimeEachDef>
+                            <showContents>false</showContents>
+                            <overlayType>SumOfAllItems</overlayType>
+                        </li>
+                    </value>
+                </li>
+            </operations>
         </match>
     </match>
 </Operation>

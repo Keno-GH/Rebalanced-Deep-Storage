@@ -1,4 +1,53 @@
 <Patch>
+
+<!--Base adding empty anything if missing-->
+    <!--This is important to avoid errors-->
+    <Operation Class="PatchOperationSequence">
+        <!-- <success>Always</success> -->
+        <operations>
+            <li Class="PatchOperationConditional">
+                <xpath>/Defs/ThingDef/building/fixedStorageSettings/filter[not(thingDefs)]</xpath>
+                <match Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings/filter[not(thingDefs)]</xpath>
+                    <value>
+                        <thingDefs>
+                        </thingDefs>
+                    </value>
+                </match>
+            </li>
+            <li Class="PatchOperationConditional">
+                <xpath>/Defs/ThingDef/building/fixedStorageSettings/filter[not(categories)]</xpath>
+                <match Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings/filter[not(categories)]</xpath>
+                    <value>
+                        <categories>
+                        </categories>
+                    </value>
+                </match>
+            </li>
+            <li Class="PatchOperationConditional">
+                <xpath>/Defs/ThingDef/building/fixedStorageSettings/filter[not(disallowedCategories)]</xpath>
+                <match Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings/filter[not(disallowedCategories)]</xpath>
+                    <value>
+                        <disallowedCategories>
+                        </disallowedCategories>
+                    </value>
+                </match>
+            </li>
+            <li Class="PatchOperationConditional">
+                <xpath>/Defs/ThingDef/building/fixedStorageSettings/filter[not(disallowedThingDefs)]</xpath>
+                <match Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings/filter[not(disallowedThingDefs)]</xpath>
+                    <value>
+                        <disallowedThingDefs>
+                        </disallowedThingDefs>
+                    </value>
+                </match>
+            </li>
+        </operations>
+    </Operation>
+
 <!--FertileFields-->
     <Operation Class="PatchOperationFindMod">
         <mods>
@@ -30,6 +79,20 @@
                             <li>RS_FFResources</li>
                         </thingCategories>
                     </value>
+                </li>
+                <!--Quick check for ceramics-->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Ceramics</li>
+                    </mods>
+                    <nomatch Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="RFFClay"]/thingCategories</xpath>
+                        <value>
+                            <thingCategories>
+                                <li>RS_FFResources</li>
+                            </thingCategories>
+                        </value>
+                    </nomatch>
                 </li>
             <!--Heavy Loose-->
                 <li Class="PatchOperationConditional">
@@ -78,9 +141,24 @@
                         <li>Fertilizer</li>
                         <li>PileofDirt</li>
                         <li>SandPile</li>
-                        <li>RFFClay</li>
                         <li>CrushedRocks</li>
                     </value>
+                </li>
+                <!--Quick check for ceramics-->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Ceramics</li>
+                    </mods>
+                    <nomatch Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                            /filter[categories[li="PlantMatter" and not(li="RS_FFResources")]]
+                            /thingDefs[li="Kibble" and li="Pemmican" and not(li="Gold")]</xpath>
+                        <value>
+                            <value>
+                                <li>RFFClay</li>
+                            </value>
+                        </value>
+                    </nomatch>
                 </li>
             <!--Disallow pallets-->
                 <li Class="PatchOperationAdd">
@@ -252,14 +330,14 @@
             <!-- <success>Always</success> -->
             <operations>
             <!--Heavy Loose-->
-            <li Class="PatchOperationAdd">
-                <xpath>/Defs/ThingDef/building/fixedStorageSettings
-                    /filter/thingDefs[li="Gold" and li="Silver" and li="Jade" and not(li="Pemmican")]</xpath>
-                <value>
-                    <li>RFFCement</li>
-                    <li>RFFConcrete</li>
-                </value>
-            </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                        /filter/thingDefs[li="Gold" and li="Silver" and li="Jade" and not(li="Pemmican")]</xpath>
+                    <value>
+                        <li>RFFCement</li>
+                        <li>RFFConcrete</li>
+                    </value>
+                </li>
             <!--Hard Loose-->
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs/ThingDef/building/fixedStorageSettings
@@ -509,6 +587,254 @@
                 </li>
             </operations>
         </match>
+    </Operation>
+
+<!--Ceramics FixMe: Cross compatibility with fertile fields + docworld-->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Ceramics</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <!-- <success>Always</success> -->
+            <operations>
+            <!--If fertile fields is present, ignore sand-->
+                <li Class="PatchOperationFindMod">
+                    <mods>
+                        <li>Fertile Fields [1.1]</li>
+                    </mods>
+                    <match Class="PatchOperationSequence">
+                        <operations>
+                        <!--Heavy Loose-->
+                            <li Class="PatchOperationAdd">
+                                <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                                    /filter/thingDefs[li="Gold" and li="Silver" and li="Jade" and not(li="Pemmican")]</xpath>
+                                <value>
+                                    <li>N7_RawClay</li>
+                                </value>
+                            </li>
+                        <!--Hard Loose-->
+                            <li Class="PatchOperationAdd">
+                                <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                                    /filter[thingDefs[li="Gold" and li="Silver" and li="Jade" and li="Pemmican"]
+                                    and categories[li="PlantMatter"]]/thingDefs</xpath>
+                                <value>
+                                    <li>N7_RawClay</li>
+                                </value>
+                            </li>
+                        <!--Soft Loose-->
+                            <li Class="PatchOperationAdd">
+                                <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                                    /filter[categories[li="PlantMatter" and not(li="RS_FFResources")]]
+                                    /thingDefs[li="Kibble" and li="Pemmican" and not(li="Gold")]</xpath>
+                                <value>
+                                    <li>N7_RawClay</li>
+                                </value>
+                            </li>
+                        <!--Disallow pallets-->
+                            <li Class="PatchOperationConditional">
+                                <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                                    /filter[categories[li="ResourcesRaw" and li="Textiles"] and disallowedCategories[li="PlantMatter"]]/disallowedThingDefs</xpath>
+                                <match Class="PatchOperationAdd">
+                                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                                        /filter[categories[li="ResourcesRaw" and li="Textiles"] and disallowedCategories[li="PlantMatter"]]/disallowedThingDefs</xpath>
+                                    <value>
+                                        <li>N7_RawClay</li>
+                                    </value>
+                                </match>
+                                <nomatch Class="PatchOperationAdd">
+                                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                                        /filter[categories[li="ResourcesRaw" and li="Textiles"] and disallowedCategories[li="PlantMatter"]]</xpath>
+                                    <value>
+                                        <disallowedThingDefs>
+                                            <li>N7_RawClay</li>
+                                        </disallowedThingDefs>
+                                    </value>
+                                </nomatch>
+                            </li>
+                        </operations>
+                    </match>
+                    <nomatch Class="PatchOperationSequence">
+                        <operations>
+                        <!--Heavy Loose-->
+                            <li Class="PatchOperationAdd">
+                                <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                                    /filter/thingDefs[li="Gold" and li="Silver" and li="Jade" and not(li="Pemmican")]</xpath>
+                                <value>
+                                    <li>N7_Sand</li>
+                                    <li>N7_RawClay</li>
+                                </value>
+                            </li>
+                        <!--Hard Loose-->
+                            <li Class="PatchOperationAdd">
+                                <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                                    /filter[thingDefs[li="Gold" and li="Silver" and li="Jade" and li="Pemmican"]
+                                    and categories[li="PlantMatter"]]/thingDefs</xpath>
+                                <value>
+                                    <li>N7_Sand</li>
+                                    <li>N7_RawClay</li>
+                                </value>
+                            </li>
+                        <!--Soft Loose-->
+                            <li Class="PatchOperationAdd">
+                                <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                                    /filter[categories[li="PlantMatter" and not(li="RS_FFResources")]]
+                                    /thingDefs[li="Kibble" and li="Pemmican" and not(li="Gold")]</xpath>
+                                <value>
+                                    <li>N7_Sand</li>
+                                    <li>N7_RawClay</li>
+                                </value>
+                            </li>
+                        <!--Disallow pallets-->
+                            <li Class="PatchOperationConditional">
+                                <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                                    /filter[categories[li="ResourcesRaw" and li="Textiles"] and disallowedCategories[li="PlantMatter"]]/disallowedThingDefs</xpath>
+                                <match Class="PatchOperationAdd">
+                                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                                        /filter[categories[li="ResourcesRaw" and li="Textiles"] and disallowedCategories[li="PlantMatter"]]/disallowedThingDefs</xpath>
+                                    <value>
+                                        <li>N7_Sand</li>
+                                        <li>N7_RawClay</li>
+                                    </value>
+                                </match>
+                                <nomatch Class="PatchOperationAdd">
+                                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                                        /filter[categories[li="ResourcesRaw" and li="Textiles"] and disallowedCategories[li="PlantMatter"]]</xpath>
+                                    <value>
+                                        <disallowedThingDefs>
+                                            <li>N7_Sand</li>
+                                            <li>N7_RawClay</li>
+                                        </disallowedThingDefs>
+                                    </value>
+                                </nomatch>
+                            </li>
+                        </operations>
+                    </nomatch>
+                </li>
+            <!--Change thingCategories of Ceramics manufactured products-->
+                <!--Big building blocks that are stony should go with other big blocks that are stony.-->
+                <!--Same goes for metallic products-->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="N7_HardenedCeramic"]/thingCategories</xpath>
+                    <value>
+                        <thingCategories Inherit="false">
+                            <li>ResourcesRaw</li>
+                        </thingCategories>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="N7_Porcelain"]/thingCategories</xpath>
+                    <value>
+                        <thingCategories Inherit="false">
+                            <li>StoneBlocks</li>
+                        </thingCategories>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+
+<!--Vanilla Books Expanded-->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Vanilla Books Expanded</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <!-- <success>Always</success> -->
+            <operations>
+            <!--Paper-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[contains(description, "a variety of books, tomes and publications")]/building/fixedStorageSettings/filter/categories</xpath>
+                    <match Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[contains(description, "a variety of books, tomes and publications")]/building/fixedStorageSettings/filter/categories</xpath>
+                        <value>
+                            <li>VBE_Books</li>
+                        </value>
+                    </match>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+<!--A Rimworld Of Magic-->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>A RimWorld of Magic</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <!-- <success>Always</success> -->
+            <operations>
+            <!--Paper-->
+                <li Class="PatchOperationConditional">
+                    <xpath>/Defs/ThingDef[contains(description, "a variety of books, tomes and publications")]/building/fixedStorageSettings/filter/categories</xpath>
+                    <match Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[contains(description, "a variety of books, tomes and publications")]/building/fixedStorageSettings/filter/categories</xpath>
+                        <value>
+                            <li>TM_SkillBooks</li>
+                            <li>TM_Scrolls</li>
+                        </value>
+                    </match>
+                </li>
+            <!--Hard Loose-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                        /filter[thingDefs[li="Gold" and li="Silver" and li="Jade" and li="Pemmican"]]
+                        /categories[li="PlantMatter"]</xpath>
+                    <value>
+                        <li>TM_Magicyte</li>
+                    </value>
+                </li>
+            <!--Small Items-->
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                    /filter/categories[li="Manufactured" and li="Foods" and li="PlantMatter" and li="Items"]</xpath>
+                <value>
+                    <li>TM_Magicyte</li>
+                </value>
+            </li>
+            <!--Anything with RawResources, except pallet types-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings/filter[not(disallowedCategories[li="PlantMatter"])]/categories[li="ResourcesRaw"]</xpath>
+                    <value>
+                        <li>TM_Magicyte</li>
+                    </value>
+                </li>
+            <!--Armor-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings/filter/categories[li="ApparelArmor"]</xpath>
+                    <value>
+                        <li>TM_MagicEquipment</li>
+                        <li>TM_MagicArtifacts</li>
+                    </value>
+                </li>
+            <!--Drinkable Liquid-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings/filter/thingDefs[li="Beer"]</xpath>
+                    <value>
+                        <li>ManaPotion</li>
+                    </value>
+                </li>
+            <!--Anything that can hold plantmatter-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings/filter[categories[li="PlantMatter"]]/thingDefs</xpath>
+                    <value>
+                        <li>SeedofRegrowth</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings/filter[categories[li="ResourcesRaw"] and not(disallowedCategories[li="PlantMatter"])]/thingDefs</xpath>
+                    <value>
+                        <li>SeedofRegrowth</li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+<!--Final check for bookshelves-->
+    <Operation Class="PatchOperationRemove">
+        <success>Always</success>
+        <xpath>/Defs/ThingDef[contains(description, "a variety of books, tomes and publications") and building[fixedStorageSettings[filter[categories[not(*)]]]]]</xpath>
     </Operation>
 
 </Patch>

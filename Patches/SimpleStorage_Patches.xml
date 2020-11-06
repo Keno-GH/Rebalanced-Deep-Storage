@@ -2800,66 +2800,57 @@
    <mods>
       <li>[JDS] Simple Storage</li>
    </mods>
-   <match Class="PatchOperationFindMod">
-      <mods>
-         <li>Vanilla Books Expanded</li>
-      </mods>
-      <match Class="PatchOperationSequence">
-         <!-- <success>Always</success> -->
-         <operations>
-            <li Class="PatchOperationReplace">
-               <xpath>/Defs/ThingDef[defName="JDS_Large_Post_Box"]/description</xpath>
-               <value>
-                  <description>A post box. Here you can store books, newspapers and blueprints. Items stored here won't deteriorate.</description>
-               </value>
-            </li>
-            <li Class="PatchOperationAdd">
-               <xpath>/Defs/ThingDef[defName="JDS_Large_Post_Box"]</xpath>
-               <value>
-                  <building Inherit="false">
-                     <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
-                     <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
-                     <fixedStorageSettings>
-                        <filter>
-                           <categories>
-                              <li>VBE_Books</li>
-                           </categories>
-                        </filter>
-                     </fixedStorageSettings>
-                     <defaultStorageSettings>
-                        <priority>Important</priority>
-                        <filter>
-                        </filter>
-                     </defaultStorageSettings>
-                     <isInert>true</isInert>
-                  </building>
-               </value>
-            </li>
-            <li Class="PatchOperationAdd">
-               <xpath>/Defs/ThingDef[defName="JDS_Large_Post_Box"]</xpath>
-               <value>
-                     <researchPrerequisites Inherit="false">
-                        <li>RS_ModernStorage</li>
-                     </researchPrerequisites>
-               </value>
-            </li>
-            <li Class="PatchOperationReplace">
-               <xpath>/Defs/ThingDef[defName="JDS_Large_Post_Box"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
-               <value>
-                     <li Class="LWM.DeepStorage.Properties">
-                        <maxNumberStacks>20</maxNumberStacks>
-                        <minTimeStoringTakes>100</minTimeStoringTakes>
-                        <additionalTimeEachStack>20</additionalTimeEachStack>
-                        <showContents>false</showContents>
-                        <overlayType>SumOfAllItems</overlayType>
-                     </li>
-               </value>
-            </li>
-         </operations>
-      </match>
-      <nomatch Class="PatchOperationRemove">
-         <xpath>/Defs/ThingDef[defName="JDS_Large_Post_Box"]</xpath>
-      </nomatch>
+   <match Class="PatchOperationSequence">
+      <!-- <success>Always</success> -->
+      <operations>
+         <li Class="PatchOperationReplace">
+            <xpath>/Defs/ThingDef[defName="JDS_Large_Post_Box"]/description</xpath>
+            <value>
+               <description>A post box. Here you can store a variety of books, tomes and publications. Items stored here won't deteriorate.</description>
+            </value>
+         </li>
+         <li Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName="JDS_Large_Post_Box"]</xpath>
+            <value>
+               <building Inherit="false">
+                  <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                  <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                  <fixedStorageSettings>
+                     <filter>
+                        <categories>
+                        </categories>
+                     </filter>
+                  </fixedStorageSettings>
+                  <defaultStorageSettings>
+                     <priority>Important</priority>
+                     <filter>
+                     </filter>
+                  </defaultStorageSettings>
+                  <isInert>true</isInert>
+               </building>
+            </value>
+         </li>
+         <li Class="PatchOperationAdd">
+            <xpath>/Defs/ThingDef[defName="JDS_Large_Post_Box"]</xpath>
+            <value>
+                  <researchPrerequisites Inherit="false">
+                     <li>RS_ModernStorage</li>
+                  </researchPrerequisites>
+            </value>
+         </li>
+         <li Class="PatchOperationReplace">
+            <xpath>/Defs/ThingDef[defName="JDS_Large_Post_Box"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+            <value>
+                  <li Class="LWM.DeepStorage.Properties">
+                     <maxNumberStacks>20</maxNumberStacks>
+                     <minTimeStoringTakes>100</minTimeStoringTakes>
+                     <additionalTimeEachStack>20</additionalTimeEachStack>
+                     <showContents>false</showContents>
+                     <overlayType>SumOfAllItems</overlayType>
+                  </li>
+            </value>
+         </li>
+      </operations>
    </match>
 </Operation>
 
