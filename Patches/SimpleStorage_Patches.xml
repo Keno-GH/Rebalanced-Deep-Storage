@@ -520,43 +520,43 @@
             <li Class="PatchOperationReplace">
                <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate"]/costStuffCount</xpath>
                <value>
-                  <costStuffCount>40</costStuffCount>
+                  <costStuffCount>30</costStuffCount>
                </value>
             </li>
             <li Class="PatchOperationReplace">
                <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate_Two"]/costStuffCount</xpath>
                <value>
-                  <costStuffCount>120</costStuffCount>
+                  <costStuffCount>60</costStuffCount>
                </value>
             </li>
             <li Class="PatchOperationReplace">
                <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate_Three"]/costStuffCount</xpath>
                <value>
-                  <costStuffCount>200</costStuffCount>
+                  <costStuffCount>130</costStuffCount>
                </value>
             </li>
             <li Class="PatchOperationReplace">
                <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate_four"]/costStuffCount</xpath>
                <value>
-                  <costStuffCount>320</costStuffCount>
+                  <costStuffCount>250</costStuffCount>
                </value>
             </li>
             <li Class="PatchOperationReplace">
                <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate_B"]/costStuffCount</xpath>
                <value>
-                  <costStuffCount>50</costStuffCount>
+                  <costStuffCount>40</costStuffCount>
                </value>
             </li>
             <li Class="PatchOperationReplace">
                <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate_C"]/costStuffCount</xpath>
                <value>
-                  <costStuffCount>150</costStuffCount>
+                  <costStuffCount>140</costStuffCount>
                </value>
             </li>
             <li Class="PatchOperationReplace">
                <xpath>/Defs/ThingDef[defName="JDS_Wooden_Crate_Large"]/costStuffCount</xpath>
                <value>
-                  <costStuffCount>450</costStuffCount>
+                  <costStuffCount>420</costStuffCount>
                </value>
             </li>
             <li Class="PatchOperationAdd">
