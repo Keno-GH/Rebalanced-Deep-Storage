@@ -1627,9 +1627,6 @@
                     </li>
                 </operations>
             </match>
-            <nomatch Class="PatchOperationRemove">
-                <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Bookshelf"]</xpath>
-            </nomatch>
         </match>
     </match>
 </Operation>
