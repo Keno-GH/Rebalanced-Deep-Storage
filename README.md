@@ -30,6 +30,7 @@ Note: If a mod is not here, it doesn't mean that it is not supported. Most mods 
 - [Ceramics](https://steamcommunity.com/sharedfiles/filedetails/?id=1833163132)
 - [PawnMorpher](https://steamcommunity.com/sharedfiles/filedetails/?id=2206493896)
 - [Simple Chains: Lumber](https://steamcommunity.com/sharedfiles/filedetails/?id=1708709952)
+- [LWM DS for Gloomy Furniture and Deco](https://steamcommunity.com/sharedfiles/filedetails/?id=2037264293)
 
 ## How was the balancing done?
 My idea was to balance around LWM's Deep Storage original balance. The original author put close attention to balancing details, but most mods ignored this and added highly unbalanced stuff, like a shelf capable of holding hundred of stacks with no delay. While it is possible to rebalance those mods to your liking ingame (thanks to Little White Mouse's excellent code), it was really tedious and often some things could get overlooked.
@@ -42,6 +43,7 @@ The categories are as follows:
 
 - General: Stores anything, but will be often limited in amount and mass. - Big (vanilla) shelves and boxes go here.
 - Food: Stores food.
+  - Animal Food: Kibble and Hay
   - Meals: Prepared food - Meal tray.
   - Vegetables: Stores vegetarian food.
   - Corpses: Stores corpses. - Meat Hook
@@ -117,7 +119,7 @@ If you found an issue, please post it [here](https://github.com/Keno-GH/Rebalanc
 
 ### Why can't I store X in this building?
 
-Probably because balancing or visual logic issues, but there is a (very high) chance that I did it wrongly. Please send suggestions through the [issues](https://github.com/Keno-GH/Rebalanced-Deep-Storage/issues) forum on GitHub.
+Probably because balancing or visual logic issues, but there is a (very high) chance that I did it wrongly. Please send suggestions through the [issues](https://github.com/Keno-GH/Rebalanced-Deep-Storage/issues) forum on GitHub.  
 
 ## Donations
 

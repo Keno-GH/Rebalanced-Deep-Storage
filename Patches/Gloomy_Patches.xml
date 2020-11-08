@@ -1,0 +1,473 @@
+<Patch>
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>LWM DS for Gloomy Furniture and Deco</li>
+        </mods>
+        <match Class="PatchOperationFindMod">
+            <mods>
+                <li>Gloomy Deco</li>
+            </mods>
+            <match Class="PatchOperationSequence">
+                <operations>
+                <!--Deep simple box - General-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="GloomyDeco_DeepBox"]/description</xpath>
+                        <value>
+                            <description>A large wooden crate for storing general items. Items stored in this will not deteriorate, even if outside.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="GloomyDeco_DeepBox"]/costStuffCount</xpath>
+                        <value>
+                           <costStuffCount>40</costStuffCount>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[defName="GloomyDeco_DeepBox"]</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>RS_BoxesStorage</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="GloomyDeco_DeepBox"]/building</xpath>
+                        <value>
+                           <building Inherit="false">
+                              <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                              <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                              <defaultStorageSettings>
+                                 <priority>Important</priority>
+                                 <filter>
+                                 </filter>
+                              </defaultStorageSettings>
+                              <isInert>true</isInert>
+                           </building>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="GloomyDeco_DeepBox"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                           <li Class="LWM.DeepStorage.Properties">
+                              <maxNumberStacks>2</maxNumberStacks>
+                              <maxTotalMass>40</maxTotalMass>
+                              <minTimeStoringTakes>300</minTimeStoringTakes>
+                              <additionalTimeEachStack>200</additionalTimeEachStack>
+                              <additionalTimeEachDef>200</additionalTimeEachDef>
+                              <showContents>false</showContents>
+                              <overlayType>SumOfItemsPerCell</overlayType>
+                           </li>
+                        </value>
+                    </li>
+                <!--Deep Storage cart - General-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="GloomyDeco_Deep_Storage_Cart"]/description</xpath>
+                        <value>
+                            <description>A wheelbarrow that can store a lot of items. Items stored here can deteriorate.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="GloomyDeco_Deep_Storage_Cart"]/costStuffCount</xpath>
+                        <value>
+                           <costStuffCount>120</costStuffCount>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[defName="GloomyDeco_Deep_Storage_Cart"]</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>RS_MedievalStorage</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="GloomyDeco_Deep_Storage_Cart"]/building</xpath>
+                        <value>
+                            <building Inherit="false">
+                                <ignoreStoredThingsBeauty>false</ignoreStoredThingsBeauty>
+                                <preventDeteriorationOnTop>false</preventDeteriorationOnTop>
+                                <defaultStorageSettings>
+                                    <priority>Important</priority>
+                                    <filter>
+                                    </filter>
+                                </defaultStorageSettings>
+                                <isInert>true</isInert>
+                            </building>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="GloomyDeco_Deep_Storage_Cart"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>2</maxNumberStacks>
+                                <minTimeStoringTakes>100</minTimeStoringTakes>
+                                <additionalTimeEachStack>100</additionalTimeEachStack>
+                                <maxTotalMass>30</maxTotalMass>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfItemsPerCell</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                </operations>
+            </match>
+        </match>
+    </Operation>
+
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>LWM DS for Gloomy Furniture and Deco</li>
+        </mods>
+        <match Class="PatchOperationFindMod">
+            <mods>
+                <li>GloomyFurniture</li>
+            </mods>
+            <match Class="PatchOperationSequence">
+                <operations>
+                <!--Lock - Small items-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="GL_DeepLocker"]/description</xpath>
+                        <value>
+                            <description>A locker for storing small items. Items stored in this will not deteriorate, even if outside. Also it prevents the contents from being damaged by fire.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="GL_DeepLocker"]/costStuffCount</xpath>
+                        <value>
+                        <costStuffCount>100</costStuffCount>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="GL_DeepLocker"]/researchPrerequisites</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>RS_MedievalStorage</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="GL_DeepLocker"]/building</xpath>
+                        <value>
+                            <building Inherit="false">
+                               <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                               <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                               <fixedStorageSettings>
+                                  <filter>
+                                    <categories>
+                                        <li>Manufactured</li>
+                                        <li>Foods</li>
+                                        <li>PlantMatter</li>
+                                        <li>Items</li>
+                                    </categories>
+                                  </filter>
+                               </fixedStorageSettings>
+                               <defaultStorageSettings>
+                                  <priority>Important</priority>
+                                  <filter>
+                                  </filter>
+                               </defaultStorageSettings>
+                               <isInert>true</isInert>
+                            </building>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="GL_DeepLocker"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>3</maxNumberStacks>
+                                <minTimeStoringTakes>100</minTimeStoringTakes>
+                                <additionalTimeEachStack>100</additionalTimeEachStack>
+                                <maxTotalMass>10</maxTotalMass>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                <!--Manger - Animal Food-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="RGK_DeepManger"]/description</xpath>
+                        <value>
+                            <description>It's a cask for animals. You can store food and hay here. Items stored here can still deteriorate.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="RGK_DeepManger"]/costStuffCount</xpath>
+                        <value>
+                        <costStuffCount>100</costStuffCount>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="RGK_DeepManger"]/researchPrerequisites</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>RS_MedievalStorage</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="RGK_DeepManger"]/building</xpath>
+                        <value>
+                            <building Inherit="false">
+                            <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                            <preventDeteriorationOnTop>false</preventDeteriorationOnTop>
+                            <fixedStorageSettings>
+                                <filter>
+                                    <categories>
+                                        <li>AnimalFoods</li>
+                                    </categories>
+                                </filter>
+                            </fixedStorageSettings>
+                            <defaultStorageSettings>
+                                <priority>Important</priority>
+                                <filter>
+                                </filter>
+                            </defaultStorageSettings>
+                            <isInert>true</isInert>
+                            </building>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="RGK_DeepManger"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>5</maxNumberStacks>
+                                <minTimeStoringTakes>100</minTimeStoringTakes>
+                                <additionalTimeEachStack>100</additionalTimeEachStack>
+                                <overlayType>SumOfAllItems</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                <!--Deep Shelf - General-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="GL_DeepShelf"]/costStuffCount</xpath>
+                        <value>
+                            <costStuffCount>65</costStuffCount>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="GL_DeepShelf"]/researchPrerequisites</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>RS_MedievalStorage</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="GL_DeepShelf"]/building</xpath>
+                        <value>
+                            <building Inherit="false">
+                            <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                            <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                            <defaultStorageSettings>
+                                <priority>Important</priority>
+                                <filter>
+                                </filter>
+                            </defaultStorageSettings>
+                            <isInert>true</isInert>
+                            </building>
+                        </value>
+                    </li>
+                <!--wardrobe A - Apparel-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DeepWardrobeA"]/description</xpath>
+                        <value>
+                            <description>Simple shelves for storing clothes.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DeepWardrobeA"]/costStuffCount</xpath>
+                        <value>
+                            <costStuffCount>40</costStuffCount>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DeepWardrobeA"]/researchPrerequisites</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>RS_MedievalStorage</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DeepWardrobeA"]/building</xpath>
+                        <value>
+                            <building Inherit="false">
+                            <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                            <preventDeteriorationOnTop>false</preventDeteriorationOnTop>
+                            <fixedStorageSettings>
+                                <filter>
+                                    <categories>
+                                        <li>Apparel</li>
+                                    </categories>
+                                </filter>
+                            </fixedStorageSettings>
+                            <defaultStorageSettings>
+                                <priority>Important</priority>
+                                <filter>
+                                </filter>
+                            </defaultStorageSettings>
+                            <isInert>true</isInert>
+                            </building>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DeepWardrobeA"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>8</maxNumberStacks>
+                                <minNumberStacks>4</minNumberStacks>
+                                <maxTotalMass>2.5</maxTotalMass>
+                                <minTimeStoringTakes>100</minTimeStoringTakes>
+                                <additionalTimeEachStack>100</additionalTimeEachStack>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                <!--wardrobe B (rebranded to Cabinet) - raw food-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DeepWardrobeB"]/label</xpath>
+                        <value>
+                            <label>Deep Cabinet</label>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DeepWardrobeB"]/description</xpath>
+                        <value>
+                            <description>Complex shelves and drawers for storing food and drugs.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DeepWardrobeB"]/costStuffCount</xpath>
+                        <value>
+                            <costStuffCount>100</costStuffCount>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DeepWardrobeB"]/researchPrerequisites</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>RS_MedievalStorage</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DeepWardrobeB"]/building</xpath>
+                        <value>
+                            <building Inherit="false">
+                                <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                                <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                                <fixedStorageSettings>
+                                <filter>
+                                    <categories>
+                                        <li>FoodRaw</li>
+                                        <li>PlantMatter</li>
+                                        <li>Drugs</li>
+                                        <li>Medicine</li>
+                                    </categories>
+                                    <thingDefs>
+                                        <li>Pemmican</li>
+                                        <li>Kibble</li>
+                                    </thingDefs>
+                                </filter>
+                                </fixedStorageSettings>
+                                <defaultStorageSettings>
+                                    <priority>Important</priority>
+                                    <filter>
+                                    </filter>
+                                </defaultStorageSettings>
+                                <isInert>true</isInert>
+                            </building>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="DeepWardrobeB"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>5</maxNumberStacks>
+                                <maxTotalMass>10</maxTotalMass>
+                                <minTimeStoringTakes>100</minTimeStoringTakes>
+                                <additionalTimeEachStack>100</additionalTimeEachStack>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                <!--Wine rack - Drinkable Liquids-->
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="RKGWineRackBDeep"]/description</xpath>
+                        <value>
+                            <description>A shelf that stores drinkable liquids like beer and wine.</description>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="RKGWineRackBDeep"]/costStuffCount</xpath>
+                        <value>
+                            <costStuffCount>100</costStuffCount>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="RKGWineRackBDeep"]/researchPrerequisites</xpath>
+                        <value>
+                            <researchPrerequisites Inherit="false">
+                                <li>RS_MedievalStorage</li>
+                                <li>Brewing</li>
+                            </researchPrerequisites>
+                        </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="RKGWineRackBDeep"]/building</xpath>
+                        <value>
+                            <building Inherit="false">
+                               <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
+                               <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
+                               <fixedStorageSettings>
+                                     <filter>
+                                        <thingDefs>
+                                           <li>Beer</li>
+                                        </thingDefs>
+                                     </filter>
+                               </fixedStorageSettings>
+                               <defaultStorageSettings>
+                                     <priority>Important</priority>
+                                     <filter>
+                                     </filter>
+                               </defaultStorageSettings>
+                               <isInert>true</isInert>
+                            </building>
+                         </value>
+                    </li>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="RKGWineRackBDeep"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                        <value>
+                            <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>5</maxNumberStacks>
+                                <minTimeStoringTakes>100</minTimeStoringTakes>
+                                <additionalTimeEachStack>100</additionalTimeEachStack>
+                                <showContents>false</showContents>
+                                <overlayType>SumOfAllItems</overlayType>
+                            </li>
+                        </value>
+                    </li>
+                </operations>
+            </match>
+        </match>
+    </Operation>
+
+<!--Removed content-->
+
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>LWM DS for Gloomy Furniture and Deco</li>
+        </mods>
+        <match Class="PatchOperationFindMod">
+            <mods>
+                <li>GloomyFurniture</li>
+            </mods>
+            <!--Deep dog bowl - This item is too small to hold more than one stack.-->
+            <match Class="PatchOperationRemove">
+                <xpath>/Defs/ThingDef[defName="RGK_DeepDogBowl"]</xpath>
+            </match>
+        </match>
+    </Operation>
+
+</Patch>
