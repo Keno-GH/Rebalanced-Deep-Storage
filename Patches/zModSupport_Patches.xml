@@ -1008,6 +1008,18 @@
                         <li>Ammo</li>
                     </value>
                 </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                        /filter[thingDefs[li="Gold" and li="Silver" and li="Jade" and not(li="Pemmican")]]
+                        /disallowedCategories</xpath>
+                    <value>
+                        <li>AmmoShells</li>
+                        <li>AmmoMissiles</li>
+                        <li>AmmoRockets</li>
+                        <li>AmmoNeolithic</li>
+                        <li>AmmoMedieval</li>
+                    </value>
+                </li>
             <!--Hard Loose-->
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs/ThingDef/building/fixedStorageSettings
@@ -1015,6 +1027,18 @@
                         /categories[li="PlantMatter"]</xpath>
                     <value>
                         <li>Ammo</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                        /filter[thingDefs[li="Gold" and li="Silver" and li="Jade" and li="Pemmican"]
+                        and categories[li="PlantMatter"]]/disallowedCategories</xpath>
+                    <value>
+                        <li>AmmoShells</li>
+                        <li>AmmoMissiles</li>
+                        <li>AmmoRockets</li>
+                        <li>AmmoNeolithic</li>
+                        <li>AmmoMedieval</li>
                     </value>
                 </li>
             <!--Small Items-->
