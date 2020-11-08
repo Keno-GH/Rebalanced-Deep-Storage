@@ -868,7 +868,7 @@
                         <value>
                             <researchPrerequisites Inherit="false">
                                 <li>Brewing</li>
-                                <li>RS_ModernStorage</li>
+                                <li>RS_MedievalStorage</li>
                             </researchPrerequisites>
                         </value>
                     </li>
