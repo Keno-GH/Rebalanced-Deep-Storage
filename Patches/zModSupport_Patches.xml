@@ -201,6 +201,32 @@
                     </ThingDef>
                 </value>
             </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs</xpath>
+                <value>
+                    <ThingDef Name="RS_Dummy_Medieval_Weapon" ParentName="LWM_DeepStorage">
+                        <defName>RS_Dummy_Medieval_Weapon</defName>
+                        <building>
+                            <fixedStorageSettings>
+                                <filter>
+                                    <thingDefs>
+                                        <li>Weapons</li>
+                                    </thingDefs>
+                                    <categories>
+                                    </categories>
+                                    <disallowedThingDefs>
+                                    </disallowedThingDefs>
+                                    <disallowedCategories>
+                                    </disallowedCategories>
+                                </filter>
+                            </fixedStorageSettings>
+                        </building>
+                        <researchPrerequisites>
+                            <li>Smithing</li>
+                        </researchPrerequisites>
+                    </ThingDef>
+                </value>
+            </li>
         </operations>
     </Operation>
 
@@ -979,7 +1005,19 @@
                         /filter[thingDefs[li="Gold" and li="Silver" and li="Jade" and not(li="Pemmican")]]
                         /categories</xpath>
                     <value>
-                        <li>ammo</li>
+                        <li>Ammo</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                        /filter[thingDefs[li="Gold" and li="Silver" and li="Jade" and not(li="Pemmican")]]
+                        /disallowedCategories</xpath>
+                    <value>
+                        <li>AmmoShells</li>
+                        <li>AmmoMissiles</li>
+                        <li>AmmoRockets</li>
+                        <li>AmmoNeolithic</li>
+                        <li>AmmoMedieval</li>
                     </value>
                 </li>
             <!--Hard Loose-->
@@ -988,7 +1026,19 @@
                         /filter[thingDefs[li="Gold" and li="Silver" and li="Jade" and li="Pemmican"]]
                         /categories[li="PlantMatter"]</xpath>
                     <value>
-                        <li>ammo</li>
+                        <li>Ammo</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                        /filter[thingDefs[li="Gold" and li="Silver" and li="Jade" and li="Pemmican"]
+                        and categories[li="PlantMatter"]]/disallowedCategories</xpath>
+                    <value>
+                        <li>AmmoShells</li>
+                        <li>AmmoMissiles</li>
+                        <li>AmmoRockets</li>
+                        <li>AmmoNeolithic</li>
+                        <li>AmmoMedieval</li>
                     </value>
                 </li>
             <!--Small Items-->
@@ -996,7 +1046,7 @@
                     <xpath>/Defs/ThingDef/building/fixedStorageSettings
                         /filter/categories[li="Manufactured" and li="Foods" and li="PlantMatter" and li="Items"]</xpath>
                     <value>
-                        <li>ammo</li>
+                        <li>Ammo</li>
                     </value>
                 </li>
                 <li Class="PatchOperationAdd">
@@ -1008,6 +1058,16 @@
                         <li>AmmoRockets</li>
                         <li>AmmoNeolithic</li>
                         <li>AmmoMedieval</li>
+                    </value>
+                </li>
+            <!--Disallow Ammo and Turrets for medieval weapons containers-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[researchPrerequisites[li="Smithing"]]
+                        /building/fixedStorageSettings/filter[categories[li="Weapons"]]
+                        /disallowedCategories</xpath>
+                    <value>
+                        <li>Ammo</li>
+                        <li>WeaponsTurrets</li>
                     </value>
                 </li>
             </operations>
