@@ -881,13 +881,13 @@
                     </value>
                 </li>
             <!--Small Items-->
-            <li Class="PatchOperationAdd">
-                <xpath>/Defs/ThingDef/building/fixedStorageSettings
-                    /filter/categories[li="Manufactured" and li="Foods" and li="PlantMatter" and li="Items"]</xpath>
-                <value>
-                    <li>TM_Magicyte</li>
-                </value>
-            </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                        /filter/categories[li="Manufactured" and li="Foods" and li="PlantMatter" and li="Items"]</xpath>
+                    <value>
+                        <li>TM_Magicyte</li>
+                    </value>
+                </li>
             <!--Anything with RawResources, except pallet types-->
                 <li Class="PatchOperationAdd">
                     <xpath>/Defs/ThingDef/building/fixedStorageSettings/filter[not(disallowedCategories[li="PlantMatter"])]/categories[li="ResourcesRaw"]</xpath>
@@ -921,6 +921,93 @@
                     <xpath>/Defs/ThingDef/building/fixedStorageSettings/filter[categories[li="ResourcesRaw"] and not(disallowedCategories[li="PlantMatter"])]/thingDefs</xpath>
                     <value>
                         <li>SeedofRegrowth</li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+<!--Yayo's Combat 3-->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Yayo's Combat 3</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+            <!--Heavy Loose-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                        /filter[thingDefs[li="Gold" and li="Silver" and li="Jade" and not(li="Pemmican")]]
+                        /categories</xpath>
+                    <value>
+                        <li>yy_ammo_category</li>
+                    </value>
+                </li>
+            <!--Hard Loose-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                        /filter[thingDefs[li="Gold" and li="Silver" and li="Jade" and li="Pemmican"]]
+                        /categories[li="PlantMatter"]</xpath>
+                    <value>
+                        <li>yy_ammo_category</li>
+                    </value>
+                </li>
+            <!--Small Items-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                        /filter/categories[li="Manufactured" and li="Foods" and li="PlantMatter" and li="Items"]</xpath>
+                    <value>
+                        <li>yy_ammo_category</li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
+<!--Combat Extended-->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Combat Extended</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+            <!--Heavy Loose-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                        /filter[thingDefs[li="Gold" and li="Silver" and li="Jade" and not(li="Pemmican")]]
+                        /categories</xpath>
+                    <value>
+                        <li>ammo</li>
+                    </value>
+                </li>
+            <!--Hard Loose-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                        /filter[thingDefs[li="Gold" and li="Silver" and li="Jade" and li="Pemmican"]]
+                        /categories[li="PlantMatter"]</xpath>
+                    <value>
+                        <li>ammo</li>
+                    </value>
+                </li>
+            <!--Small Items-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                        /filter/categories[li="Manufactured" and li="Foods" and li="PlantMatter" and li="Items"]</xpath>
+                    <value>
+                        <li>ammo</li>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                        /filter[categories[li="Manufactured" and li="Foods" and li="PlantMatter" and li="Items"]]/disallowedCategories</xpath>
+                    <value>
+                        <li>AmmoShells</li>
+                        <li>AmmoMissiles</li>
+                        <li>AmmoRockets</li>
+                        <li>AmmoNeolithic</li>
+                        <li>AmmoMedieval</li>
                     </value>
                 </li>
             </operations>
