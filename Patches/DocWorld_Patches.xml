@@ -15,7 +15,7 @@
                     <li Class="PatchOperationReplace">
                         <xpath>/Defs/ThingDef[defName="DZ_VFEPD_BrickPile"]/description</xpath>
                         <value>
-                            <description>A dedicated pile of bricks. You can store more bricks here. It is recommended to keep this pile for one tipe of bricks, though. Fiddling around heavy bricks to find the type you want will take a long time.</description>
+                            <description>A dedicated pile of bricks. You can store more bricks here. It is recommended to keep this pile for one type of brick, as fiddling around heavy brick types will take a long time.</description>
                         </value>
                     </li>
                     <li Class="PatchOperationAdd">
