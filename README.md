@@ -26,7 +26,7 @@ Note: If a mod is not here, it doesn't mean that it is not supported. Most mods 
 - [Rimefeller](https://steamcommunity.com/sharedfiles/filedetails/?id=1321849735)
 - [Combat Extended](https://steamcommunity.com/sharedfiles/filedetails/?id=1631756268)
 - [Yayo's Combat 3](https://steamcommunity.com/sharedfiles/filedetails/?id=2038409475)
-- [A Rimworld Of Magic](https://steamcommunity.com/sharedfiles/filedetails/?id=1833163132)
+- [A Rimworld Of Magic](https://steamcommunity.com/sharedfiles/filedetails/?id=1201382956)
 - [Ceramics](https://steamcommunity.com/sharedfiles/filedetails/?id=1833163132)
 - [PawnMorpher](https://steamcommunity.com/sharedfiles/filedetails/?id=2206493896)
 - [Simple Chains: Lumber](https://steamcommunity.com/sharedfiles/filedetails/?id=1708709952)

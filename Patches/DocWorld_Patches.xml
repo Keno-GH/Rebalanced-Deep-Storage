@@ -1537,7 +1537,7 @@
                     <xpath>/Defs/ThingDef[defName="DZ_VFEPD_Bookshelf"]/researchPrerequisites</xpath>
                     <value>
                         <researchPrerequisites Inherit="false">
-                            <li>RS_ModernStorage</li>
+                            <li>RS_MedievalStorage</li>
                         </researchPrerequisites>
                     </value>
                 </li>
