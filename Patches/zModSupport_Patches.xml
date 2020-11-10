@@ -108,6 +108,29 @@
             <li Class="PatchOperationAdd">
                 <xpath>/Defs</xpath>
                 <value>
+                    <ThingDef Name="RS_Dummy_Paper" ParentName="LWM_DeepStorage">
+                        <defName>RS_Dummy_Paper</defName>
+                        <description>"a variety of books, tomes and publications"</description>
+                        <building>
+                            <fixedStorageSettings>
+                                <filter>
+                                    <thingDefs>
+                                    </thingDefs>
+                                    <categories>
+                                    </categories>
+                                    <disallowedThingDefs>
+                                    </disallowedThingDefs>
+                                    <disallowedCategories>
+                                    </disallowedCategories>
+                                </filter>
+                            </fixedStorageSettings>
+                        </building>
+                    </ThingDef>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs</xpath>
+                <value>
                     <ThingDef Name="RS_Dummy_Soft_Loose" ParentName="LWM_DeepStorage">
                         <defName>RS_Dummy_Soft_Loose</defName>
                         <building>
@@ -119,6 +142,32 @@
                                     </thingDefs>
                                     <categories>
                                         <li>PlantMatter</li>
+                                    </categories>
+                                    <disallowedThingDefs>
+                                    </disallowedThingDefs>
+                                    <disallowedCategories>
+                                    </disallowedCategories>
+                                </filter>
+                            </fixedStorageSettings>
+                        </building>
+                    </ThingDef>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs</xpath>
+                <value>
+                    <ThingDef Name="RS_Dummy_Small_Items" ParentName="LWM_DeepStorage">
+                        <defName>RS_Dummy_Small_Items</defName>
+                        <building>
+                            <fixedStorageSettings>
+                                <filter>
+                                    <thingDefs>
+                                    </thingDefs>
+                                    <categories>
+                                        <li>Manufactured</li>
+                                        <li>Foods</li>
+                                        <li>PlantMatter</li>
+                                        <li>Items</li>
                                     </categories>
                                     <disallowedThingDefs>
                                     </disallowedThingDefs>
@@ -190,6 +239,29 @@
                                         <li>Chemfuel</li>
                                     </thingDefs>
                                     <categories>
+                                    </categories>
+                                    <disallowedThingDefs>
+                                    </disallowedThingDefs>
+                                    <disallowedCategories>
+                                    </disallowedCategories>
+                                </filter>
+                            </fixedStorageSettings>
+                        </building>
+                    </ThingDef>
+                </value>
+            </li>
+            <li Class="PatchOperationAdd">
+                <xpath>/Defs</xpath>
+                <value>
+                    <ThingDef Name="RS_Dummy_Armor" ParentName="LWM_DeepStorage">
+                        <defName>RS_Dummy_Armor</defName>
+                        <building>
+                            <fixedStorageSettings>
+                                <filter>
+                                    <thingDefs>
+                                    </thingDefs>
+                                    <categories>
+                                        <li>ApparelArmor</li>
                                     </categories>
                                     <disallowedThingDefs>
                                     </disallowedThingDefs>
