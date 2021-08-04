@@ -1063,6 +1063,44 @@
         </match>
     </Operation>
 
+<!--Yayo's Combat 3 Adopted-->
+    <Operation Class="PatchOperationFindMod">
+        <mods>
+            <li>Yayo's Combat 3 [Adopted]</li>
+        </mods>
+        <match Class="PatchOperationSequence">
+            <success>Always</success>
+            <operations>
+            <!--Heavy Loose-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                        /filter[thingDefs[li="Gold" and li="Silver" and li="Jade" and not(li="Pemmican")]]
+                        /categories</xpath>
+                    <value>
+                        <li>yy_ammo_category</li>
+                    </value>
+                </li>
+            <!--Hard Loose-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                        /filter[thingDefs[li="Gold" and li="Silver" and li="Jade" and li="Pemmican"]]
+                        /categories[li="PlantMatter"]</xpath>
+                    <value>
+                        <li>yy_ammo_category</li>
+                    </value>
+                </li>
+            <!--Small Items-->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef/building/fixedStorageSettings
+                        /filter/categories[li="Manufactured" and li="Foods" and li="PlantMatter" and li="Items"]</xpath>
+                    <value>
+                        <li>yy_ammo_category</li>
+                    </value>
+                </li>
+            </operations>
+        </match>
+    </Operation>
+
 <!--Combat Extended-->
     <Operation Class="PatchOperationFindMod">
         <mods>
