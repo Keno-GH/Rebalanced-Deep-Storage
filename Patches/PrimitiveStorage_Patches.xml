@@ -17,8 +17,8 @@
                         </costList>
                     </value>
                 </li>
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[defName="VBY_StorageTent"]/researchPrerequisites</xpath>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="VBY_StorageTent"]</xpath>
                     <value>
                         <researchPrerequisites Inherit="false">
                             <li>RS_NeolithicStorage</li>
@@ -53,7 +53,16 @@
                     </value>
                 </li>
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[defName="VBY_Woven_Basket" or defName="VBY_WovenBasket_Two"]/researchPrerequisites</xpath>
+                    <xpath>/Defs/ThingDef[defName="VBY_WovenBasket_Double" or defName="VBY_WovenBasket_Triple"]/description</xpath>
+                    <value>
+                        <description>A stack of woven baskets for storage. You can store apparel here. Items stored here will not deteriorate, even if outside.</description>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="VBY_Woven_Basket" 
+                                            or defName="VBY_WovenBasket_Two"
+                                            or defName="VBY_WovenBasket_Double"
+                                            or defName="VBY_WovenBasket_Triple"]</xpath>
                     <value>
                         <researchPrerequisites Inherit="false">
                             <li>RS_NeolithicStorage</li>
@@ -61,11 +70,14 @@
                     </value>
                 </li>
                 <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[defName="VBY_Woven_Basket" or defName="VBY_WovenBasket_Two"]/building</xpath>
+                    <xpath>/Defs/ThingDef[defName="VBY_Woven_Basket" 
+                                            or defName="VBY_WovenBasket_Two"
+                                            or defName="VBY_WovenBasket_Double"
+                                            or defName="VBY_WovenBasket_Triple"]/building</xpath>
                     <value>
                         <building Inherit="false">
                             <ignoreStoredThingsBeauty>true</ignoreStoredThingsBeauty>
-                            <preventDeteriorationOnTop>false</preventDeteriorationOnTop>
+                            <preventDeteriorationOnTop>true</preventDeteriorationOnTop>
                             <fixedStorageSettings>
                                 <filter>
                                     <categories>
@@ -86,8 +98,9 @@
                     <xpath>/Defs/ThingDef[defName="VBY_Woven_Basket"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
                     <value>
                         <li Class="LWM.DeepStorage.Properties" >
+                            <minNumberStacks>3</minNumberStacks>
                             <maxNumberStacks>5</maxNumberStacks>
-                            <maxTotalMass>1.5</maxTotalMass>
+                            <maxTotalMass>5</maxTotalMass>
                             <minTimeStoringTakes>300</minTimeStoringTakes>
                             <additionalTimeEachStack>80</additionalTimeEachStack>
                             <overlayType>SumOfAllItems</overlayType>
@@ -98,6 +111,7 @@
                     <xpath>/Defs/ThingDef[defName="VBY_WovenBasket_Two"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
                     <value>
                         <li Class="LWM.DeepStorage.Properties" >
+                            <minNumberStacks>3</minNumberStacks>
                             <maxNumberStacks>5</maxNumberStacks>
                             <maxTotalMass>5</maxTotalMass>
                             <minTimeStoringTakes>300</minTimeStoringTakes>
@@ -107,20 +121,40 @@
                         </li>
                     </value>
                 </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="VBY_WovenBasket_Double"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                    <value>
+                        <li Class="LWM.DeepStorage.Properties" >
+                            <minNumberStacks>6</minNumberStacks>
+                            <maxNumberStacks>10</maxNumberStacks>
+                            <maxTotalMass>10</maxTotalMass>
+                            <minTimeStoringTakes>400</minTimeStoringTakes>
+                            <additionalTimeEachDef>80</additionalTimeEachDef>
+                            <showContents>false</showContents>
+                            <overlayType>SumOfAllItems</overlayType>
+                        </li>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="VBY_WovenBasket_Triple"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                    <value>
+                        <li Class="LWM.DeepStorage.Properties" >
+                            <minNumberStacks>9</minNumberStacks>
+                            <maxNumberStacks>15</maxNumberStacks>
+                            <maxTotalMass>10</maxTotalMass>
+                            <minTimeStoringTakes>550</minTimeStoringTakes>
+                            <additionalTimeEachDef>80</additionalTimeEachDef>
+                            <showContents>false</showContents>
+                            <overlayType>SumOfAllItems</overlayType>
+                        </li>
+                    </value>
+                </li>
 
-            <!--Pit - Stonecutting - General -->
+            <!--Primitive Pit - General -->
                 <li Class="PatchOperationReplace">
                     <xpath>/Defs/ThingDef[defName="VBY_StoragePit"]/description</xpath>
                     <value>
                         <description>A storage pit. Keeps things sligthly cooler underground. It is extremely slow to build and use. Items store here don't deteriorate.</description>
-                    </value>
-                </li>
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[defName="VBY_StoragePit"]/stuffCategories</xpath>
-                    <value>
-                        <stuffCategories>
-                            <li>Stony</li>
-                        </stuffCategories>
                     </value>
                 </li>
                 <li Class="PatchOperationReplace">
@@ -133,8 +167,7 @@
                     <xpath>/Defs/ThingDef[defName="VBY_StoragePit"]</xpath>
                     <value>
                         <costList>
-                            <WoodLog>40</WoodLog>
-                            <Steel>60</Steel>
+                            <Steel>15</Steel>
                         </costList>
                     </value>
                 </li>
@@ -142,7 +175,6 @@
                     <xpath>/Defs/ThingDef[defName="VBY_StoragePit"]/researchPrerequisites</xpath>
                     <value>
                         <researchPrerequisites Inherit="false">
-                            <li>Stonecutting</li>
                             <li>RS_NeolithicStorage</li>
                         </researchPrerequisites>
                     </value>
@@ -154,6 +186,94 @@
                             <maxNumberStacks>5</maxNumberStacks>
                             <minTimeStoringTakes>1000</minTimeStoringTakes>
                             <additionalTimeEachStack>300</additionalTimeEachStack>
+                            <additionalTimeStackSize>10</additionalTimeStackSize>
+                            <showContents>false</showContents>
+                            <overlayType>SumOfAllItems</overlayType>
+                        </li>
+                    </value>
+                </li>
+            
+            <!--Wooden Pit - Medieval - General -->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="VBY_StoragePitWood"]/description</xpath>
+                    <value>
+                        <description>A medium sized wooden storage pit. Keeps things sligthly cooler underground. It is extremely slow to build and use. Items store here don't deteriorate.</description>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="VBY_StoragePitWood"]/costStuffCount</xpath>
+                    <value>
+                        <costStuffCount>250</costStuffCount>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="VBY_StoragePitWood"]</xpath>
+                    <value>
+                        <costList>
+                            <Steel>50</Steel>
+                        </costList>
+                    </value>
+                </li>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="VBY_StoragePitWood"]</xpath>
+                    <value>
+                        <researchPrerequisites Inherit="false">
+                            <li>RS_MedievalStorage</li>
+                        </researchPrerequisites>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="VBY_StoragePitWood"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                    <value>
+                        <li Class="LWM.DeepStorage.Properties">
+                            <maxNumberStacks>8</maxNumberStacks>
+                            <minTimeStoringTakes>1000</minTimeStoringTakes>
+                            <additionalTimeEachStack>300</additionalTimeEachStack>
+                            <additionalTimeStackSize>10</additionalTimeStackSize>
+                            <showContents>false</showContents>
+                            <overlayType>SumOfAllItems</overlayType>
+                        </li>
+                    </value>
+                </li>
+
+            <!--Stone Pit - Medieval Stonecutting - General -->
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="VBY_StoragePitStone"]/description</xpath>
+                    <value>
+                        <description>A big stony storage pit. Keeps things sligthly cooler underground. It is extremely slow to build and use. Items store here don't deteriorate.</description>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="VBY_StoragePitStone"]/costStuffCount</xpath>
+                    <value>
+                        <costStuffCount>300</costStuffCount>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="VBY_StoragePitStone"]/costList</xpath>
+                    <value>
+                        <costList>
+                            <WoodLog>90</WoodLog>
+                            <Steel>30</Steel>
+                        </costList>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="VBY_StoragePitStone"]/researchPrerequisites</xpath>
+                    <value>
+                        <researchPrerequisites Inherit="false">
+                            <li>Stonecutting</li>
+                            <li>RS_MedievalStorage</li>
+                        </researchPrerequisites>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="VBY_StoragePitStone"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                    <value>
+                        <li Class="LWM.DeepStorage.Properties">
+                            <maxNumberStacks>12</maxNumberStacks>
+                            <minTimeStoringTakes>900</minTimeStoringTakes>
+                            <additionalTimeEachStack>250</additionalTimeEachStack>
                             <additionalTimeStackSize>10</additionalTimeStackSize>
                             <showContents>false</showContents>
                             <overlayType>SumOfAllItems</overlayType>
@@ -186,6 +306,28 @@
                     </value>
                 </li>
 
+            <!--WeaponRack - Weapons -->
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="VBY_NeoWeaponRack"]</xpath>
+                    <value>
+                        <researchPrerequisites Inherit="false">
+                            <li>RS_NeolithicStorage</li>
+                        </researchPrerequisites>
+                    </value>
+                </li>
+                <li Class="PatchOperationReplace">
+                    <xpath>/Defs/ThingDef[defName="VBY_NeoWeaponRack"]/comps/li[@Class="LWM.DeepStorage.Properties"]</xpath>
+                    <value>
+                        <li Class="LWM.DeepStorage.Properties">
+                                <maxNumberStacks>4</maxNumberStacks>
+                                <maxTotalMass>15</maxTotalMass>
+                                <minTimeStoringTakes>100</minTimeStoringTakes>
+                                <showContents>true</showContents>
+                                <overlayType>SumOfItemsPerCell</overlayType>
+                            </li>
+                    </value>
+                </li>
+
             <!--Pots - Stonecutting - Hard Loose-->
                 <li Class="PatchOperationReplace">
                     <xpath>/Defs/ThingDef[defName="VBY_Clay_Pot" or defName="VBY_Clay_Pot_Two"]/description</xpath>
@@ -193,8 +335,8 @@
                         <description>A stone pot for storage. You can store loose items here like Gold, Silver and Plant Matter. It is recommended to keep this storage with only one kind of item. Fiddling around to find a specific item among many others will grealty increase the time it takes to take it out. Items store here don't deteriorate.</description>
                     </value>
                 </li>
-                <li Class="PatchOperationReplace">
-                    <xpath>/Defs/ThingDef[defName="VBY_Clay_Pot" or defName="VBY_Clay_Pot_Two"]/researchPrerequisites</xpath>
+                <li Class="PatchOperationAdd">
+                    <xpath>/Defs/ThingDef[defName="VBY_Clay_Pot" or defName="VBY_Clay_Pot_Two"]</xpath>
                     <value>
                         <researchPrerequisites Inherit="false">
                             <li>Stonecutting</li>
@@ -295,8 +437,8 @@
                 <!-- <success>Always</success> -->
                 <operations>
                 <!--Pots - Loose-->
-                    <li Class="PatchOperationReplace">
-                        <xpath>/Defs/ThingDef[defName="VBY_Clay_Pot" or defName="VBY_Clay_Pot_Two"]/researchPrerequisites</xpath>
+                    <li Class="PatchOperationAdd">
+                        <xpath>/Defs/ThingDef[defName="VBY_Clay_Pot" or defName="VBY_Clay_Pot_Two"]</xpath>
                         <value>
                             <researchPrerequisites Inherit="false">
                                 <li>VFE_Res_Pottery</li>
