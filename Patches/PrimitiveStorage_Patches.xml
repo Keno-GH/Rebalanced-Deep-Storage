@@ -437,8 +437,8 @@
                 <!-- <success>Always</success> -->
                 <operations>
                 <!--Pots - Loose-->
-                    <li Class="PatchOperationAdd">
-                        <xpath>/Defs/ThingDef[defName="VBY_Clay_Pot" or defName="VBY_Clay_Pot_Two"]</xpath>
+                    <li Class="PatchOperationReplace">
+                        <xpath>/Defs/ThingDef[defName="VBY_Clay_Pot" or defName="VBY_Clay_Pot_Two"]/researchPrerequisites</xpath>
                         <value>
                             <researchPrerequisites Inherit="false">
                                 <li>VFE_Res_Pottery</li>
